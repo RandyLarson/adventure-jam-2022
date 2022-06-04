@@ -78,7 +78,7 @@ public class HandTool : MonoBehaviour
 
     private bool TryPlaceCurrentItem()
     {
-        if (null == CurrentlyHolding/* || null == PotentialPlacementSpot*/)
+        if (null == CurrentlyHolding)
             return false;
 
 
@@ -88,16 +88,22 @@ public class HandTool : MonoBehaviour
 
         }
 
-        var res = TryPlaceCurrentItem(CurrentlyHolding, PotentialPlacementSpot, true);
+        var res = TryPlaceItem(CurrentlyHolding, PotentialPlacementSpot);
 
         if (res)
-            AudioController.Current.PlayRandomSound(Sounds.ItemPlaced);
+        {
+            CurrentlyHolding = null;
+            AudioController.Current?.PlayRandomSound(Sounds.ItemPlaced);
+        }
 
         return res;
     }
 
-    private bool TryPlaceCurrentItem(GameObject toPlace, GameObject whereToPlace, bool allowSwap)
+    private bool TryPlaceItem(GameObject toPlace, GameObject whereToPlace)
     {
+        if (toPlace == null)
+            return true;
+
         //var location = whereToPlace.GetComponent<ItemLocation>();
         //if (location == null)
         //    return false
@@ -107,6 +113,7 @@ public class HandTool : MonoBehaviour
             return false;
 
         // Drop the item.
+        toPlace.transform.SetParent(null);
 
         return false;
     }
@@ -316,8 +323,14 @@ public class HandTool : MonoBehaviour
             {
                 //asPickableItem.OnCompatibleCpEntered += Target_OnCompatibleCpEntered;
                 //asPickableItem.OnCompatibleCpExit += Target_OnCompatibleCpExit;
+
+                if ( gameObject.TryGetComponent<Rigidbody2D>(out Rigidbody2D rb) )
+                {
+                    rb.velocity = Vector3.zero;
+                }
+
                 asPickableItem.OnItemPlaced += HeldItem_OnItemPlaced;
-                CurrentlyHolding = asPickableItem.gameObject;
+                CurrentlyHolding = gameObject;
                 HeldItemOriginalParent = originalParent != null ? originalParent.transform : CurrentlyHolding.transform.parent;
                 CurrentlyHolding.transform.SetParent(transform, true);
                 CurrentlyHolding.transform.localScale = Vector3.one;
@@ -332,7 +345,7 @@ public class HandTool : MonoBehaviour
                 //    gameObject.SetSortLayer(GameConstants.SortingLayerHeldItems);
 
                 // Play Sound Queue, might be a parameter on the item picked up in future
-                AudioController.Current.PlayRandomSound(Sounds.ItemPickedUp);
+                AudioController.Current?.PlayRandomSound(Sounds.ItemPickedUp);
             }
         }
     }
