@@ -98,4 +98,10 @@ public class GameController : MonoBehaviour
         LoadScene(GameData.GamePrefs.LevelProgression[nextSceneIndex]);
     }
 
+    public void LogGameAchievement(string achievment)
+    {
+        Debug.Log($"Game achievement: {achievment}.");
+        TheGameData.CurentGameData.AddAchievement(achievment);
+    }
+
 }

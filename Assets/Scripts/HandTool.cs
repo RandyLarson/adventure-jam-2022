@@ -12,14 +12,11 @@ public class HandTool : MonoBehaviour
 
     public GameObject CurrentlyHolding;
     public GameObject PotentialPickup;
-    public GameObject AuxHighlightedItem;
     public GameObject PotentialPlacementSpot;
-    public GameObject PotentialContextMenuTarget;
 
     public UnityEvent<PickableItem> OnPickupItem;
     public UnityEvent OnReleaseItem;
 
-    private bool AttemptPickupOrPlacement { get; set; } = false;
     private void Start()
     {
     }
@@ -27,25 +24,6 @@ public class HandTool : MonoBehaviour
     private void LateUpdate()
     {
         UpdateGameState();
-        if (AttemptPickupOrPlacement)
-        {
-            AttemptPickupOrPlacement = false;
-            PickupOrPlaceItem();
-        }
-    }
-
-    private void OnDestroy()
-    {
-        CleanupGameStateOnDestory();
-    }
-
-    private void OnDisable()
-    {
-        CleanupGameStateOnDestory();
-    }
-
-    void CleanupGameStateOnDestory()
-    {
     }
 
     private void UpdateGameState()
@@ -58,7 +36,7 @@ public class HandTool : MonoBehaviour
 
     public void OnClick()
     {
-        AttemptPickupOrPlacement = true;
+        PickupOrPlaceItem();
     }
 
     private void PickupOrPlaceItem()
@@ -82,8 +60,7 @@ public class HandTool : MonoBehaviour
             return false;
 
 
-        RoomItem asRoomitem = CurrentlyHolding.GetComponent<RoomItem>();
-        if (asRoomitem != null)
+        if (CurrentlyHolding.TryGetComponent(out RoomItem asRoomitem))
         {
 
         }
@@ -102,7 +79,7 @@ public class HandTool : MonoBehaviour
     private bool TryPlaceItem(GameObject toPlace, GameObject whereToPlace)
     {
         if (toPlace == null)
-            return true;
+            return false;
 
         //var location = whereToPlace.GetComponent<ItemLocation>();
         //if (location == null)
@@ -115,7 +92,7 @@ public class HandTool : MonoBehaviour
         // Drop the item.
         toPlace.transform.SetParent(null);
 
-        return false;
+        return true;
     }
 
 
@@ -123,14 +100,12 @@ public class HandTool : MonoBehaviour
     {
         CanPickup(collision.gameObject);
         CanPlaceItem(collision.gameObject);
-        CanHighlight(collision.gameObject, true);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         CanPickup(collision.gameObject);
         CanPlaceItem(collision.gameObject);
-        CanHighlight(collision.gameObject, true);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -147,22 +122,11 @@ public class HandTool : MonoBehaviour
 
     private void ForgetItem(GameObject gameObject)
     {
-        if (gameObject == PotentialContextMenuTarget)
-        {
-            HighlightItem(PotentialContextMenuTarget, false);
-            PotentialContextMenuTarget = null;
-        }
-
-        if (gameObject == PotentialPickup)
+        var asRoomItem = GetRoomItem(gameObject, true);
+        if (asRoomItem.gameObject == PotentialPickup)
         {
             HighlightItem(PotentialPickup, false);
             PotentialPickup = null;
-        }
-
-        if (gameObject == AuxHighlightedItem)
-        {
-            HighlightItem(AuxHighlightedItem, false);
-            AuxHighlightedItem = null;
         }
     }
 
@@ -181,30 +145,14 @@ public class HandTool : MonoBehaviour
             return;
         }
 
-        if (CurrentlyHolding == null && ValidToPickup(gameObject))
+        var asRoomItem = GetRoomItem(gameObject, true);
+        if (CurrentlyHolding == null && asRoomItem != null && ValidToPickup(asRoomItem.gameObject))
         {
-            if (PotentialPickup != gameObject)
+            if (PotentialPickup != asRoomItem.gameObject)
             {
                 HighlightItem(PotentialPickup, false);
-                PotentialPickup = gameObject;
+                PotentialPickup = asRoomItem.gameObject;
                 HighlightItem(PotentialPickup, true);
-            }
-        }
-    }
-
-    private void CanHighlight(GameObject gameObject, bool includeContextMenu)
-    {
-        // Probably don't want to be able to handle items and activate context menus -- give precedence to context menus.
-        if (!IsCompatibleWithTool(gameObject))
-            return;
-
-        if (PotentialPickup == null && CurrentlyHolding == null && ValidToHighlight(gameObject))
-        {
-            if (AuxHighlightedItem != gameObject)
-            {
-                HighlightItem(AuxHighlightedItem, false);
-                AuxHighlightedItem = gameObject;
-                HighlightItem(AuxHighlightedItem, true);
             }
         }
     }
@@ -324,7 +272,7 @@ public class HandTool : MonoBehaviour
                 //asPickableItem.OnCompatibleCpEntered += Target_OnCompatibleCpEntered;
                 //asPickableItem.OnCompatibleCpExit += Target_OnCompatibleCpExit;
 
-                if ( gameObject.TryGetComponent<Rigidbody2D>(out Rigidbody2D rb) )
+                if (gameObject.TryGetComponent<Rigidbody2D>(out Rigidbody2D rb))
                 {
                     rb.velocity = Vector3.zero;
                 }
