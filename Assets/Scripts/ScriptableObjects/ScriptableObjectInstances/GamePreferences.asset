@@ -18,3 +18,9 @@ MonoBehaviour:
   LevelProgression:
   - Level-1
   - Level-2
+  GameSettings:
+    MuteAll: 0
+    MusicVolume: 0.5
+    EffectVolume: 0.8
+  ColorAndTheme:
+    HighlightColor: {r: 0.17042479, g: 0.7490196, b: 0, a: 1}

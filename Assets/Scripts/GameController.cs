@@ -17,6 +17,8 @@ public class GameController : MonoBehaviour
     public string CurrentGameScene;
 
     private static GameController InnerGameController { get; set; }
+
+    public static GameDataHolder TheGameData => TheGameController.GameData;
     public static GameController TheGameController
     {
         get
@@ -34,6 +36,38 @@ public class GameController : MonoBehaviour
         {
             InnerGameController = value;
         }
+    }
+
+    private void Start()
+    {
+        // Present for game development ease. The controller scene is mandatory. In the production build, the
+        // controller scene will be the initial scene and drive the whole thing. In development mode, though,
+        // we want to have the level we are working on loaded into the editor. We also want to be able to 
+        // press play and have this work. This bit here will locate the loaded level and remember this as the current
+        // scene. It will also hide all the Ui scenes. This should allow us a more pleasant dev experience.
+        if (SceneManager.sceneCount > 1)
+        {
+            for (int i = 0; i < SceneManager.sceneCount; i++)
+            {
+                Scene aScene = SceneManager.GetSceneAt(i);
+                if (GameData.GamePrefs.LevelProgression.Contains(aScene.name))
+                {
+                    CurrentGameScene = aScene.name;
+                    HideStartMenu();
+                    break;
+                }
+            }
+        }
+    }
+
+    public void ShowStartMenu()
+    {
+        UiTitleScreen.SetActive(true);
+    }
+
+    public void HideStartMenu()
+    { 
+        UiTitleScreen.SetActive(false);
     }
 
     public void LoadScene(string sceneName)

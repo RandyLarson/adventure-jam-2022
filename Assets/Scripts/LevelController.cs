@@ -9,5 +9,8 @@ public class LevelController : MonoBehaviour
     private void Start()
     {
         GlobalSpawnQueue.DefaultParentObject = LevelSpawnItemParent != null ? LevelSpawnItemParent : gameObject;
+
+        var controller = GameController.TheGameController.gameObject;
+        int i = 0;
     }
 }
