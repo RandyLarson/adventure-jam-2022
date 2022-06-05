@@ -75,12 +75,17 @@ public class MeepleController : MonoBehaviour
         // If we are not holding something, we'll probably pick it up or push it.
         // If we are holding something, we'll try to use what we are holding on it.
 
+        AudioController.Current.PlayRandomSound(Sounds.MeepleMoves);
         CurrentWalkingDestination = new Vector3(wposition.x, transform.position.y, 0);
         RoomItem itemAtLocation = HandTool.LookForRoomItemAtLocation(wposition);
 
         if (itemAtLocation != null)
         {
             ItemToInteractWithAtDestination = itemAtLocation.gameObject;
+        }
+        else
+        {
+            ItemToInteractWithAtDestination = null;
         }
 
     }
@@ -119,7 +124,14 @@ public class MeepleController : MonoBehaviour
                 {
                     if (HandTool.CurrentlyHolding != null)
                     {
-                        HandTool.TryToUseHeldItemOn(ItemToInteractWithAtDestination);
+                        if ( HandTool.TryToUseHeldItemOn(ItemToInteractWithAtDestination) )
+                        {
+                            AudioController.Current.PlayRandomSound(Sounds.ItemsInteract);
+                        }
+                        else
+                        {
+                            AudioController.Current.PlayRandomSound(Sounds.ItemsDontInteract);
+                        }
                     }
                     else if (HandTool.IsValidToPickup(ItemToInteractWithAtDestination))
                     {

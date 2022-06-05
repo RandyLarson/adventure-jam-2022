@@ -1151,6 +1151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 585658044}
   - component: {fileID: 585658043}
+  - component: {fileID: 585658045}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -1194,6 +1195,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &585658045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585658042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee38cf957b06f2b4f8bbad837a34c242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - sound: 2
+    clips:
+    - {fileID: 8300000, guid: d0be4557c86a3a04e8645a4c1c688e11, type: 3}
+  - sound: 6
+    clips:
+    - {fileID: 8300000, guid: 2f72aec0bc6daea44ab098f76627599e, type: 3}
+  - sound: 7
+    clips:
+    - {fileID: 8300000, guid: 50a06fcf077c3d243ac4d7c38857db51, type: 3}
+  MusicTracks: []
+  ThemeTrack: {fileID: 0}
+  StreetScene: {fileID: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0

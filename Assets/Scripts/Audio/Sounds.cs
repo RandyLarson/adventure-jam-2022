@@ -6,6 +6,13 @@ using UnityEngine;
 [Serializable]
 public enum Sounds {
     ItemPickedUp,
-    ItemPlaced
+    ItemPlaced,
+    MeepleMoves,
+    MeepleHappy,
+    MeepleSad,
+    MeepleJumps,
+    ItemsInteract,
+    ItemsDontInteract
+
 
 }
