@@ -8,8 +8,14 @@ using UnityEngine.InputSystem;
 public class HandTool : MonoBehaviour
 {
     public string Name;
+    [Tooltip("The radius around a given point to look for items that may be picked up or interacted " +
+        "with. Generally used when a single world position is given (via click) and we want to locate " +
+        "things arond there that we can pick up or interact with.")]
+    public float PickableItemDetectionRadius = 10f;
 
     public SpriteRenderer HandVisual;
+
+    public GameObject HeldItemParentLocation;
 
     [ReadOnly]
     public Collider2D OurCollider;
@@ -77,13 +83,19 @@ public class HandTool : MonoBehaviour
             return;
         }
 
-        if ( TryToPickupItem() )
+        if (TryToPickupItem())
         {
 
         }
     }
 
-    private bool TryToPickupItem()
+    public bool AttemptPickup(GameObject toPickup)
+    {
+        AttemptPickup(toPickup, null);
+        return CurrentlyHolding != null;
+    }
+
+    public bool TryToPickupItem()
     {
         if (CurrentlyHolding != null)
             return false;
@@ -105,21 +117,78 @@ public class HandTool : MonoBehaviour
         return CurrentlyHolding != null;
     }
 
+    internal RoomItem LookForRoomItemAtLocation(Vector3 atPosition)
+    {
+        int numHits = Physics2D.OverlapCircle(atPosition, PickableItemDetectionRadius, ColliderFilter, ColliderHits);
+
+        for (int i = 0; i < numHits; i++)
+        {
+            Collider2D item = ColliderHits[i];
+            var asRoomItem = item.GetComponentInParent<RoomItem>();
+            if (asRoomItem != null)
+            {
+                return asRoomItem;
+            }
+        }
+        return null;
+    }
+
+    internal bool IsValidToPickup(GameObject item)
+    {
+        if (item != null && item.TryGetComponent<RoomItem>(out RoomItem roomItem))
+        {
+            return IsValidToPickup(roomItem);
+        }
+
+        return false;
+    }
+
+    public bool IsValidToPickup(RoomItem item)
+    {
+        if (item != null)
+        {
+            var asRoomItem = item.GetComponentInParent<RoomItem>();
+            if (asRoomItem != null)
+            {
+                if (ValidToPickup(asRoomItem.gameObject))
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    internal GameObject LookForPickableItemAtLocation(Vector3 atPosition)
+    {
+        int numHits = Physics2D.OverlapCircle(atPosition, PickableItemDetectionRadius, ColliderFilter, ColliderHits);
+
+        for (int i = 0; i < numHits; i++)
+        {
+            Collider2D item = ColliderHits[i];
+            var asRoomItem = item.GetComponentInParent<RoomItem>();
+            if ( IsValidToPickup(asRoomItem))
+                return asRoomItem.gameObject;
+        }
+        return null;
+    }
+
     private bool TryToUseHeldItem()
     {
         bool itemWasUsed = false;
-        if ( CurrentlyHolding != null && OurCollider != null)
+        if (CurrentlyHolding != null && OurCollider != null)
         {
             int numHits = OurCollider.OverlapCollider(ColliderFilter, ColliderHits);
-            
-            for (int i=0; i<numHits; i++)
+
+            for (int i = 0; i < numHits; i++)
             {
                 Collider2D item = ColliderHits[i];
 
                 var asRoomItem = item.GetComponentInParent<RoomItem>();
-                if ( asRoomItem != null )
+                if (asRoomItem != null)
                 {
-                    if ( asRoomItem.TestForInteractionWith(CurrentlyHolding, true) )
+                    if (asRoomItem.TestForInteractionWith(CurrentlyHolding, true))
                     {
                         itemWasUsed = true;
 
@@ -134,7 +203,35 @@ public class HandTool : MonoBehaviour
         return itemWasUsed;
     }
 
-    private bool TryPlaceCurrentItem()
+    public bool TryToUseHeldItemOn(GameObject whatToUseItOn)
+    {
+        return TryToUseItem(CurrentlyHolding, whatToUseItOn);
+    }
+
+    public bool TryToUseItem(GameObject whatToUse, GameObject whatToUseItOn)
+    {
+        bool itemWasUsed = false;
+        if (whatToUse != null && whatToUseItOn != null)
+        {
+            var asRoomItem = whatToUseItOn.GetComponentInParent<RoomItem>();
+            if (asRoomItem != null)
+            {
+                if (asRoomItem.TestForInteractionWith(CurrentlyHolding, true))
+                {
+                    itemWasUsed = true;
+
+                    // An item may self-destruct at use time.
+                    // Forget we are holding it, if so.
+                    if (!CurrentlyHolding.IsValidGameobject())
+                        CurrentlyHolding = null;
+                }
+            }
+
+        }
+        return itemWasUsed;
+    }
+
+    public bool TryPlaceCurrentItem()
     {
         if (null == CurrentlyHolding)
             return false;
@@ -171,6 +268,7 @@ public class HandTool : MonoBehaviour
 
         // Drop the item.
         toPlace.transform.SetParent(null);
+        toPlace.transform.rotation = Quaternion.identity;
 
         return true;
     }
@@ -339,7 +437,7 @@ public class HandTool : MonoBehaviour
     {
     }
 
-    private void AttemptPickup(GameObject gameObject, GameObject originalParent)
+    public void AttemptPickup(GameObject gameObject, GameObject originalParent)
     {
         if (null == gameObject)
             return;
@@ -347,7 +445,7 @@ public class HandTool : MonoBehaviour
         var asPickableItem = GetPickableItem(gameObject);
         if (asPickableItem != null && IsCompatibleWithTool(asPickableItem.gameObject))
         {
-            if (asPickableItem.CanBeHandledDirectly)
+            if (IsValidToPickup(gameObject) && asPickableItem.CanBeHandledDirectly)
             {
                 //asPickableItem.OnCompatibleCpEntered += Target_OnCompatibleCpEntered;
                 //asPickableItem.OnCompatibleCpExit += Target_OnCompatibleCpExit;
@@ -360,13 +458,23 @@ public class HandTool : MonoBehaviour
                 asPickableItem.OnItemPlaced += HeldItem_OnItemPlaced;
                 CurrentlyHolding = gameObject;
                 HeldItemOriginalParent = originalParent != null ? originalParent.transform : CurrentlyHolding.transform.parent;
-                CurrentlyHolding.transform.SetParent(transform, true);
+
+                if (HeldItemParentLocation != null)
+                { 
+                    CurrentlyHolding.transform.SetParent(HeldItemParentLocation.transform);
+                    CurrentlyHolding.transform.SetPositionAndRotation(HeldItemParentLocation.transform.position, HeldItemParentLocation.transform.rotation);
+                }
+                else
+                {
+                    CurrentlyHolding.transform.SetParent(transform, true);
+                }
+
                 CurrentlyHolding.transform.localScale = Vector3.one;
                 if (asPickableItem.ReplacesPlacementUi)
                     CurrentlyHolding.transform.SetPositionAndRotation(transform.position, transform.rotation);
 
                 OnPickupItem?.Invoke(asPickableItem);
-                ShowOrHideHandVisual(!asPickableItem.ReplacesPlacementUi);
+                //ShowOrHideHandVisual(!asPickableItem.ReplacesPlacementUi);
                 asPickableItem.ItemWasPickedUp();
 
                 //if (!asPickableItem.IgnoreSortLayerAdjustmentWhenHeld)

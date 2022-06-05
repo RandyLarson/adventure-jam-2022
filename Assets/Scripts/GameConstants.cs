@@ -3,6 +3,8 @@
 public static class GameConstants
 {
 	public static string Default = "Default";
+	public static string IsWalking = "Walking";
+	public static string IsJumping = "Jumping";
 
 	public static string TagGameController = "GameController";
     public static string GamePointer = "GamePointer";
@@ -10,6 +12,9 @@ public static class GameConstants
 	public static int LayerMaskDefault;
 
 	public static int SortingLayerDefaultId;
+
+	public static int AnimatorHashIsWalking = Animator.StringToHash(IsWalking);
+	public static int AnimatorHashIsJumping = Animator.StringToHash(IsJumping);
 
 	public static void Init()
 	{
