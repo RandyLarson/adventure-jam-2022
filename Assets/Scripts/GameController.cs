@@ -38,8 +38,14 @@ public class GameController : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        GameConstants.Init();
+    }
+
     private void Start()
     {
+
         // Present for game development ease. The controller scene is mandatory. In the production build, the
         // controller scene will be the initial scene and drive the whole thing. In development mode, though,
         // we want to have the level we are working on loaded into the editor. We also want to be able to 
@@ -57,6 +63,10 @@ public class GameController : MonoBehaviour
                     break;
                 }
             }
+        }
+        else
+        {
+            ShowStartMenu();
         }
     }
 

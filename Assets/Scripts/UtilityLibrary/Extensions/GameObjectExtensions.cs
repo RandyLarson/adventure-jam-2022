@@ -225,6 +225,11 @@ namespace Assets.Scripts.Extensions
         {
             return target != null && target.gameObject != null;
         }
+        
+        public static bool IsValidGameobject(this GameObject target)
+        {
+            return target != null && target.gameObject != null;
+        }
 
         public static bool SafeInstantiate(this GameObject toInstantiate, Vector2 position, out GameObject instantiated, float? autoDestructIn = null, Quaternion? rotation = null)
         {

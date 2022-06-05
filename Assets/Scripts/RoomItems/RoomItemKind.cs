@@ -3,5 +3,7 @@
     Other = 0,
     CanOpener,
     CanClosed,
-    CanOpen
+    CanOpen,
+    PotEmpty,
+    PotFull
 }

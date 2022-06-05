@@ -1,0 +1,1190 @@
+fileFormatVersion: 2
+guid: 60e9beb886a37ad439bee80ea4cc37bb
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 4
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: KittyVerseCat_0
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 3838
+        width: 36
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e44bf72a6f1f4774a8374c17c2bc4a20
+      internalID: 321504046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_1
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 3310
+        width: 502
+        height: 690
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c8390002b832d248a9ff3f26ddca0b1
+      internalID: -1284095004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_2
+      rect:
+        serializedVersion: 2
+        x: 1261
+        y: 3838
+        width: 70
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f1d1c18943223b439c4e4ce8bce7fbf
+      internalID: 1697185834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_3
+      rect:
+        serializedVersion: 2
+        x: 1693
+        y: 3887
+        width: 85
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c7a438742902f244b7d808bb2e5c056
+      internalID: -1298968932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_4
+      rect:
+        serializedVersion: 2
+        x: 2158
+        y: 3831
+        width: 70
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34dbaeece57a05a47816f6ec97fa12e8
+      internalID: 851280003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_5
+      rect:
+        serializedVersion: 2
+        x: 2686
+        y: 3823
+        width: 114
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4a82741c8bcbab4b8a5024f9ba2b23f
+      internalID: 1369536539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_6
+      rect:
+        serializedVersion: 2
+        x: 3197
+        y: 3853
+        width: 70
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41bc7ae68311fad45b381338eb3c7db3
+      internalID: -1540745637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_7
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 3357
+        width: 714
+        height: 325
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64f6b8eb6c14e8f49acd7020b31fba5c
+      internalID: 1187551158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_8
+      rect:
+        serializedVersion: 2
+        x: 1566
+        y: 3262
+        width: 420
+        height: 580
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1a2e600d098ffe4191fb84058627b49
+      internalID: 77339999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_9
+      rect:
+        serializedVersion: 2
+        x: 2030
+        y: 3245
+        width: 420
+        height: 566
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f7c28040c82a0a4c8398ea5211889db
+      internalID: -48135376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_10
+      rect:
+        serializedVersion: 2
+        x: 2494
+        y: 3230
+        width: 468
+        height: 566
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf6f9e9a165406a4e830d37b517d1a07
+      internalID: 222694589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_11
+      rect:
+        serializedVersion: 2
+        x: 3070
+        y: 3279
+        width: 420
+        height: 580
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc1da581770d2a8488c53f0aa4f7fe9b
+      internalID: 1213212470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_12
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 2590
+        width: 405
+        height: 564
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c987540721fdf64ba4ad670fb12faac
+      internalID: 1760264178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_13
+      rect:
+        serializedVersion: 2
+        x: 1085
+        y: 2270
+        width: 486
+        height: 917
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12b1fae688ddded499a96be278a889c1
+      internalID: -1964443489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_14
+      rect:
+        serializedVersion: 2
+        x: 1821
+        y: 2669
+        width: 421
+        height: 565
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd283b32ad1ffbf489a4494936ee1ce3
+      internalID: 219300464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_15
+      rect:
+        serializedVersion: 2
+        x: 2350
+        y: 2605
+        width: 421
+        height: 566
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69532de8564844e4d94dddec8a8b56fa
+      internalID: -1558993518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_16
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 2461
+        width: 70
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 996df54e271897948a9d3d9b18946bd2
+      internalID: 1245486982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_17
+      rect:
+        serializedVersion: 2
+        x: 1997
+        y: 2526
+        width: 55
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35b6d84c8f7ffa141895c75848192e84
+      internalID: -1091083362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_18
+      rect:
+        serializedVersion: 2
+        x: 2494
+        y: 2493
+        width: 85
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebd0b82e1bd5e1744b9a500cd014bd29
+      internalID: 743884062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_19
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 2158
+        width: 4453
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25be880c92dde114eaaf531da2228ccd
+      internalID: 385407199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_20
+      rect:
+        serializedVersion: 2
+        x: 2013
+        y: 1614
+        width: 486
+        height: 469
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83a228d564e09ee4982ba58ba0ba4cfc
+      internalID: 1535115721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_21
+      rect:
+        serializedVersion: 2
+        x: 2125
+        y: 2028
+        width: 68
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e36e412b6018c749ab72fe7bf8c9597
+      internalID: -451537864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_22
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 1926
+        width: 70
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62d90323a050ab8458a12025f8eb9160
+      internalID: -1307449902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_23
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 1918
+        width: 68
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 815a717269969f84dbad6e549615b855
+      internalID: -438053242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_24
+      rect:
+        serializedVersion: 2
+        x: 1422
+        y: 1871
+        width: 68
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d851254f19e8e9a4cb81640861c88baa
+      internalID: 2102276610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_25
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 1213
+        width: 566
+        height: 693
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65ea92c8581793e4aaad7b59e6c65674
+      internalID: -1632380577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_26
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 1262
+        width: 582
+        height: 612
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0df573a628bb3954597bb1f8634ed4a9
+      internalID: 1095120581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_27
+      rect:
+        serializedVersion: 2
+        x: 1245
+        y: 1293
+        width: 491
+        height: 549
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c44e6253ad7ed654b8b6a6afa2989b54
+      internalID: -1171481429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_28
+      rect:
+        serializedVersion: 2
+        x: 2494
+        y: 1630
+        width: 198
+        height: 276
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70d52d1a293266f4ba0ae5b7348f4276
+      internalID: 1991068229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_29
+      rect:
+        serializedVersion: 2
+        x: 3053
+        y: 1342
+        width: 436
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 280e719644853cf48a5dc20321407aac
+      internalID: 988525828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_30
+      rect:
+        serializedVersion: 2
+        x: 1677
+        y: 1310
+        width: 374
+        height: 276
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b26c623937fc96e41870912fde9b9abf
+      internalID: 736630436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_31
+      rect:
+        serializedVersion: 2
+        x: 2846
+        y: 878
+        width: 612
+        height: 469
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d551b506996eedb4f8c68d0dddff4fd9
+      internalID: -1738048066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_32
+      rect:
+        serializedVersion: 2
+        x: 3661
+        y: 861
+        width: 598
+        height: 471
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cfa565b2f09e5f4d8ab9609d9345823
+      internalID: 2006608187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_33
+      rect:
+        serializedVersion: 2
+        x: 1677
+        y: 1101
+        width: 70
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcbd2c2ce87dc444cbb92e2655fcf8aa
+      internalID: 1016951656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_34
+      rect:
+        serializedVersion: 2
+        x: 2189
+        y: 1158
+        width: 85
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8885ffd554cc1b1429e530b4a3b016c1
+      internalID: -1197405019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_35
+      rect:
+        serializedVersion: 2
+        x: 2207
+        y: 1150
+        width: 18
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45b3a8854295b1a469718bd6af98147b
+      internalID: 552934404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_36
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 1005
+        width: 85
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24dd45bf8dacff64b9d9d0a48600bfe4
+      internalID: -1627366171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_37
+      rect:
+        serializedVersion: 2
+        x: 1069
+        y: 973
+        width: 55
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1099f88e1ff6f9a41814ef0296bb3f00
+      internalID: -148178304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_38
+      rect:
+        serializedVersion: 2
+        x: 1501
+        y: 590
+        width: 485
+        height: 468
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5eb8c3df3a310b7408d9ecf434807d05
+      internalID: -1078796527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_39
+      rect:
+        serializedVersion: 2
+        x: 2077
+        y: 653
+        width: 422
+        height: 469
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f908f5b01dc1c65429ed18021f560524
+      internalID: 1966748121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_40
+      rect:
+        serializedVersion: 2
+        x: 3501
+        y: 957
+        width: 150
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3652e40237fa67749a06adf6cfb7f2df
+      internalID: -763586795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_41
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 429
+        width: 422
+        height: 517
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae67db73e516d4248a4a59e7b5ed150c
+      internalID: -1394074225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_42
+      rect:
+        serializedVersion: 2
+        x: 925
+        y: 462
+        width: 533
+        height: 501
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 252d0ddf72e361842bdc8e1743d9091e
+      internalID: 475015019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_43
+      rect:
+        serializedVersion: 2
+        x: 2941
+        y: 780
+        width: 230
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 170a817364383f247b87cb1c27fcbf1d
+      internalID: -1708111590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_44
+      rect:
+        serializedVersion: 2
+        x: 3174
+        y: 781
+        width: 83
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8172d4a5f13c4d441911c1f75a12fde1
+      internalID: -346671801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_45
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 815
+        width: 5
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc2cc2324b8b67a4aad1941ccc47cea3
+      internalID: 1220574625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_46
+      rect:
+        serializedVersion: 2
+        x: 3847
+        y: 782
+        width: 128
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5553ead20526d249b6a16a84f73b7e6
+      internalID: -526777312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KittyVerseCat_47
+      rect:
+        serializedVersion: 2
+        x: 1061
+        y: 0
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b89fbc1eacade3478121a012881c77d
+      internalID: -1145175357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      KittyVerseCat_29: 988525828
+      KittyVerseCat_36: -1627366171
+      KittyVerseCat_43: -1708111590
+      KittyVerseCat_45: 1220574625
+      KittyVerseCat_41: -1394074225
+      KittyVerseCat_47: -1145175357
+      KittyVerseCat_32: 2006608187
+      KittyVerseCat_30: 736630436
+      KittyVerseCat_33: 1016951656
+      KittyVerseCat_22: -1307449902
+      KittyVerseCat_19: 385407199
+      KittyVerseCat_20: 1535115721
+      KittyVerseCat_24: 2102276610
+      KittyVerseCat_17: -1091083362
+      KittyVerseCat_23: -438053242
+      KittyVerseCat_13: -1964443489
+      KittyVerseCat_2: 1697185834
+      KittyVerseCat_11: 1213212470
+      KittyVerseCat_16: 1245486982
+      KittyVerseCat_9: -48135376
+      KittyVerseCat_0: 321504046
+      KittyVerseCat_18: 743884062
+      KittyVerseCat_38: -1078796527
+      KittyVerseCat_35: 552934404
+      KittyVerseCat_3: -1298968932
+      KittyVerseCat_7: 1187551158
+      KittyVerseCat_10: 222694589
+      KittyVerseCat_8: 77339999
+      KittyVerseCat_15: -1558993518
+      KittyVerseCat_25: -1632380577
+      KittyVerseCat_37: -148178304
+      KittyVerseCat_26: 1095120581
+      KittyVerseCat_46: -526777312
+      KittyVerseCat_12: 1760264178
+      KittyVerseCat_21: -451537864
+      KittyVerseCat_40: -763586795
+      KittyVerseCat_27: -1171481429
+      KittyVerseCat_4: 851280003
+      KittyVerseCat_31: -1738048066
+      KittyVerseCat_44: -346671801
+      KittyVerseCat_5: 1369536539
+      KittyVerseCat_34: -1197405019
+      KittyVerseCat_42: 475015019
+      KittyVerseCat_6: -1540745637
+      KittyVerseCat_39: 1966748121
+      KittyVerseCat_28: 1991068229
+      KittyVerseCat_1: -1284095004
+      KittyVerseCat_14: 219300464
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

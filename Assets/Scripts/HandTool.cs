@@ -1,3 +1,4 @@
+using Assets.Scripts.Extensions;
 using System;
 using System.Linq;
 using UnityEngine;
@@ -10,6 +11,9 @@ public class HandTool : MonoBehaviour
 
     public SpriteRenderer HandVisual;
 
+    [ReadOnly]
+    public Collider2D OurCollider;
+
     public GameObject CurrentlyHolding;
     public GameObject PotentialPickup;
     public GameObject PotentialPlacementSpot;
@@ -17,8 +21,26 @@ public class HandTool : MonoBehaviour
     public UnityEvent<PickableItem> OnPickupItem;
     public UnityEvent OnReleaseItem;
 
+    Collider2D[] ColliderHits = new Collider2D[30];
+    ContactFilter2D ColliderFilter;
+
     private void Start()
     {
+        Init();
+        OurCollider = GetComponentInChildren<Collider2D>();
+    }
+
+    private void Init()
+    {
+        var lm = 1 << LayerMask.NameToLayer(GameConstants.Default);
+        var clm = GameConstants.LayerMaskDefault;
+
+        ColliderFilter = new ContactFilter2D()
+        {
+            layerMask = lm,
+            useLayerMask = true,
+            useTriggers = true
+        };
     }
 
     private void LateUpdate()
@@ -39,19 +61,77 @@ public class HandTool : MonoBehaviour
         PickupOrPlaceItem();
     }
 
+
     private void PickupOrPlaceItem()
     {
+
+        // Try to let the held item interact with 
+        bool itemWasUsed = TryToUseHeldItem();
+
+        // Don't drop or pickup anything if we used what we were holding.
+        if (itemWasUsed)
+            return;
+
         if (TryPlaceCurrentItem())
         {
             return;
         }
 
-        if (PotentialPickup != null && CurrentlyHolding == null)
+        if ( TryToPickupItem() )
         {
-            AttemptPickup(PotentialPickup, null);
-            HighlightItem(PotentialPickup, false);
-            PotentialPickup = null;
+
         }
+    }
+
+    private bool TryToPickupItem()
+    {
+        if (CurrentlyHolding != null)
+            return false;
+
+        int numHits = OurCollider.OverlapCollider(ColliderFilter, ColliderHits);
+        for (int i = 0; i < numHits && CurrentlyHolding == null; i++)
+        {
+            Collider2D item = ColliderHits[i];
+            var asRoomItem = item.GetComponentInParent<RoomItem>();
+            if (asRoomItem != null)
+            {
+                if (ValidToPickup(asRoomItem.gameObject))
+                {
+                    AttemptPickup(asRoomItem.gameObject, null);
+                }
+            }
+        }
+
+        return CurrentlyHolding != null;
+    }
+
+    private bool TryToUseHeldItem()
+    {
+        bool itemWasUsed = false;
+        if ( CurrentlyHolding != null && OurCollider != null)
+        {
+            int numHits = OurCollider.OverlapCollider(ColliderFilter, ColliderHits);
+            
+            for (int i=0; i<numHits; i++)
+            {
+                Collider2D item = ColliderHits[i];
+
+                var asRoomItem = item.GetComponentInParent<RoomItem>();
+                if ( asRoomItem != null )
+                {
+                    if ( asRoomItem.TestForInteractionWith(CurrentlyHolding, true) )
+                    {
+                        itemWasUsed = true;
+
+                        // An item may self-destruct at use time.
+                        // Forget we are holding it, if so.
+                        if (!CurrentlyHolding.IsValidGameobject())
+                            CurrentlyHolding = null;
+                    }
+                }
+            }
+        }
+        return itemWasUsed;
     }
 
     private bool TryPlaceCurrentItem()
@@ -96,23 +176,23 @@ public class HandTool : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        CanPickup(collision.gameObject);
-        CanPlaceItem(collision.gameObject);
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    CanPickup(collision.gameObject);
+    //    CanPlaceItem(collision.gameObject);
+    //}
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        CanPickup(collision.gameObject);
-        CanPlaceItem(collision.gameObject);
-    }
+    //private void OnTriggerStay2D(Collider2D collision)
+    //{
+    //    CanPickup(collision.gameObject);
+    //    CanPlaceItem(collision.gameObject);
+    //}
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        ForgetItem(collision.gameObject);
-        ForgetPlacement(collision.gameObject);
-    }
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    ForgetItem(collision.gameObject);
+    //    ForgetPlacement(collision.gameObject);
+    //}
 
     private void ForgetPlacement(GameObject gameObject)
     {

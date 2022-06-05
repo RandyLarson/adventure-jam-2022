@@ -5,36 +5,45 @@ using UnityEngine;
 public class RoomItem : MonoBehaviour
 {
     public RoomItemKind Kind;
-
+    [Tooltip("Set to true if interactions should be done when an item collides with something else it can " +
+        "interact with. Otherwise, it needs to be set to (e.g., after the pointer is clicked).")]
+    public bool AutoActivateOnCollision = false;
     public AcceptedItem[] AcceptedItems;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        EvaluateCollision(collision);
+        if ( AutoActivateOnCollision )
+            TestForInteractionWith(collision.gameObject, true);
     }
 
-    private void EvaluateCollision(Collider2D collision)
-    {
-        EvaluateItemAsAcceptableItem(collision.gameObject);
-    }
-
-    private void EvaluateItemAsAcceptableItem(GameObject gameObject)
+    /// <summary>
+    /// Tests to see if the given item is one of the accepted items that triggers an interaction.
+    /// Will perform that interaction if <paramref name="performIfPossible"/> is true.
+    /// </summary>
+    /// <param name="gameObject">The item to test.</param>
+    /// <param name="performIfPossible">Will perform the interaction if possible.</param>
+    /// <returns>If the interaction is possible or not (true if possible and the interaction was done)</returns>
+    public bool TestForInteractionWith(GameObject gameObject, bool performIfPossible)
     {
         var asRoomItem = gameObject.GetComponentInParent<RoomItem>();
         if (asRoomItem == null)
         {
-            return;
+            return false;
         }
 
         foreach (var acceptedItem in AcceptedItems)
         {
             if (acceptedItem.ItemPrototype.Kind == asRoomItem.Kind)
             {
-                ExecuteAcceptance(acceptedItem, asRoomItem);
-                break;
+                if (performIfPossible)
+                {
+                    ExecuteAcceptance(acceptedItem, asRoomItem);
+                }
+                return true;
             }
         }
 
+        return false;
     }
 
     private void ExecuteAcceptance(AcceptedItem acceptedItemProfile, RoomItem incomingItem)

@@ -42,6 +42,9 @@ public class Highlightable : MonoBehaviour
 
     private void CheckForPointerHighlight()
     {
+        if (OurCollider == null)
+            return;
+
         var pointerPos = Pointer.current.position.ReadValue();
         Vector3 wposition = Camera.main.ScreenToWorldPoint(pointerPos);
         wposition.z = 0;
