@@ -51,7 +51,7 @@ public class RoomItem : MonoBehaviour
         if ( acceptedItemProfile.ItemProducedWhenUsed != null )
         {
             Vector3 spawnPt = acceptedItemProfile.ItemProducedLocation != null ? acceptedItemProfile.ItemProducedLocation.transform.position : transform.position;
-            GlobalSpawnQueue.AddToQueue(acceptedItemProfile.ItemProducedLocation, spawnPt);
+            GlobalSpawnQueue.AddToQueue(acceptedItemProfile.ItemProducedWhenUsed, spawnPt);
         }
 
         if ( acceptedItemProfile.TargetItemReplacement != null )

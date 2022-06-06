@@ -70,6 +70,11 @@ public class GameController : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        GlobalSpawnQueue.SpawnQueueItems();
+    }
+
     public void ShowStartMenu()
     {
         UiTitleScreen.SetActive(true);

@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2991008664183994822
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7829479740025066383}
-  m_Layer: 0
-  m_Name: IntermediateSpawnPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7829479740025066383
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2991008664183994822}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 70.3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5640882624487199473}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3008522749299457848
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -822,30 +791,6 @@ PrefabInstance:
       propertyPath: Kind
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
-      propertyPath: AcceptedItems.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
-      propertyPath: AcceptedItems.Array.data[0].ItemPrototype
-      value: 
-      objectReference: {fileID: 136843805606132542, guid: 8f1ea7964f79856428b1c92d6d6fea08, type: 3}
-    - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
-      propertyPath: AcceptedItems.Array.data[0].ItemProducedLocation
-      value: 
-      objectReference: {fileID: 2991008664183994822}
-    - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
-      propertyPath: AcceptedItems.Array.data[0].ItemProducedWhenUsed
-      value: 
-      objectReference: {fileID: 1307858230620071515, guid: 85cc8fe47ebefa0408daac40b2e27a8e, type: 3}
-    - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
-      propertyPath: AcceptedItems.Array.data[0].GameObjectiveAchieved
-      value: Gnome Stew
-      objectReference: {fileID: 0}
-    - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
-      propertyPath: AcceptedItems.Array.data[0].IsAcceptedItemDesroyedOnUse
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7460242865069190600, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
       propertyPath: Kind
       value: 5
@@ -900,8 +845,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
---- !u!4 &5640882624487199473 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7460242865069190601, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
-  m_PrefabInstance: {fileID: 3008522749299457848}
-  m_PrefabAsset: {fileID: 0}
