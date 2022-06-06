@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1307858230620071515}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -490, y: -287, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -48,7 +48,7 @@ MonoBehaviour:
   IsActive: 1
   SpawnQueue:
   - ToLaunch: {fileID: 59581496337070771, guid: 34ece7236556b0842a36341e9512e0af, type: 3}
-    Count: 50
+    Count: 555
   LaunchVector: {fileID: 1307858231653461726}
   SpreadAngle: 90
   AutoActivateAfterDelay: 0.1
@@ -56,7 +56,7 @@ MonoBehaviour:
   ItemSpawnInterval: 0.2
   InterArrayMemberInterval: 10
   InterQueueLoopInterval: 0
-  LaunchAccel: 35
+  LaunchAccel: 125
   LaunchPower: 0
   TumbleItem: 0
   LoopsOfLaunchQueue: 1
