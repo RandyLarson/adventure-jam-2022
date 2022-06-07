@@ -533,7 +533,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &417195571
 Transform:
   m_ObjectHideFlags: 0
@@ -962,6 +962,46 @@ PrefabInstance:
     - target: {fileID: 5640882624487199486, guid: 46bc2b8328f242042894274205675e38, type: 3}
       propertyPath: m_Name
       value: PotEmpty
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640882624487199487, guid: 46bc2b8328f242042894274205675e38, type: 3}
+      propertyPath: AcceptedItems.Array.data[0].ItemsToEnable.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640882624487199487, guid: 46bc2b8328f242042894274205675e38, type: 3}
+      propertyPath: AcceptedItems.Array.data[0].ItemsToEnable.Array.data[0]
+      value: 
+      objectReference: {fileID: 417195570}
+    - target: {fileID: 5640882624487199487, guid: 46bc2b8328f242042894274205675e38, type: 3}
+      propertyPath: AcceptedItems.Array.data[0].OnUsage.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640882624487199487, guid: 46bc2b8328f242042894274205675e38, type: 3}
+      propertyPath: AcceptedItems.Array.data[0].OnUsage.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640882624487199487, guid: 46bc2b8328f242042894274205675e38, type: 3}
+      propertyPath: AcceptedItems.Array.data[0].OnUsage.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 998959770}
+    - target: {fileID: 5640882624487199487, guid: 46bc2b8328f242042894274205675e38, type: 3}
+      propertyPath: AcceptedItems.Array.data[0].OnUsage.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640882624487199487, guid: 46bc2b8328f242042894274205675e38, type: 3}
+      propertyPath: AcceptedItems.Array.data[0].OnUsage.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640882624487199487, guid: 46bc2b8328f242042894274205675e38, type: 3}
+      propertyPath: AcceptedItems.Array.data[0].OnUsage.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.Animator, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640882624487199487, guid: 46bc2b8328f242042894274205675e38, type: 3}
+      propertyPath: AcceptedItems.Array.data[0].OnUsage.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Happy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640882624487199487, guid: 46bc2b8328f242042894274205675e38, type: 3}
+      propertyPath: AcceptedItems.Array.data[0].OnUsage.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46bc2b8328f242042894274205675e38, type: 3}

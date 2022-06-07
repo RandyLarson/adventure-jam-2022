@@ -25,6 +25,7 @@ public class FadeOut : MonoBehaviour
         Renderers = GetComponentsInChildren<SpriteRenderer>();
         TextRenderers = GetComponentsInChildren<TextMeshProUGUI>();
         CanvasRenderers = GetComponentsInChildren<CanvasRenderer>();
+        Initialize();
     }
 
     public void Initialize()

@@ -624,6 +624,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2487705023237095025, guid: 52cca908677883c4dbc721c7199c03ea, type: 3}
     - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+      propertyPath: AcceptedItems.Array.data[0].AcceptedItemPrototype
+      value: 
+      objectReference: {fileID: 2487705023237095025, guid: 52cca908677883c4dbc721c7199c03ea, type: 3}
+    - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
       propertyPath: AcceptedItems.Array.data[0].GameObjectiveAchieved
       value: PotFilled
       objectReference: {fileID: 0}
@@ -634,6 +638,18 @@ PrefabInstance:
     - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
       propertyPath: AcceptedItems.Array.data[0].IsAcceptedItemDesroyedOnUse
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+      propertyPath: AcceptedItems.Array.data[0].OnUsage.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+      propertyPath: AcceptedItems.Array.data[0].OnUsage.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+      propertyPath: AcceptedItems.Array.data[0].OnUsage.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7460242865069190600, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
       propertyPath: Kind

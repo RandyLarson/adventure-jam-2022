@@ -1,3 +1,4 @@
+using Assets.Scripts.Extensions;
 using System;
 using UnityEngine;
 
@@ -33,7 +34,7 @@ public class RoomItem : MonoBehaviour
 
         foreach (var acceptedItem in AcceptedItems)
         {
-            if (acceptedItem.ItemPrototype.Kind == asRoomItem.Kind)
+            if (acceptedItem.AcceptedItemPrototype.Kind == asRoomItem.Kind)
             {
                 if (performIfPossible)
                 {
@@ -51,7 +52,7 @@ public class RoomItem : MonoBehaviour
         if ( acceptedItemProfile.ItemProducedWhenUsed != null )
         {
             Vector3 spawnPt = acceptedItemProfile.ItemProducedLocation != null ? acceptedItemProfile.ItemProducedLocation.transform.position : transform.position;
-            GlobalSpawnQueue.AddToQueue(acceptedItemProfile.ItemProducedLocation, spawnPt);
+            GlobalSpawnQueue.AddToQueue(acceptedItemProfile.ItemProducedWhenUsed, spawnPt);
         }
 
         if ( acceptedItemProfile.TargetItemReplacement != null )
@@ -70,6 +71,18 @@ public class RoomItem : MonoBehaviour
         {
             Destroy(incomingItem.gameObject);
         }
+
+        foreach (var item in acceptedItemProfile.ItemsToEnable)
+        {
+            item.SafeSetActive(true);
+        }
+
+        foreach (var item in acceptedItemProfile.ItemsToDisable)
+        {
+            item.SafeSetActive(false);
+        }
+
+        acceptedItemProfile.OnUsage?.Invoke();
 
         GameController.TheGameController.LogGameAchievement(acceptedItemProfile.GameObjectiveAchieved);
     }
