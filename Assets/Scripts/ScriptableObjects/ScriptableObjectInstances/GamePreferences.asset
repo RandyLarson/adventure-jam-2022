@@ -16,7 +16,7 @@ MonoBehaviour:
   PreferenceB: 1
   CountA: 15
   LevelProgression:
-  - Level-1
+  - Level-Kitchen
   - Level-2
   GameSettings:
     MuteAll: 0
