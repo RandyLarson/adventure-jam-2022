@@ -17,6 +17,16 @@ public class LevelController : MonoBehaviour
         GlobalSpawnQueue.DefaultParentObject = LevelSpawnItemParent != null ? LevelSpawnItemParent : gameObject;
 
         InitCameraFollower();
+        InitPlayer();
+    }
+
+    private void InitPlayer()
+    {
+        MeepleController player = FindObjectOfType<MeepleController>();
+        if ( player != null)
+        {
+            player.LevelBounds = LevelBounds;
+        }
     }
 
     private void InitCameraFollower()

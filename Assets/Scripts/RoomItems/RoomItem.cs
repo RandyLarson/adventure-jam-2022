@@ -5,10 +5,17 @@ using UnityEngine;
 
 public class RoomItem : MonoBehaviour
 {
-    public RoomItemKind Kind;
+    public string Kind;
+
     [Tooltip("Set to true if interactions should be done when an item collides with something else it can " +
         "interact with. Otherwise, it needs to be set to (e.g., after the pointer is clicked).")]
     public bool AutoActivateOnCollision = false;
+    public bool CanClimbOnto = false;
+    public bool CanBeHandledDirectly = false;
+    public bool ReplacesPlacementUi = false;
+    public SpriteRenderer ImageIdle;
+    public SpriteRenderer ImageActive;
+
     public AcceptedItem[] AcceptedItems;
 
     private void OnTriggerEnter2D(Collider2D collision)

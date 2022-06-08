@@ -1,9 +1,6 @@
 using Assets.Scripts.Extensions;
-using System;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
 
 public class HandTool : MonoBehaviour
 {
@@ -24,8 +21,8 @@ public class HandTool : MonoBehaviour
     public GameObject PotentialPickup;
     public GameObject PotentialPlacementSpot;
 
-    public UnityEvent<PickableItem> OnPickupItem;
-    public UnityEvent OnReleaseItem;
+    public UnityEvent<RoomItem> OnPickupItem;
+    public UnityEvent<RoomItem> OnReleaseItem;
 
     Collider2D[] ColliderHits = new Collider2D[30];
     ContactFilter2D ColliderFilter;
@@ -168,7 +165,7 @@ public class HandTool : MonoBehaviour
         {
             Collider2D item = ColliderHits[i];
             var asRoomItem = item.GetComponentInParent<RoomItem>();
-            if ( IsValidToPickup(asRoomItem))
+            if (IsValidToPickup(asRoomItem))
                 return asRoomItem.gameObject;
         }
         return null;
@@ -258,10 +255,6 @@ public class HandTool : MonoBehaviour
         if (toPlace == null)
             return false;
 
-        //var location = whereToPlace.GetComponent<ItemLocation>();
-        //if (location == null)
-        //    return false
-
         // Will the item fit
         if (!IsValidPlacementSpot(whereToPlace, toPlace))
             return false;
@@ -269,6 +262,7 @@ public class HandTool : MonoBehaviour
         // Drop the item.
         toPlace.transform.SetParent(null);
         toPlace.transform.rotation = Quaternion.identity;
+        OnReleaseItem?.Invoke(GetRoomItem(toPlace));
 
         return true;
     }
@@ -388,7 +382,7 @@ public class HandTool : MonoBehaviour
         return true;
     }
 
-    private PickableItem GetPickableItem(GameObject gameObject, bool includeParent = true) => GetComponent<PickableItem>(gameObject, includeParent);
+    //private PickableItem GetPickableItem(GameObject gameObject, bool includeParent = true) => GetComponent<PickableItem>(gameObject, includeParent);
     private RoomItem GetRoomItem(GameObject gameObject, bool includeParent = false) => GetComponent<RoomItem>(gameObject, includeParent);
 
     private Highlightable GetHighlightableItem(GameObject gameObject, bool includeParent = true) => GetComponent<Highlightable>(gameObject, includeParent);
@@ -408,8 +402,8 @@ public class HandTool : MonoBehaviour
             return false;
 
         var asHighlightable = GetHighlightableItem(gameObject, true);
-        var asPickable = GetPickableItem(gameObject, true);
-        return asHighlightable != null && asPickable != null && asHighlightable.enabled;
+        var asRoomItem = GetRoomItem(gameObject, true);
+        return asHighlightable != null && asRoomItem != null && asHighlightable.enabled;
     }
 
     private bool ValidToPickup(GameObject gameObject)
@@ -417,8 +411,8 @@ public class HandTool : MonoBehaviour
         if (null == gameObject)
             return false;
 
-        var asPickable = GetPickableItem(gameObject, true);
-        return asPickable != null && asPickable.CanBeHandledDirectly;
+        var asRoomItem = GetRoomItem(gameObject, true);
+        return asRoomItem != null && asRoomItem.CanBeHandledDirectly;
     }
 
 
@@ -433,34 +427,27 @@ public class HandTool : MonoBehaviour
         }
     }
 
-    private void OnEscape()
-    {
-    }
 
     public void AttemptPickup(GameObject gameObject, GameObject originalParent)
     {
         if (null == gameObject)
             return;
 
-        var asPickableItem = GetPickableItem(gameObject);
-        if (asPickableItem != null && IsCompatibleWithTool(asPickableItem.gameObject))
+        var asRoomItem = GetRoomItem(gameObject);
+        if (asRoomItem != null && IsCompatibleWithTool(asRoomItem.gameObject))
         {
-            if (IsValidToPickup(gameObject) && asPickableItem.CanBeHandledDirectly)
+            if (IsValidToPickup(gameObject) && asRoomItem.CanBeHandledDirectly)
             {
-                //asPickableItem.OnCompatibleCpEntered += Target_OnCompatibleCpEntered;
-                //asPickableItem.OnCompatibleCpExit += Target_OnCompatibleCpExit;
-
                 if (gameObject.TryGetComponent<Rigidbody2D>(out Rigidbody2D rb))
                 {
                     rb.velocity = Vector3.zero;
                 }
 
-                asPickableItem.OnItemPlaced += HeldItem_OnItemPlaced;
                 CurrentlyHolding = gameObject;
                 HeldItemOriginalParent = originalParent != null ? originalParent.transform : CurrentlyHolding.transform.parent;
 
                 if (HeldItemParentLocation != null)
-                { 
+                {
                     CurrentlyHolding.transform.SetParent(HeldItemParentLocation.transform);
                     CurrentlyHolding.transform.SetPositionAndRotation(HeldItemParentLocation.transform.position, HeldItemParentLocation.transform.rotation);
                 }
@@ -470,26 +457,12 @@ public class HandTool : MonoBehaviour
                 }
 
                 CurrentlyHolding.transform.localScale = Vector3.one;
-                if (asPickableItem.ReplacesPlacementUi)
+                if (asRoomItem.ReplacesPlacementUi)
                     CurrentlyHolding.transform.SetPositionAndRotation(transform.position, transform.rotation);
 
-                OnPickupItem?.Invoke(asPickableItem);
-                //ShowOrHideHandVisual(!asPickableItem.ReplacesPlacementUi);
-                asPickableItem.ItemWasPickedUp();
-
-                //if (!asPickableItem.IgnoreSortLayerAdjustmentWhenHeld)
-                //    gameObject.SetSortLayer(GameConstants.SortingLayerHeldItems);
-
-                // Play Sound Queue, might be a parameter on the item picked up in future
+                OnPickupItem?.Invoke(asRoomItem);
                 AudioController.Current?.PlayRandomSound(Sounds.ItemPickedUp);
             }
         }
-    }
-
-    private void HeldItem_OnItemPlaced(object sender, ItemPlacementEvent e)
-    {
-        var asPickableItem = e.TheItem.GetComponent<PickableItem>();
-        asPickableItem.OnItemPlaced -= HeldItem_OnItemPlaced;
-        e.TheItem.RestoreSortLayer();
     }
 }

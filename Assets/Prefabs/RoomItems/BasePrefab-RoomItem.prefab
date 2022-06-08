@@ -156,10 +156,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7460242865069190601}
-  - component: {fileID: 7460242865069190600}
-  - component: {fileID: 7460242865069190599}
-  - component: {fileID: -7395730966387639078}
   - component: {fileID: 7210647856075272810}
+  - component: {fileID: -7395730966387639078}
+  - component: {fileID: 7460242865069190599}
   m_Layer: 0
   m_Name: BasePrefab-RoomItem
   m_TagString: Untagged
@@ -183,68 +182,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7460242865069190600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7460242865069190598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b622c147fcecab4e8f5750c80221314, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Kind: 0
-  CanBeHandledDirectly: 1
-  ReplacesPlacementUi: 0
-  IgnoreSortLayerAdjustmentWhenHeld: 0
-  IsBeingHeld: 0
-  ScaleWhenItemAttached: {x: 1, y: 1}
-  ImageIdle: {fileID: 0}
-  ImageActive: {fileID: 0}
-  OnPlaced:
-    m_PersistentCalls:
-      m_Calls: []
-  OnPickedUp:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &7460242865069190599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7460242865069190598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: febb5c01671b08b4e8f9e76fe9a3bdb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Kind: 0
-  AutoActivateOnCollision: 0
-  AcceptedItems: []
---- !u!114 &-7395730966387639078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7460242865069190598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df4d2eaa63aa57948965b8993394330d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnableOnHighlight: {fileID: 0}
-  ActiveHighlightMarker: {fileID: 0}
-  ApplyHighlightColor: 1
-  UseColorOverride: 0
-  HighlightColorOverride: {r: 152, g: 255, b: 0, a: 1}
-  HighlightRenderer: {fileID: 5577558466935958858}
-  AutoHighlightOnPointer: 1
-  UseSystemCursorLocation: 1
-  OurCollider: {fileID: 5204500391590021437}
 --- !u!50 &7210647856075272810
 Rigidbody2D:
   serializedVersion: 4
@@ -266,3 +203,55 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-7395730966387639078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7460242865069190598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df4d2eaa63aa57948965b8993394330d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnableOnHighlight: {fileID: 0}
+  ActiveHighlightMarker: {fileID: 0}
+  ApplyHighlightColor: 1
+  UseColorOverride: 0
+  HighlightColorOverride: {r: 152, g: 255, b: 0, a: 1}
+  HighlightRenderer: {fileID: 5577558466935958858}
+  AutoHighlightOnPointer: 1
+  UseSystemCursorLocation: 1
+  OurCollider: {fileID: 5204500391590021437}
+--- !u!114 &7460242865069190599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7460242865069190598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: febb5c01671b08b4e8f9e76fe9a3bdb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Kind: 
+  AutoActivateOnCollision: 0
+  CanClimbOnto: 0
+  CanBeHandledDirectly: 1
+  ReplacesPlacementUi: 0
+  ImageIdle: {fileID: 0}
+  ImageActive: {fileID: 0}
+  AcceptedItems:
+  - GameObjectiveAchieved: 
+    AcceptedItemPrototype: {fileID: 0}
+    ItemProducedWhenUsed: {fileID: 0}
+    ItemProducedLocation: {fileID: 0}
+    TargetItemReplacement: {fileID: 0}
+    IsAcceptedItemDesroyedOnUse: 0
+    ItemsToEnable: []
+    ItemsToDisable: []
+    OnUsage:
+      m_PersistentCalls:
+        m_Calls: []

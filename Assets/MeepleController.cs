@@ -18,6 +18,9 @@ public class MeepleController : MonoBehaviour
     [ReadOnly]
     public Animator OurAnimator;
 
+    [ReadOnly]
+    public Rect LevelBounds;
+
     HandTool HandTool;
 
     public float StoppingDistanceFromTarget = 10;
@@ -206,6 +209,9 @@ public class MeepleController : MonoBehaviour
 
         if (wishedDistance == 0)
             return 0;
+
+        destination.x = Mathf.Clamp(destination.x, LevelBounds.xMin, LevelBounds.xMax);
+        destination.y = Mathf.Clamp(destination.y, LevelBounds.yMin, LevelBounds.yMax);
 
         var distanceFromTarget = destination - transform.position;
         if (Mathf.Abs(distanceFromTarget.x) < StoppingDistanceFromTarget)

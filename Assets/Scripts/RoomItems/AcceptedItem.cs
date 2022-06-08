@@ -16,6 +16,7 @@ public class AcceptedItem
     [Tooltip("Assigned an item to produce when this item is used. This could be a usage effect or something " +
         "that could then be used in the scene (e.g., create a key from a box)")]
     public GameObject ItemProducedWhenUsed;
+
     [Tooltip("Where to spawn the item produced.")]
     public GameObject ItemProducedLocation;
 
