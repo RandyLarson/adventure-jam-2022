@@ -2,10 +2,9 @@ using Assets.Scripts.Extensions;
 using System;
 using UnityEngine;
 
-
 public class RoomItem : MonoBehaviour
 {
-    public string Kind;
+    public SerializableGuid ItemId;
 
     [Tooltip("Set to true if interactions should be done when an item collides with something else it can " +
         "interact with. Otherwise, it needs to be set to (e.g., after the pointer is clicked).")]
@@ -41,7 +40,7 @@ public class RoomItem : MonoBehaviour
 
         foreach (var acceptedItem in AcceptedItems)
         {
-            if (acceptedItem.AcceptedItemPrototype.Kind == asRoomItem.Kind)
+            if (acceptedItem.AcceptedItemPrototype.ItemId == asRoomItem.ItemId)
             {
                 if (performIfPossible)
                 {

@@ -8,6 +8,7 @@ public class GamePreferences : ScriptableObject
 
     public GameSettings GameSettings;
     public ColorAndThemeParameters ColorAndTheme;
+    public Environment Environment;
 }
 
 
@@ -24,4 +25,11 @@ public class ColorAndThemeParameters
 {
     [Tooltip("The standard highlight color for items, overlayed atop their sprite.")]
     public Color HighlightColor = new Color(152, 255, 0);
+}
+
+[Serializable]
+public class Environment
+{
+    [Tooltip("The multiplier to use for falling items.")]
+    public float Gravity = 500f;
 }

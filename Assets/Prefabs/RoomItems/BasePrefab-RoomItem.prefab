@@ -236,6 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: febb5c01671b08b4e8f9e76fe9a3bdb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AvaialbleItems: {fileID: 11400000, guid: 9d1bdc318aa19e6479fe0f5e9a5f0a38, type: 2}
   Kind: 
   AutoActivateOnCollision: 0
   CanClimbOnto: 0

@@ -12,9 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cebe7919def1f4398166f39460622d, type: 3}
   m_Name: GamePreferences
   m_EditorClassIdentifier: 
-  PreferenceA: 0
-  PreferenceB: 1
-  CountA: 15
   LevelProgression:
   - Level-Kitchen
   - Level-2
@@ -24,3 +21,5 @@ MonoBehaviour:
     EffectVolume: 0.8
   ColorAndTheme:
     HighlightColor: {r: 0.17042479, g: 0.7490196, b: 0, a: 1}
+  Environment:
+    Gravity: 700

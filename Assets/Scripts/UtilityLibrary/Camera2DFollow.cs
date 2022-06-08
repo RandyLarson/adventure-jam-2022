@@ -72,38 +72,16 @@ public class Camera2DFollow : MonoBehaviour
 
     private void DoFollow()
     {
-        // only update lookahead pos if accelerating or changed direction
         if (ToFollow == null)
         {
-            //Debug.LogError(string.Format("Camera `{0}` has nothing to follow.", gameObject.tag.LogValue()));
             return;
         }
 
-        //float xMoveDelta = (ToFollow.position - m_LastTargetPosition).x;
-
-        //bool updateLookAheadTarget = Mathf.Abs(xMoveDelta) > lookAheadMoveThreshold;
-
-        //if (updateLookAheadTarget)
-        //{
-        //	m_LookAheadPos = lookAheadFactor * Vector3.right * Mathf.Sign(xMoveDelta);
-        //}
-        //else
-        //{
-        //	m_LookAheadPos = Vector3.MoveTowards(m_LookAheadPos, Vector3.zero, Time.deltaTime * lookAheadReturnSpeed);
-        //}
-
-        //Vector3 aheadTargetPos = ToFollow.position + m_LookAheadPos + Vector3.forward * m_OffsetZ;
-        //Vector3 newPos = Vector3.SmoothDamp(transform.position, aheadTargetPos, ref m_CurrentVelocity, damping);
-
         Vector3 newPos = new Vector3(ToFollow.position.x, ToFollow.position.y, Camera.transform.position.z);
-        if (XRange.min != 0 && XRange.max != 0)
-            newPos.x = Mathf.Clamp(newPos.x, XRange.min, XRange.max);
-
-        if (YRange.min != 0 && YRange.max != 0)
-            newPos.y = Mathf.Clamp(newPos.y, YRange.min, YRange.max);
+        newPos.x = Mathf.Clamp(newPos.x, XRange.min, XRange.max);
+        newPos.y = Mathf.Clamp(newPos.y, YRange.min, YRange.max);
 
         Camera.transform.position = newPos;
-
         m_LastTargetPosition = ToFollow.position;
     }
 }

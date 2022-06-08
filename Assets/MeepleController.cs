@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -125,9 +126,34 @@ public class MeepleController : MonoBehaviour
 
                 if (ItemToInteractWithAtDestination != null)
                 {
+                    RoomItem asRoomItem = ItemToInteractWithAtDestination.GetComponent<RoomItem>();
+
+                    bool isHoldingItem = HandTool.CurrentlyHolding != null;
+                    bool usedHeldItem = false;
+                    bool didClimb = false;
+
                     if (HandTool.CurrentlyHolding != null)
                     {
-                        if ( HandTool.TryToUseHeldItemOn(ItemToInteractWithAtDestination) )
+                        usedHeldItem = HandTool.TryToUseHeldItemOn(ItemToInteractWithAtDestination);
+                    }
+                    else if (HandTool.IsValidToPickup(ItemToInteractWithAtDestination))
+                    {
+                        HandTool.AttemptPickup(ItemToInteractWithAtDestination);
+                    }
+
+
+                    if (asRoomItem != null)
+                    {
+                        if (!usedHeldItem && asRoomItem.CanClimbOnto)
+                        {
+                            ClimbOnToItem(asRoomItem);
+                            didClimb = true;
+                        }
+                    }
+
+                    if (isHoldingItem)
+                    {
+                        if (usedHeldItem)
                         {
                             AudioController.Current.PlayRandomSound(Sounds.ItemsInteract);
                         }
@@ -135,10 +161,6 @@ public class MeepleController : MonoBehaviour
                         {
                             AudioController.Current.PlayRandomSound(Sounds.ItemsDontInteract);
                         }
-                    }
-                    else if (HandTool.IsValidToPickup(ItemToInteractWithAtDestination))
-                    {
-                        HandTool.AttemptPickup(ItemToInteractWithAtDestination);
                     }
 
                     ItemToInteractWithAtDestination = null;
@@ -150,15 +172,11 @@ public class MeepleController : MonoBehaviour
             }
         }
 
-        if (CurrentVector != Vector3.zero)
-        {
-            Vector3 mvTo = transform.position + new Vector3(WalkingSpeed * CurrentVector.x, 0);
-            MoveToward(mvTo);
-        }
-        else
-        {
+        if (CurrentVector == Vector3.zero)
             CurrentSpeed = 0;
-        }
+
+        Vector3 mvTo = transform.position + new Vector3(WalkingSpeed * CurrentVector.x, 0);
+        MoveToward(mvTo);
 
         OurAnimator.SetBool(GameConstants.IsWalking, CurrentSpeed != 0);
         OurAnimator.SetBool(GameConstants.IsJumping, IsJumping);
@@ -169,28 +187,47 @@ public class MeepleController : MonoBehaviour
         //}
     }
 
+    private void ClimbOnToItem(RoomItem asRoomItem)
+    {
+        if (null == asRoomItem)
+            return;
+
+        Surface itsSurface = asRoomItem.GetComponentInChildren<Surface>();
+        if (itsSurface == null)
+            return;
+
+        transform.position = new Vector3(transform.position.x, itsSurface.transform.position.y, transform.position.z);
+    }
+
     public virtual void MoveToward(Vector3 destination)
     {
-        if (destination == Vector3.zero)
+        Vector3 mvVector = Vector3.zero;
+
+        if (destination != transform.position)
         {
-            return;
+            // Flip the villager depending upon the orientation of it to the target object
+            Face(destination.x - transform.position.x);
+
+            // Max move delta, contrained by obstructions
+            CurrentSpeed = WalkingSpeed;
+
+            mvVector.x = Time.deltaTime * CurrentSpeed;
+
+            if (transform.position.x > destination.x)
+                mvVector *= -1;
         }
 
-        // Flip the villager depending upon the orientation of it to the target object
-        Face(destination.x - transform.position.x);
+        mvVector.y = DetectGroundAndVerticalMovement(transform.position);
 
-        // Max move delta, contrained by obstructions
-        CurrentSpeed = WalkingSpeed;
-
-        float maxDistance = Time.deltaTime * CurrentSpeed;
-        float actualDistance = CalculateMovedDistance(destination, maxDistance);
-
-        if (actualDistance > 0)
+        Vector3 actualDestination = ClampMoveDistance(transform.position, destination, mvVector);
+        if (actualDestination != transform.position)
         {
-            var newPos = Vector2.MoveTowards(transform.position, destination, actualDistance);
-            var posDelta = newPos - (Vector2)transform.position;
+            //var newPos = Vector2.MoveTowards(transform.position, destination, actualDestination);
+            //var posDelta = newPos - (Vector2)transform.position;
 
-            transform.position = new Vector2(newPos.x, transform.position.y);
+            //transform.position = new Vector2(newPos.x, transform.position.y);
+
+            transform.position = actualDestination;
         }
         else
         {
@@ -198,7 +235,33 @@ public class MeepleController : MonoBehaviour
         }
     }
 
-    private float CalculateMovedDistance(Vector3 destination, float wishedDistance)
+    public float DetectGroundAndVerticalMovement(Vector3 fromPosition)
+    {
+        var dyMax = GameController.TheGameData.GamePrefs.Environment.Gravity * Time.deltaTime;
+
+        RaycastHit2D[] hits = Physics2D.RaycastAll(fromPosition, Vector2.down, dyMax, GameConstants.LayerMaskDefault);
+
+        float dyActual = 0;
+        if (hits.Length == 0)
+        {
+            dyActual = dyMax;
+        }
+        else
+        {
+            for (int i = 0; i < hits.Length; i++)
+            {
+                if (hits[i].collider.gameObject.CompareTag(GameConstants.Surface))
+                {
+                    if (dyActual == 0 || hits[i].distance < dyActual)
+                        dyActual = hits[i].distance;
+                }
+            }
+        }
+
+        return -dyActual;
+    }
+
+    private Vector3 ClampMoveDistance(Vector3 source, Vector3 destination, Vector3 wishedDistance)
     {
         //// No movement if the animator is mid jump or wave or some action that prevents horizontal movement.
         //if (OurAnimator.GetBool(GameConstants.AnimatorHashMidNonMovingAction))
@@ -207,18 +270,46 @@ public class MeepleController : MonoBehaviour
         //if (IsFalling)
         //    return 0;
 
-        if (wishedDistance == 0)
-            return 0;
+        if (wishedDistance == Vector3.zero)
+            return source;
 
-        destination.x = Mathf.Clamp(destination.x, LevelBounds.xMin, LevelBounds.xMax);
-        destination.y = Mathf.Clamp(destination.y, LevelBounds.yMin, LevelBounds.yMax);
+        var optimalDestination = source + wishedDistance;
 
-        var distanceFromTarget = destination - transform.position;
+        optimalDestination.x = Mathf.Clamp(optimalDestination.x, LevelBounds.xMin, LevelBounds.xMax);
+        optimalDestination.y = Mathf.Clamp(optimalDestination.y, LevelBounds.yMin, LevelBounds.yMax);
+
+        var distanceFromTarget = destination - optimalDestination;
+
         if (Mathf.Abs(distanceFromTarget.x) < StoppingDistanceFromTarget)
-            return 0;
+        {
+            optimalDestination.x = destination.x + (StoppingDistanceFromTarget * MathF.Sign(distanceFromTarget.x));
+        }
 
-        return wishedDistance;
+        return optimalDestination;
     }
+
+
+    //private float CalculateMovedDistance(Vector3 destination, float wishedDistance)
+    //{
+    //    //// No movement if the animator is mid jump or wave or some action that prevents horizontal movement.
+    //    //if (OurAnimator.GetBool(GameConstants.AnimatorHashMidNonMovingAction))
+    //    //    return 0;
+
+    //    //if (IsFalling)
+    //    //    return 0;
+
+    //    if (wishedDistance == 0)
+    //        return 0;
+
+    //    destination.x = Mathf.Clamp(destination.x, LevelBounds.xMin, LevelBounds.xMax);
+    //    destination.y = Mathf.Clamp(destination.y, LevelBounds.yMin, LevelBounds.yMax);
+
+    //    var distanceFromTarget = destination - transform.position;
+    //    if (Mathf.Abs(distanceFromTarget.x) < StoppingDistanceFromTarget)
+    //        return 0;
+
+    //    return wishedDistance;
+    //}
 
 
 }
