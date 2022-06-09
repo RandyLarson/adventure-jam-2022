@@ -1194,6 +1194,10 @@ PrefabInstance:
       propertyPath: StoppingDistanceFromTarget
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 227091310093805899, guid: bbfa5a80fc493e14a81e262f12733ea9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 745937956557665006, guid: bbfa5a80fc493e14a81e262f12733ea9, type: 3}
       propertyPath: m_Name
       value: Meeple
