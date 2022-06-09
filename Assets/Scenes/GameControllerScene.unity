@@ -1217,6 +1217,9 @@ MonoBehaviour:
   - sound: 7
     clips:
     - {fileID: 8300000, guid: 50a06fcf077c3d243ac4d7c38857db51, type: 3}
+  - sound: 8
+    clips:
+    - {fileID: 8300000, guid: d62bbd38ed84a7943830d7e2364fd79e, type: 3}
   MusicTracks: []
   ThemeTrack: {fileID: 0}
   StreetScene: {fileID: 0}

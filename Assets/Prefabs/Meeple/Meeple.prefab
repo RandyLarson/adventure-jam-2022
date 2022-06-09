@@ -45,6 +45,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93fc84ff431401943b9573657d304b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HeldObjectMountPoint: {fileID: 0}
+  WalkingSpeed: 25
+  CurrentSpeed: 0
+  IsJumping: 0
+  Facing: 1
+  OurAnimator: {fileID: 0}
+  LevelBounds:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  StoppingDistanceFromTarget: 10
+  ItemToInteractWithAtDestination: {fileID: 0}
 --- !u!1001 &745937958080640115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -202,19 +216,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2432251728918620364, guid: 005c1cac69b00c34ebe56234d0030e45, type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: -17.822632
+      value: -6.179802
       objectReference: {fileID: 0}
     - target: {fileID: -2432251728918620364, guid: 005c1cac69b00c34ebe56234d0030e45, type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: 1.3650208
+      value: 3.5057373
       objectReference: {fileID: 0}
     - target: {fileID: -2432251728918620364, guid: 005c1cac69b00c34ebe56234d0030e45, type: 3}
       propertyPath: m_Bounds.m_Extent.x
-      value: 135.62921
+      value: 94.54408
       objectReference: {fileID: 0}
     - target: {fileID: -2432251728918620364, guid: 005c1cac69b00c34ebe56234d0030e45, type: 3}
       propertyPath: m_Bounds.m_Extent.y
-      value: 150.34032
+      value: 151.9114
       objectReference: {fileID: 0}
     - target: {fileID: -1803133364930961311, guid: 005c1cac69b00c34ebe56234d0030e45, type: 3}
       propertyPath: m_LocalRotation.w
@@ -391,6 +405,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &821294063385553951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990181969004254670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c5838623bf0bf34d833a4754fd54890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2122827743890869677 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -7552582706839291426, guid: 005c1cac69b00c34ebe56234d0030e45, type: 3}
