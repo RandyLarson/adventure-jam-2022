@@ -36,4 +36,6 @@ public class Environment
     [Tooltip("A vertical offset to apply to a transform when it jumps onto something. This is added after the tranform's " +
         "destination has been set. It provides a bit of a hoping action on screen.")]
     public float JumpLandingPointYOffset = -150;
+    public float JumpSpeed = 100;
+    public float JumpDurationSeconds = 2;
 }
