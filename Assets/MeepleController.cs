@@ -116,6 +116,8 @@ public class MeepleController : MonoBehaviour
 
     private void HandleMovement()
     {
+        CurrentSpeed = 0;
+
         if (CurrentWalkingDestination.HasValue)
         {
             // We've arrived:
@@ -169,13 +171,12 @@ public class MeepleController : MonoBehaviour
             else
             {
                 CurrentVector = (CurrentWalkingDestination.Value - transform.position).normalized;
+                CurrentSpeed = WalkingSpeed;
             }
         }
 
-        if (CurrentVector == Vector3.zero)
-            CurrentSpeed = 0;
 
-        Vector3 mvTo = transform.position + new Vector3(WalkingSpeed * CurrentVector.x, 0);
+        Vector3 mvTo = transform.position + new Vector3(CurrentSpeed * CurrentVector.x, 0);
         MoveToward(mvTo);
 
         OurAnimator.SetBool(GameConstants.IsWalking, CurrentSpeed != 0);
@@ -235,29 +236,40 @@ public class MeepleController : MonoBehaviour
         }
     }
 
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(ClosestSurfacePoint, 20);
+    }
+
+    Vector3 ClosestSurfacePoint = Vector3.zero;
+    Vector3 CastOffset = new Vector3(0, 20, 0);
     public float DetectGroundAndVerticalMovement(Vector3 fromPosition)
     {
+        ClosestSurfacePoint = Vector3.zero;
         var dyMax = GameController.TheGameData.GamePrefs.Environment.Gravity * Time.deltaTime;
 
-        RaycastHit2D[] hits = Physics2D.RaycastAll(fromPosition, Vector2.down, dyMax, GameConstants.LayerMaskDefault);
+        RaycastHit2D[] hits = Physics2D.RaycastAll(fromPosition+CastOffset, Vector3.down, 10*dyMax + CastOffset.y, GameConstants.LayerMaskDefault);
+        Debug.DrawLine(fromPosition + CastOffset - new Vector3(5,0,0), fromPosition - new Vector3(5, dyMax + CastOffset.y, 0), Color.blue);
 
-        float dyActual = 0;
-        if (hits.Length == 0)
+        float dyActual = dyMax;
+        for (int i = 0; i < hits.Length; i++)
         {
-            dyActual = dyMax;
-        }
-        else
-        {
-            for (int i = 0; i < hits.Length; i++)
+            if (hits[i].collider.gameObject.CompareTag(GameConstants.Surface))
             {
-                if (hits[i].collider.gameObject.CompareTag(GameConstants.Surface))
+                if (ClosestSurfacePoint == Vector3.zero)
+                    ClosestSurfacePoint = hits[i].point;
+
+                // Looking for the shortest distance to 'fall' before we find a surface.
+                if ((hits[i].distance - CastOffset.y) < dyActual)
                 {
-                    if (dyActual == 0 || hits[i].distance < dyActual)
-                        dyActual = hits[i].distance;
+                    dyActual = hits[i].distance - CastOffset.y;
+                    ClosestSurfacePoint = hits[i].point;
                 }
             }
         }
 
+        Debug.DrawLine(fromPosition + CastOffset, fromPosition - CastOffset - new Vector3(0, dyActual, 0), Color.red);
         return -dyActual;
     }
 
