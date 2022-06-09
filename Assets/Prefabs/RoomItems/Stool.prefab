@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7463084125998183638, guid: bb517ad10910e7047a67218e0978a3c8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 68.8
+      value: 57
       objectReference: {fileID: 0}
     - target: {fileID: 7463084125998183638, guid: bb517ad10910e7047a67218e0978a3c8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3482,11 +3482,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
       propertyPath: CanBeHandledDirectly
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
       propertyPath: ItemId.serializedGuid
       value: cf0ef3d5-5ace-406b-9c44-b0929bcb912f
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+      propertyPath: AcceptedItems.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7460242865069190601, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
       propertyPath: m_RootOrder

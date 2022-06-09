@@ -32,4 +32,8 @@ public class Environment
 {
     [Tooltip("The multiplier to use for falling items.")]
     public float Gravity = 500f;
+
+    [Tooltip("A vertical offset to apply to a transform when it jumps onto something. This is added after the tranform's " +
+        "destination has been set. It provides a bit of a hoping action on screen.")]
+    public float JumpLandingPointYOffset = -150;
 }

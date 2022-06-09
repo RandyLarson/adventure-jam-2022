@@ -52,10 +52,12 @@ public class MeepleController : MonoBehaviour
             var moveVal = value.Get<Vector2>().normalized;
 
             CurrentVector = moveVal;
+            CurrentSpeed = WalkingSpeed;
         }
         else
         {
             CurrentVector = Vector3.zero;
+            CurrentSpeed = 0;
         }
     }
 
@@ -80,7 +82,7 @@ public class MeepleController : MonoBehaviour
         // If we are holding something, we'll try to use what we are holding on it.
 
         AudioController.Current.PlayRandomSound(Sounds.MeepleMoves);
-        CurrentWalkingDestination = new Vector3(wposition.x, transform.position.y, 0);
+        CurrentWalkingDestination = new Vector3(wposition.x, wposition.y, 0);
         RoomItem itemAtLocation = HandTool.LookForRoomItemAtLocation(wposition);
 
         if (itemAtLocation != null)
@@ -116,57 +118,20 @@ public class MeepleController : MonoBehaviour
 
     private void HandleMovement()
     {
-        CurrentSpeed = 0;
-
         if (CurrentWalkingDestination.HasValue)
         {
             // We've arrived:
             if (Mathf.Abs(transform.position.x - CurrentWalkingDestination.Value.x) < StoppingDistanceFromTarget)
             {
-                CurrentVector = Vector3.zero;
-                CurrentWalkingDestination = null;
 
                 if (ItemToInteractWithAtDestination != null)
                 {
-                    RoomItem asRoomItem = ItemToInteractWithAtDestination.GetComponent<RoomItem>();
-
-                    bool isHoldingItem = HandTool.CurrentlyHolding != null;
-                    bool usedHeldItem = false;
-                    bool didClimb = false;
-
-                    if (HandTool.CurrentlyHolding != null)
-                    {
-                        usedHeldItem = HandTool.TryToUseHeldItemOn(ItemToInteractWithAtDestination);
-                    }
-                    else if (HandTool.IsValidToPickup(ItemToInteractWithAtDestination))
-                    {
-                        HandTool.AttemptPickup(ItemToInteractWithAtDestination);
-                    }
-
-
-                    if (asRoomItem != null)
-                    {
-                        if (!usedHeldItem && asRoomItem.CanClimbOnto)
-                        {
-                            ClimbOnToItem(asRoomItem);
-                            didClimb = true;
-                        }
-                    }
-
-                    if (isHoldingItem)
-                    {
-                        if (usedHeldItem)
-                        {
-                            AudioController.Current.PlayRandomSound(Sounds.ItemsInteract);
-                        }
-                        else
-                        {
-                            AudioController.Current.PlayRandomSound(Sounds.ItemsDontInteract);
-                        }
-                    }
-
+                    HandleItemInteraction(ItemToInteractWithAtDestination, CurrentWalkingDestination, HandTool.CurrentlyHolding);
                     ItemToInteractWithAtDestination = null;
                 }
+
+                CurrentVector = Vector3.zero;
+                CurrentWalkingDestination = null;
             }
             else
             {
@@ -181,11 +146,93 @@ public class MeepleController : MonoBehaviour
 
         OurAnimator.SetBool(GameConstants.IsWalking, CurrentSpeed != 0);
         OurAnimator.SetBool(GameConstants.IsJumping, IsJumping);
+    }
 
-        //if (CurrentWalkingDestination != Vector3.zero)
-        //{
-        //    MoveToward(CurrentWalkingDestination);
-        //}
+
+    private void HandleItemInteraction(GameObject itemToInteractWith, Vector3? pointOfInteraction, GameObject heldItem)
+    {
+        if (null == itemToInteractWith)
+            return;
+
+        RoomItem asRoomItem = itemToInteractWith.GetComponent<RoomItem>();
+
+        if (asRoomItem == null)
+            return;
+
+
+        bool isHoldingItem = heldItem != null;
+        bool tryUseHeldItem = false;
+        bool usedHeldItem = false;
+        bool climbOntoItem = false;
+        bool pickupItem = false;
+        bool pickedUpItem = false;
+
+        // Need to tie-break between picking up and getting atop something (like a stool).
+        // Also need to factor in if the thing we are holding can interact with the thing given.
+        //
+
+        // Precedence:
+        //  1. Held item interacts with item-to-interact-with
+        //  2. Climb-onto if the point of interaction is above the surface of the item-to-interact-with (and it can be climbed onto)
+        //  3. Pick up if able
+
+
+        if ( asRoomItem.CanClimbOnto || asRoomItem.CanBeHandledDirectly )
+        {
+            if ( asRoomItem.CanClimbOnto && asRoomItem.CanBeHandledDirectly )
+            {
+                pickupItem = true;
+
+                Surface itsSurface = asRoomItem.GetComponentInChildren<Surface>();
+                if ( itsSurface != null && itsSurface.SurfaceCollider != null )
+                {
+                    if (pointOfInteraction.HasValue && pointOfInteraction.Value.y > itsSurface.SurfaceCollider.bounds.max.y)
+                    {
+                        climbOntoItem = true;
+                        pickupItem = false;
+                    }
+                }
+            }
+            else
+            {
+                climbOntoItem = asRoomItem.CanClimbOnto;
+                pickupItem = asRoomItem.CanBeHandledDirectly;
+            }
+        }
+
+        if (HandTool.CurrentlyHolding != null)
+        {
+            tryUseHeldItem = true;
+        }
+
+        if ( tryUseHeldItem )
+        {
+            usedHeldItem = HandTool.TryToUseHeldItemOn(itemToInteractWith);
+        }
+
+        if (!usedHeldItem && climbOntoItem)
+        {
+            ClimbOnToItem(asRoomItem);
+        }
+        else if (pickupItem)
+        {
+            pickedUpItem = HandTool.AttemptPickup(itemToInteractWith);
+        }
+
+
+        // Audio
+        // For item use or not.
+        if ( tryUseHeldItem && !climbOntoItem && !pickupItem)
+        { 
+            if (usedHeldItem)
+            {
+                AudioController.Current.PlayRandomSound(Sounds.ItemsInteract);
+            }
+            else
+            {
+                AudioController.Current.PlayRandomSound(Sounds.ItemsDontInteract);
+            }
+        }
     }
 
     private void ClimbOnToItem(RoomItem asRoomItem)
@@ -197,7 +244,7 @@ public class MeepleController : MonoBehaviour
         if (itsSurface == null)
             return;
 
-        transform.position = new Vector3(transform.position.x, itsSurface.transform.position.y, transform.position.z);
+        transform.position = new Vector3(transform.position.x, itsSurface.transform.position.y - GameController.TheGameData.GamePrefs.Environment.JumpLandingPointYOffset, transform.position.z);
     }
 
     public virtual void MoveToward(Vector3 destination)
