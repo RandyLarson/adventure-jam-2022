@@ -45,7 +45,7 @@ public class MeepleController : MonoBehaviour
         OurAnimator = GetComponentInChildren<Animator>();
         HandTool = GetComponentInChildren<HandTool>();
         InputActions = GetComponentInChildren<PlayerInput>();
-        InputActionJump = InputActions.actions["Jump"];
+        InputActionJump = InputActions.actions[GameConstants.Jump];
     }
 
     Vector3? CurrentWalkingDestination = null;
@@ -215,8 +215,18 @@ public class MeepleController : MonoBehaviour
         if (asRoomItem == null)
             return false;
 
-        // Are we close enough to interact with the item?
-        float dxToItem = Vector2.Distance(asRoomItem.transform.position, ItemInteractionMeasurementLocation.transform.position);
+        // Are we close enough to interact with the item
+        // Find the collider, and if not then use the transform position.
+        Vector3 measureFrom = asRoomItem.transform.position;
+
+        var itsCollider = asRoomItem.gameObject.GetComponentInChildren<Collider2D>();
+        if (itsCollider != null)
+        {
+            measureFrom = itsCollider.ClosestPoint(ItemInteractionMeasurementLocation.transform.position);
+        }
+
+        float dxToItem = Vector2.Distance(measureFrom, ItemInteractionMeasurementLocation.transform.position);
+
         if (dxToItem > GameController.TheGameData.GamePrefs.Environment.MinimumDistanceOfInteraction)
         {
             return false;

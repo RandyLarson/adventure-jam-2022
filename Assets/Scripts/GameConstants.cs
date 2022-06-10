@@ -5,6 +5,7 @@ public static class GameConstants
 	public static string Default = "Default";
 	public static string IsWalking = "Walking";
 	public static string IsJumping = "Jumping";
+	public static string Jump = "Jump";
 	public static string Surface = "Surface";
 
 	public static string TagGameController = "GameController";
