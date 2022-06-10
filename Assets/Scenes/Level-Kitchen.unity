@@ -123,6 +123,68 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &68388567
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1444077435}
+    m_Modifications:
+    - target: {fileID: 5014662313945718976, guid: 01f094a85c50b90419ba9b4712341d13, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 01f094a85c50b90419ba9b4712341d13, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1755
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 01f094a85c50b90419ba9b4712341d13, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -346
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 01f094a85c50b90419ba9b4712341d13, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 01f094a85c50b90419ba9b4712341d13, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 01f094a85c50b90419ba9b4712341d13, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 01f094a85c50b90419ba9b4712341d13, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 01f094a85c50b90419ba9b4712341d13, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 01f094a85c50b90419ba9b4712341d13, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 01f094a85c50b90419ba9b4712341d13, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 01f094a85c50b90419ba9b4712341d13, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718991, guid: 01f094a85c50b90419ba9b4712341d13, type: 3}
+      propertyPath: m_Name
+      value: CupboardDoorOrDrawer-1-YellowLeft
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 01f094a85c50b90419ba9b4712341d13, type: 3}
+--- !u!4 &68388568 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5014662313945718976, guid: 01f094a85c50b90419ba9b4712341d13, type: 3}
+  m_PrefabInstance: {fileID: 68388567}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &152401612 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 745937956557665006, guid: bbfa5a80fc493e14a81e262f12733ea9, type: 3}
@@ -358,6 +420,130 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &299173230
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1444077435}
+    m_Modifications:
+    - target: {fileID: 5014662313945718976, guid: be1bccb8a994f4a43a27c41830ff48f6, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: be1bccb8a994f4a43a27c41830ff48f6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -732
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: be1bccb8a994f4a43a27c41830ff48f6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -471
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: be1bccb8a994f4a43a27c41830ff48f6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: be1bccb8a994f4a43a27c41830ff48f6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: be1bccb8a994f4a43a27c41830ff48f6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: be1bccb8a994f4a43a27c41830ff48f6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: be1bccb8a994f4a43a27c41830ff48f6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: be1bccb8a994f4a43a27c41830ff48f6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: be1bccb8a994f4a43a27c41830ff48f6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: be1bccb8a994f4a43a27c41830ff48f6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718991, guid: be1bccb8a994f4a43a27c41830ff48f6, type: 3}
+      propertyPath: m_Name
+      value: CupboardDoorOrDrawer-4-DrawerBottom
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: be1bccb8a994f4a43a27c41830ff48f6, type: 3}
+--- !u!4 &299173231 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5014662313945718976, guid: be1bccb8a994f4a43a27c41830ff48f6, type: 3}
+  m_PrefabInstance: {fileID: 299173230}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &315796061
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1444077435}
+    m_Modifications:
+    - target: {fileID: 5014662313945718976, guid: 52b13483ff172354cbffae58b4a485b4, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 52b13483ff172354cbffae58b4a485b4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -730
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 52b13483ff172354cbffae58b4a485b4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -250
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 52b13483ff172354cbffae58b4a485b4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 52b13483ff172354cbffae58b4a485b4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 52b13483ff172354cbffae58b4a485b4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 52b13483ff172354cbffae58b4a485b4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 52b13483ff172354cbffae58b4a485b4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 52b13483ff172354cbffae58b4a485b4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 52b13483ff172354cbffae58b4a485b4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 52b13483ff172354cbffae58b4a485b4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718991, guid: 52b13483ff172354cbffae58b4a485b4, type: 3}
+      propertyPath: m_Name
+      value: CupboardDoorOrDrawer-4-DrawerTop
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 52b13483ff172354cbffae58b4a485b4, type: 3}
+--- !u!4 &315796062 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5014662313945718976, guid: 52b13483ff172354cbffae58b4a485b4, type: 3}
+  m_PrefabInstance: {fileID: 315796061}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &509428790
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,6 +866,130 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f1ea7964f79856428b1c92d6d6fea08, type: 3}
+--- !u!1001 &1020877774
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1444077435}
+    m_Modifications:
+    - target: {fileID: 5014662313945718976, guid: d71b8abfba1272f4cb3cd9e4f0895083, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: d71b8abfba1272f4cb3cd9e4f0895083, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -101
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: d71b8abfba1272f4cb3cd9e4f0895083, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -349
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: d71b8abfba1272f4cb3cd9e4f0895083, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: d71b8abfba1272f4cb3cd9e4f0895083, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: d71b8abfba1272f4cb3cd9e4f0895083, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: d71b8abfba1272f4cb3cd9e4f0895083, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: d71b8abfba1272f4cb3cd9e4f0895083, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: d71b8abfba1272f4cb3cd9e4f0895083, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: d71b8abfba1272f4cb3cd9e4f0895083, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: d71b8abfba1272f4cb3cd9e4f0895083, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718991, guid: d71b8abfba1272f4cb3cd9e4f0895083, type: 3}
+      propertyPath: m_Name
+      value: CupboardDoorOrDrawer-7-CupXL-Left
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d71b8abfba1272f4cb3cd9e4f0895083, type: 3}
+--- !u!4 &1020877775 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5014662313945718976, guid: d71b8abfba1272f4cb3cd9e4f0895083, type: 3}
+  m_PrefabInstance: {fileID: 1020877774}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1087093468
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1444077435}
+    m_Modifications:
+    - target: {fileID: 5014662313945718976, guid: a45a6c26d008bb44e840d27c64674bec, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: a45a6c26d008bb44e840d27c64674bec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1118
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: a45a6c26d008bb44e840d27c64674bec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -354
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: a45a6c26d008bb44e840d27c64674bec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: a45a6c26d008bb44e840d27c64674bec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: a45a6c26d008bb44e840d27c64674bec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: a45a6c26d008bb44e840d27c64674bec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: a45a6c26d008bb44e840d27c64674bec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: a45a6c26d008bb44e840d27c64674bec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: a45a6c26d008bb44e840d27c64674bec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: a45a6c26d008bb44e840d27c64674bec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718991, guid: a45a6c26d008bb44e840d27c64674bec, type: 3}
+      propertyPath: m_Name
+      value: CupboardDoorOrDrawer-9-Cup-XL
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a45a6c26d008bb44e840d27c64674bec, type: 3}
+--- !u!4 &1087093469 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5014662313945718976, guid: a45a6c26d008bb44e840d27c64674bec, type: 3}
+  m_PrefabInstance: {fileID: 1087093468}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1177462140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -823,6 +1133,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7463084125998183638, guid: bb517ad10910e7047a67218e0978a3c8, type: 3}
   m_PrefabInstance: {fileID: 1225117102}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1245336040
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1444077435}
+    m_Modifications:
+    - target: {fileID: 601653421895750724, guid: 4a0d90de660f57b449b5259ae68cac4f, type: 3}
+      propertyPath: m_Name
+      value: CupboardDoorOpen-YellowDoorOpenLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 601653421895750731, guid: 4a0d90de660f57b449b5259ae68cac4f, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 601653421895750731, guid: 4a0d90de660f57b449b5259ae68cac4f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1747
+      objectReference: {fileID: 0}
+    - target: {fileID: 601653421895750731, guid: 4a0d90de660f57b449b5259ae68cac4f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -355
+      objectReference: {fileID: 0}
+    - target: {fileID: 601653421895750731, guid: 4a0d90de660f57b449b5259ae68cac4f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 601653421895750731, guid: 4a0d90de660f57b449b5259ae68cac4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 601653421895750731, guid: 4a0d90de660f57b449b5259ae68cac4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 601653421895750731, guid: 4a0d90de660f57b449b5259ae68cac4f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4a0d90de660f57b449b5259ae68cac4f, type: 3}
+--- !u!4 &1245336041 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 601653421895750731, guid: 4a0d90de660f57b449b5259ae68cac4f, type: 3}
+  m_PrefabInstance: {fileID: 1245336040}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1444077433
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,7 +1237,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e1242c3f9193d494a865412bd2c03869, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a698c38079cfccb4f9a0ae7240d4e94a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -905,6 +1261,19 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1225117103}
+  - {fileID: 68388568}
+  - {fileID: 2096044349}
+  - {fileID: 2078852191}
+  - {fileID: 299173231}
+  - {fileID: 1680049379}
+  - {fileID: 315796062}
+  - {fileID: 1978922127}
+  - {fileID: 1760800279}
+  - {fileID: 1020877775}
+  - {fileID: 1764876012}
+  - {fileID: 1087093469}
+  - {fileID: 2012751322}
+  - {fileID: 1245336041}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1114,6 +1483,192 @@ Transform:
   m_Father: {fileID: 509428792}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1680049378
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1444077435}
+    m_Modifications:
+    - target: {fileID: 5014662313945718976, guid: 2dc4b9575650fa3469e02f7078450c19, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 2dc4b9575650fa3469e02f7078450c19, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -730
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 2dc4b9575650fa3469e02f7078450c19, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -362
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 2dc4b9575650fa3469e02f7078450c19, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 2dc4b9575650fa3469e02f7078450c19, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 2dc4b9575650fa3469e02f7078450c19, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 2dc4b9575650fa3469e02f7078450c19, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 2dc4b9575650fa3469e02f7078450c19, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 2dc4b9575650fa3469e02f7078450c19, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 2dc4b9575650fa3469e02f7078450c19, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 2dc4b9575650fa3469e02f7078450c19, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718991, guid: 2dc4b9575650fa3469e02f7078450c19, type: 3}
+      propertyPath: m_Name
+      value: CupboardDoorOrDrawer-4-DrawerMid
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2dc4b9575650fa3469e02f7078450c19, type: 3}
+--- !u!4 &1680049379 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5014662313945718976, guid: 2dc4b9575650fa3469e02f7078450c19, type: 3}
+  m_PrefabInstance: {fileID: 1680049378}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1760800278
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1444077435}
+    m_Modifications:
+    - target: {fileID: 5014662313945718976, guid: b75b79ce06191de47aff3ea34adbe234, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: b75b79ce06191de47aff3ea34adbe234, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -133
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: b75b79ce06191de47aff3ea34adbe234, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -394
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: b75b79ce06191de47aff3ea34adbe234, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: b75b79ce06191de47aff3ea34adbe234, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: b75b79ce06191de47aff3ea34adbe234, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: b75b79ce06191de47aff3ea34adbe234, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: b75b79ce06191de47aff3ea34adbe234, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: b75b79ce06191de47aff3ea34adbe234, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: b75b79ce06191de47aff3ea34adbe234, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: b75b79ce06191de47aff3ea34adbe234, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718991, guid: b75b79ce06191de47aff3ea34adbe234, type: 3}
+      propertyPath: m_Name
+      value: CupboardDoorOrDrawer-6-GreenCupRight
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b75b79ce06191de47aff3ea34adbe234, type: 3}
+--- !u!4 &1760800279 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5014662313945718976, guid: b75b79ce06191de47aff3ea34adbe234, type: 3}
+  m_PrefabInstance: {fileID: 1760800278}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1764876011
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1444077435}
+    m_Modifications:
+    - target: {fileID: 5014662313945718976, guid: bdc1ac156e646eb4194d6317f67fca26, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: bdc1ac156e646eb4194d6317f67fca26, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 429
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: bdc1ac156e646eb4194d6317f67fca26, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -346
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: bdc1ac156e646eb4194d6317f67fca26, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: bdc1ac156e646eb4194d6317f67fca26, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: bdc1ac156e646eb4194d6317f67fca26, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: bdc1ac156e646eb4194d6317f67fca26, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: bdc1ac156e646eb4194d6317f67fca26, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: bdc1ac156e646eb4194d6317f67fca26, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: bdc1ac156e646eb4194d6317f67fca26, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: bdc1ac156e646eb4194d6317f67fca26, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718991, guid: bdc1ac156e646eb4194d6317f67fca26, type: 3}
+      propertyPath: m_Name
+      value: CupboardDoorOrDrawer-8-CupXL-Right
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bdc1ac156e646eb4194d6317f67fca26, type: 3}
+--- !u!4 &1764876012 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5014662313945718976, guid: bdc1ac156e646eb4194d6317f67fca26, type: 3}
+  m_PrefabInstance: {fileID: 1764876011}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1920529657
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1171,6 +1726,254 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 929842606b0cdc9459bad0d818df4509, type: 3}
+--- !u!1001 &1978922126
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1444077435}
+    m_Modifications:
+    - target: {fileID: 5014662313945718976, guid: c0a2584f8cc75de4384eea6af19df794, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: c0a2584f8cc75de4384eea6af19df794, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -602
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: c0a2584f8cc75de4384eea6af19df794, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -394
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: c0a2584f8cc75de4384eea6af19df794, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: c0a2584f8cc75de4384eea6af19df794, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: c0a2584f8cc75de4384eea6af19df794, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: c0a2584f8cc75de4384eea6af19df794, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: c0a2584f8cc75de4384eea6af19df794, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: c0a2584f8cc75de4384eea6af19df794, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: c0a2584f8cc75de4384eea6af19df794, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: c0a2584f8cc75de4384eea6af19df794, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718991, guid: c0a2584f8cc75de4384eea6af19df794, type: 3}
+      propertyPath: m_Name
+      value: CupboardDoorOrDrawer-5-GreenCupLeft
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c0a2584f8cc75de4384eea6af19df794, type: 3}
+--- !u!4 &1978922127 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5014662313945718976, guid: c0a2584f8cc75de4384eea6af19df794, type: 3}
+  m_PrefabInstance: {fileID: 1978922126}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2012751321
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1444077435}
+    m_Modifications:
+    - target: {fileID: 601653421895750724, guid: 248a2b8dcfcc5a141a04bf87c12341f4, type: 3}
+      propertyPath: m_Name
+      value: CupboardDoorOpen-YellowDoorOpenRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 601653421895750731, guid: 248a2b8dcfcc5a141a04bf87c12341f4, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 601653421895750731, guid: 248a2b8dcfcc5a141a04bf87c12341f4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1123
+      objectReference: {fileID: 0}
+    - target: {fileID: 601653421895750731, guid: 248a2b8dcfcc5a141a04bf87c12341f4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -357
+      objectReference: {fileID: 0}
+    - target: {fileID: 601653421895750731, guid: 248a2b8dcfcc5a141a04bf87c12341f4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 601653421895750731, guid: 248a2b8dcfcc5a141a04bf87c12341f4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9366723
+      objectReference: {fileID: 0}
+    - target: {fileID: 601653421895750731, guid: 248a2b8dcfcc5a141a04bf87c12341f4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 601653421895750731, guid: 248a2b8dcfcc5a141a04bf87c12341f4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.35020733
+      objectReference: {fileID: 0}
+    - target: {fileID: 601653421895750731, guid: 248a2b8dcfcc5a141a04bf87c12341f4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 601653421895750731, guid: 248a2b8dcfcc5a141a04bf87c12341f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 601653421895750731, guid: 248a2b8dcfcc5a141a04bf87c12341f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -41
+      objectReference: {fileID: 0}
+    - target: {fileID: 601653421895750731, guid: 248a2b8dcfcc5a141a04bf87c12341f4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 248a2b8dcfcc5a141a04bf87c12341f4, type: 3}
+--- !u!4 &2012751322 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 601653421895750731, guid: 248a2b8dcfcc5a141a04bf87c12341f4, type: 3}
+  m_PrefabInstance: {fileID: 2012751321}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2078852190
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1444077435}
+    m_Modifications:
+    - target: {fileID: 5014662313945718976, guid: 7fcc84122ca4bc94499ea3e33add3cb2, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 7fcc84122ca4bc94499ea3e33add3cb2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1057
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 7fcc84122ca4bc94499ea3e33add3cb2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -394
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 7fcc84122ca4bc94499ea3e33add3cb2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 7fcc84122ca4bc94499ea3e33add3cb2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 7fcc84122ca4bc94499ea3e33add3cb2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 7fcc84122ca4bc94499ea3e33add3cb2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 7fcc84122ca4bc94499ea3e33add3cb2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 7fcc84122ca4bc94499ea3e33add3cb2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 7fcc84122ca4bc94499ea3e33add3cb2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 7fcc84122ca4bc94499ea3e33add3cb2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718991, guid: 7fcc84122ca4bc94499ea3e33add3cb2, type: 3}
+      propertyPath: m_Name
+      value: CupboardDoorOrDrawer-3-CupGreenSingle
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7fcc84122ca4bc94499ea3e33add3cb2, type: 3}
+--- !u!4 &2078852191 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5014662313945718976, guid: 7fcc84122ca4bc94499ea3e33add3cb2, type: 3}
+  m_PrefabInstance: {fileID: 2078852190}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2096044348
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1444077435}
+    m_Modifications:
+    - target: {fileID: 5014662313945718976, guid: 3d9d88f5cf8ee87438c6ad2f930a4ed8, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 3d9d88f5cf8ee87438c6ad2f930a4ed8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1118
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 3d9d88f5cf8ee87438c6ad2f930a4ed8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -349
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 3d9d88f5cf8ee87438c6ad2f930a4ed8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 3d9d88f5cf8ee87438c6ad2f930a4ed8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 3d9d88f5cf8ee87438c6ad2f930a4ed8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 3d9d88f5cf8ee87438c6ad2f930a4ed8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 3d9d88f5cf8ee87438c6ad2f930a4ed8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 3d9d88f5cf8ee87438c6ad2f930a4ed8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 3d9d88f5cf8ee87438c6ad2f930a4ed8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718976, guid: 3d9d88f5cf8ee87438c6ad2f930a4ed8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014662313945718991, guid: 3d9d88f5cf8ee87438c6ad2f930a4ed8, type: 3}
+      propertyPath: m_Name
+      value: CupboardDoorOrDrawer-2-YellowRight
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3d9d88f5cf8ee87438c6ad2f930a4ed8, type: 3}
+--- !u!4 &2096044349 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5014662313945718976, guid: 3d9d88f5cf8ee87438c6ad2f930a4ed8, type: 3}
+  m_PrefabInstance: {fileID: 2096044348}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &745937956405822498
 PrefabInstance:
   m_ObjectHideFlags: 0
