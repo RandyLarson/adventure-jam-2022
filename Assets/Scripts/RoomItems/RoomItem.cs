@@ -9,13 +9,20 @@ public class RoomItem : MonoBehaviour
     [Tooltip("Set to true if interactions should be done when an item collides with something else it can " +
         "interact with. Otherwise, it needs to be set to (e.g., after the pointer is clicked).")]
     public bool AutoActivateOnCollision = false;
+    [Tooltip("Can be climbed onto (e.g., stools)")]
     public bool CanClimbOnto = false;
+    [Tooltip("Can be picked up and held")]
     public bool CanBeHandledDirectly = false;
-    public bool ReplacesPlacementUi = false;
+    [Tooltip("The item can't be picked up and held, but the pick-up action peforms the activation. " +
+        "This is for opening drawers or cupboards.")]
+    public bool PickingUpActivatesAction = false;
     public SpriteRenderer ImageIdle;
     public SpriteRenderer ImageActive;
 
     public AcceptedItem[] AcceptedItems;
+
+    [Tooltip("Actions to be performed when this item is `activated` (PerformActivationActions is called)")]
+    public ActivationActions ActivationActions;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -53,43 +60,64 @@ public class RoomItem : MonoBehaviour
         return false;
     }
 
-    private void ExecuteAcceptance(AcceptedItem acceptedItemProfile, RoomItem incomingItem)
+    public void PerformSelfActivationActions()
     {
-        if ( acceptedItemProfile.ItemProducedWhenUsed != null )
+        PerformActivationActions(ActivationActions);
+        if (ActivationActions.DestroySelfOnUse)
+            Destroy(gameObject);
+
+        if (ActivationActions.TargetItemReplacement != null)
+            Destroy(gameObject);
+    }
+
+    public void PerformActivationActions(ActivationActions activationActions)
+    {
+        if (null == activationActions)
+            return;
+
+        if (activationActions.ItemProducedWhenUsed != null)
         {
-            Vector3 spawnPt = acceptedItemProfile.ItemProducedLocation != null ? acceptedItemProfile.ItemProducedLocation.transform.position : transform.position;
-            GlobalSpawnQueue.AddToQueue(acceptedItemProfile.ItemProducedWhenUsed, spawnPt);
+            Vector3 spawnPt = activationActions.ItemProducedLocation != null ? activationActions.ItemProducedLocation.transform.position : transform.position;
+            GlobalSpawnQueue.AddToQueue(activationActions.ItemProducedWhenUsed, spawnPt);
         }
 
-        if ( acceptedItemProfile.TargetItemReplacement != null )
+        if (activationActions.TargetItemReplacement != null)
         {
-            var replacement = GlobalSpawnQueue.Instantiate(acceptedItemProfile.TargetItemReplacement, transform.position, transform.rotation, transform.parent);
-            if ( replacement.TryGetComponent<Rigidbody2D>(out var rb))
+            var replacement = GlobalSpawnQueue.Instantiate(activationActions.TargetItemReplacement, transform.position, transform.rotation, transform.parent);
+            if (replacement.TryGetComponent<Rigidbody2D>(out var rb))
             {
                 var ourRb = gameObject.GetComponent<Rigidbody2D>();
                 rb.velocity = ourRb.velocity;
             }
-            //GlobalSpawnQueue.AddToQueue(acceptedItemProfile.TargetItemReplacement, transform.position);
-            Destroy(gameObject);
         }
 
-        if ( acceptedItemProfile.IsAcceptedItemDesroyedOnUse )
-        {
-            Destroy(incomingItem.gameObject);
-        }
-
-        foreach (var item in acceptedItemProfile.ItemsToEnable)
+        foreach (var item in activationActions.ItemsToEnable)
         {
             item.SafeSetActive(true);
         }
 
-        foreach (var item in acceptedItemProfile.ItemsToDisable)
+        foreach (var item in activationActions.ItemsToDisable)
         {
             item.SafeSetActive(false);
         }
 
-        acceptedItemProfile.OnUsage?.Invoke();
+        activationActions.OnUsage?.Invoke();
 
-        GameController.TheGameController.LogGameAchievement(acceptedItemProfile.GameObjectiveAchieved);
+        GameController.TheGameController.LogGameAchievement(activationActions.GameObjectiveAchieved);
+    }
+
+    private void ExecuteAcceptance(AcceptedItem acceptedItemProfile, RoomItem incomingItem)
+    {
+        PerformActivationActions(acceptedItemProfile);
+
+        if (acceptedItemProfile.TargetItemReplacement != null)
+        {
+            Destroy(gameObject);
+        }    
+
+        if ( acceptedItemProfile.DestroySelfOnUse )
+        {
+            Destroy(incomingItem.gameObject);
+        }
     }
 }

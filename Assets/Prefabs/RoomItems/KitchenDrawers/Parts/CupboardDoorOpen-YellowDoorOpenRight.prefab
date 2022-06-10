@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 482581753785231268, guid: caae18d01ab5a1f42a5c0a3fcfbd2ff5, type: 3}
       propertyPath: m_Name
-      value: CupboardDoorOpen-BasePrefab
+      value: CupboardDoorOpen-YellowDoorOpenRight
       objectReference: {fileID: 0}
     - target: {fileID: 482581753785231275, guid: caae18d01ab5a1f42a5c0a3fcfbd2ff5, type: 3}
       propertyPath: m_RootOrder
@@ -29,7 +29,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 482581753785231275, guid: caae18d01ab5a1f42a5c0a3fcfbd2ff5, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9366723
       objectReference: {fileID: 0}
     - target: {fileID: 482581753785231275, guid: caae18d01ab5a1f42a5c0a3fcfbd2ff5, type: 3}
       propertyPath: m_LocalRotation.x
@@ -37,7 +37,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 482581753785231275, guid: caae18d01ab5a1f42a5c0a3fcfbd2ff5, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.35020733
       objectReference: {fileID: 0}
     - target: {fileID: 482581753785231275, guid: caae18d01ab5a1f42a5c0a3fcfbd2ff5, type: 3}
       propertyPath: m_LocalRotation.z

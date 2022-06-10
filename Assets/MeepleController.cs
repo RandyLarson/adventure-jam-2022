@@ -203,6 +203,7 @@ public class MeepleController : MonoBehaviour
         bool pickupItem = false;
         bool pickedUpItem = false;
 
+
         // Need to tie-break between picking up and getting atop something (like a stool).
         // Also need to factor in if the thing we are holding can interact with the thing given.
         //
@@ -253,6 +254,10 @@ public class MeepleController : MonoBehaviour
         else if (pickupItem)
         {
             pickedUpItem = HandTool.AttemptPickup(itemToInteractWith);
+        }
+        else if (asRoomItem.PickingUpActivatesAction)
+        {
+            asRoomItem.PerformSelfActivationActions();
         }
 
 

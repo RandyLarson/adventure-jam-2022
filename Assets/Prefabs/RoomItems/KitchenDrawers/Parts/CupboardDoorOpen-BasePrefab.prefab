@@ -291,6 +291,18 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[32].y
       value: -190.79999
       objectReference: {fileID: 0}
+    - target: {fileID: 3072928957059476438, guid: f76ef8693ee4dbd408e2698f28d55795, type: 3}
+      propertyPath: PickingUpActivatesAction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3072928957059476438, guid: f76ef8693ee4dbd408e2698f28d55795, type: 3}
+      propertyPath: ActivationActions.ItemsToDisable.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3072928957059476438, guid: f76ef8693ee4dbd408e2698f28d55795, type: 3}
+      propertyPath: ActivationActions.ItemsToDisable.Array.data[0]
+      value: 
+      objectReference: {fileID: 482581753785231268}
     - target: {fileID: 3072928957059476439, guid: f76ef8693ee4dbd408e2698f28d55795, type: 3}
       propertyPath: m_Name
       value: CupboardDoorOpen-BasePrefab
@@ -341,3 +353,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f76ef8693ee4dbd408e2698f28d55795, type: 3}
+--- !u!1 &482581753785231268 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3072928957059476439, guid: f76ef8693ee4dbd408e2698f28d55795, type: 3}
+  m_PrefabInstance: {fileID: 3177084025625807987}
+  m_PrefabAsset: {fileID: 0}

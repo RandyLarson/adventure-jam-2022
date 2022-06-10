@@ -130,32 +130,19 @@ public class HandTool : MonoBehaviour
         return null;
     }
 
+
     internal bool IsValidToPickup(GameObject item)
     {
-        if (item != null && item.TryGetComponent<RoomItem>(out RoomItem roomItem))
+        var asRoomItem = GetRoomItem(item, true);
+        if (asRoomItem != null)
         {
-            return IsValidToPickup(roomItem);
+            return asRoomItem.CanBeHandledDirectly;
+            //return true;
         }
 
         return false;
     }
 
-    public bool IsValidToPickup(RoomItem item)
-    {
-        if (item != null)
-        {
-            var asRoomItem = item.GetComponentInParent<RoomItem>();
-            if (asRoomItem != null)
-            {
-                if (ValidToPickup(asRoomItem.gameObject))
-                {
-                    return true;
-                }
-            }
-        }
-
-        return false;
-    }
 
     internal GameObject LookForPickableItemAtLocation(Vector3 atPosition)
     {
@@ -164,9 +151,8 @@ public class HandTool : MonoBehaviour
         for (int i = 0; i < numHits; i++)
         {
             Collider2D item = ColliderHits[i];
-            var asRoomItem = item.GetComponentInParent<RoomItem>();
-            if (IsValidToPickup(asRoomItem))
-                return asRoomItem.gameObject;
+            if (IsValidToPickup(item.gameObject))
+                return item.gameObject;
         }
         return null;
     }
@@ -457,8 +443,6 @@ public class HandTool : MonoBehaviour
                 }
 
                 CurrentlyHolding.transform.localScale = Vector3.one;
-                if (asRoomItem.ReplacesPlacementUi)
-                    CurrentlyHolding.transform.SetPositionAndRotation(transform.position, transform.rotation);
 
                 OnPickupItem?.Invoke(asRoomItem);
                 AudioController.Current?.PlayRandomSound(Sounds.ItemPickedUp);
