@@ -219,9 +219,9 @@ MonoBehaviour:
   ActiveHighlightMarker: {fileID: 0}
   ApplyHighlightColor: 1
   UseColorOverride: 0
-  HighlightColorOverride: {r: 152, g: 255, b: 0, a: 1}
+  HighlightColorOverride: {r: 0.8980393, g: 0.18823531, b: 0.1764706, a: 1}
   HighlightRenderer: {fileID: 5577558466935958858}
-  AutoHighlightOnPointer: 1
+  AutoHighlightOnPointer: 0
   UseSystemCursorLocation: 1
   OurCollider: {fileID: 5204500391590021437}
 --- !u!114 &7460242865069190599
@@ -236,21 +236,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: febb5c01671b08b4e8f9e76fe9a3bdb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AvaialbleItems: {fileID: 11400000, guid: 9d1bdc318aa19e6479fe0f5e9a5f0a38, type: 2}
-  Kind: 
+  ItemId:
+    serializedGuid: 50566d53-4713-4baa-8367-a2480d3c7734
   AutoActivateOnCollision: 0
   CanClimbOnto: 0
   CanBeHandledDirectly: 1
-  ReplacesPlacementUi: 0
+  PickingUpActivatesAction: 0
   ImageIdle: {fileID: 0}
   ImageActive: {fileID: 0}
   AcceptedItems:
   - GameObjectiveAchieved: 
-    AcceptedItemPrototype: {fileID: 0}
     ItemProducedWhenUsed: {fileID: 0}
     ItemProducedLocation: {fileID: 0}
     TargetItemReplacement: {fileID: 0}
-    IsAcceptedItemDesroyedOnUse: 0
+    DestroySelfOnUse: 0
+    ItemsToEnable: []
+    ItemsToDisable: []
+    OnUsage:
+      m_PersistentCalls:
+        m_Calls: []
+    AcceptedItemPrototype: {fileID: 0}
+    IsAcceptedItemDestroyedOnUse: 0
+  ActivationActions:
+    GameObjectiveAchieved: 
+    ItemProducedWhenUsed: {fileID: 0}
+    ItemProducedLocation: {fileID: 0}
+    TargetItemReplacement: {fileID: 0}
+    DestroySelfOnUse: 0
     ItemsToEnable: []
     ItemsToDisable: []
     OnUsage:

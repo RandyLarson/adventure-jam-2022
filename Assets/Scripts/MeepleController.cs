@@ -55,7 +55,7 @@ public class MeepleController : MonoBehaviour
     public GameObject ItemInteractionMeasurementLocation;
 
     [ReadOnly]
-    public GameObject ItemToInteractWithAtDestination;
+    public RoomItem ItemToInteractWithAtDestination;
     public Vector3 InputVector = Vector3.zero;
     public Vector3 CurrentVector = Vector3.zero;
 
@@ -126,7 +126,7 @@ public class MeepleController : MonoBehaviour
 
         if (itemAtLocation != null)
         {
-            ItemToInteractWithAtDestination = itemAtLocation.gameObject;
+            ItemToInteractWithAtDestination = itemAtLocation;
         }
         else
         {
@@ -157,29 +157,50 @@ public class MeepleController : MonoBehaviour
 
     private void HandleMovement()
     {
+        bool doItemInteraction = false;
+        bool haveArrived = false;
+
         if (CurrentWalkingDestination.HasValue)
         {
-            // We've arrived:
-            if (Mathf.Abs(transform.position.x - CurrentWalkingDestination.Value.x) < StoppingDistanceFromTarget)
+            if (ItemToInteractWithAtDestination != null)
             {
-                if (ItemToInteractWithAtDestination != null)
+                // If we are not yet moving, and the item that is clicked on is within reach, just do it.
+                if (CurrentSpeed == 0 && ItemToInteractWithAtDestination.AllowActivationWithoutMovingToClickedPoint && CanInteractWith(ItemToInteractWithAtDestination))
                 {
-                    HandleItemInteraction(ItemToInteractWithAtDestination, CurrentWalkingDestination, HandTool.CurrentlyHolding);
-                    ItemToInteractWithAtDestination = null;
+                    doItemInteraction = true;
+                    haveArrived = true;
                 }
+            }
 
+            if (!doItemInteraction)
+            {
+                // Have we arrived?
+                if (Mathf.Abs(transform.position.x - CurrentWalkingDestination.Value.x) < StoppingDistanceFromTarget)
+                {
+                    haveArrived = true;
+                    doItemInteraction = ItemToInteractWithAtDestination != null;
+                }
+                else
+                {
+                    CurrentVector = (CurrentWalkingDestination.Value - transform.position).normalized;
+                    CurrentVector.y = 0;
+                    CurrentSpeed = WalkingSpeed;
+                }
+            }
+
+            if (doItemInteraction)
+            {
+                HandleItemInteraction(ItemToInteractWithAtDestination.gameObject, CurrentWalkingDestination, HandTool.CurrentlyHolding);
+                ItemToInteractWithAtDestination = null;
+            }
+
+            if (haveArrived)
+            {
                 CurrentVector = Vector3.zero;
                 CurrentSpeed = 0;
                 CurrentWalkingDestination = null;
             }
-            else
-            {
-                CurrentVector = (CurrentWalkingDestination.Value - transform.position).normalized;
-                CurrentVector.y = 0;
-                CurrentSpeed = WalkingSpeed;
-            }
         }
-
 
         Vector3 mvTo = transform.position + new Vector3(CurrentSpeed * CurrentVector.x, 0);
         MoveToward(mvTo);
@@ -189,24 +210,35 @@ public class MeepleController : MonoBehaviour
         OurAnimator.SetBool(GameConstants.IsJumping, IsJumping);
     }
 
+    public bool CanInteractWith(RoomItem asRoomItem)
+    {
+        if (asRoomItem == null)
+            return false;
+
+        // Are we close enough to interact with the item?
+        float dxToItem = Vector2.Distance(asRoomItem.transform.position, ItemInteractionMeasurementLocation.transform.position);
+        if (dxToItem > GameController.TheGameData.GamePrefs.Environment.MinimumDistanceOfInteraction)
+        {
+            return false;
+        }
+
+        return true;
+    }
 
     private void HandleItemInteraction(GameObject itemToInteractWith, Vector3? pointOfInteraction, GameObject heldItem)
     {
         if (null == itemToInteractWith)
             return;
 
-        // Are we close enough to interact with the item?
-        float dxToItem = Vector2.Distance(itemToInteractWith.transform.position, ItemInteractionMeasurementLocation.transform.position);
-        if (dxToItem > GameController.TheGameData.GamePrefs.Environment.MinimumDistanceOfInteraction)
+        RoomItem asRoomItem = itemToInteractWith.GetComponent<RoomItem>();
+
+        bool canInteractWith = CanInteractWith(asRoomItem);
+        if (!canInteractWith)
         {
             AudioController.Current.PlayRandomSound(Sounds.ItemTooFarAway);
             return;
         }
 
-        RoomItem asRoomItem = itemToInteractWith.GetComponent<RoomItem>();
-
-        if (asRoomItem == null)
-            return;
 
 
         bool isHoldingItem = heldItem != null;

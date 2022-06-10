@@ -16,6 +16,11 @@ public class RoomItem : MonoBehaviour
     [Tooltip("The item can't be picked up and held, but the pick-up action peforms the activation. " +
         "This is for opening drawers or cupboards.")]
     public bool PickingUpActivatesAction = false;
+
+    [Tooltip("Set to false for stools and things that we want the player to move to " +
+        "in order to get on. Things like cupboards and cans are set to false so the player " +
+        "will interact with them when standing close enough.")]
+    public bool AllowActivationWithoutMovingToClickedPoint = true;
     public SpriteRenderer ImageIdle;
     public SpriteRenderer ImageActive;
 
