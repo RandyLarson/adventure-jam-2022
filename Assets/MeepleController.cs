@@ -36,11 +36,16 @@ public class MeepleController : MonoBehaviour
 
     public float StoppingDistanceFromTarget = 10;
 
+    PlayerInput InputActions;
+    InputAction InputActionJump;
+
     // Start is called before the first frame update
     void Start()
     {
         OurAnimator = GetComponentInChildren<Animator>();
         HandTool = GetComponentInChildren<HandTool>();
+        InputActions = GetComponentInChildren<PlayerInput>();
+        InputActionJump = InputActions.actions["Jump"];
     }
 
     Vector3? CurrentWalkingDestination = null;
@@ -52,13 +57,20 @@ public class MeepleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckInputs();
         //IsOnSurface = IsStandingOnSurface();
         HandleMovement();
     }
 
+    private void CheckInputs()
+    {
+        TryJumping = InputActionJump != null && InputActionJump.IsPressed();
+    }
+
     void OnJump(InputValue value)
     {
-        TryJumping = true;
+        if (value != null)
+            TryJumping = value.isPressed;
     }
 
     void OnMove(InputValue value)
@@ -361,41 +373,13 @@ public class MeepleController : MonoBehaviour
     Vector3 ClosestSurfacePoint = Vector3.zero;
     Vector3 CastOffset = new Vector3(0, 20, 0);
 
-    public float DetectGroundAndVerticalMovement(Vector3 fromPosition)
-    {
-        ClosestSurfacePoint = Vector3.zero;
-        var dyMax = GameController.TheGameData.GamePrefs.Environment.Gravity * Time.deltaTime;
-
-        RaycastHit2D[] hits = Physics2D.RaycastAll(fromPosition + CastOffset, Vector3.down, 10 * dyMax + CastOffset.y, GameConstants.LayerMaskDefault);
-        Debug.DrawLine(fromPosition + CastOffset - new Vector3(5, 0, 0), fromPosition - new Vector3(5, dyMax + CastOffset.y, 0), Color.blue);
-
-        float dyActual = dyMax;
-        for (int i = 0; i < hits.Length; i++)
-        {
-            if (hits[i].collider.gameObject.CompareTag(GameConstants.Surface))
-            {
-                if (ClosestSurfacePoint == Vector3.zero)
-                    ClosestSurfacePoint = hits[i].point;
-
-                // Looking for the shortest distance to 'fall' before we find a surface.
-                if ((hits[i].distance - CastOffset.y) < dyActual)
-                {
-                    dyActual = hits[i].distance - CastOffset.y;
-                    ClosestSurfacePoint = hits[i].point;
-                }
-            }
-        }
-
-        Debug.DrawLine(fromPosition + CastOffset, fromPosition - CastOffset - new Vector3(0, dyActual, 0), Color.red);
-        return -dyActual;
-    }
 
     public (bool foundGround, float distance, Vector3 atPos) DetectGround(Vector3 fromPosition)
     {
         ClosestSurfacePoint = Vector3.zero;
         var dyMax = GameController.TheGameData.GamePrefs.Environment.Gravity * Time.deltaTime;
 
-        RaycastHit2D[] hits = Physics2D.RaycastAll(fromPosition + CastOffset, Vector3.down, 10 * dyMax + CastOffset.y, GameConstants.LayerMaskDefault);
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(fromPosition + CastOffset, 1, Vector3.down, 10 * dyMax + CastOffset.y, GameConstants.LayerMaskDefault);
         Debug.DrawLine(fromPosition + CastOffset - new Vector3(5, 0, 0), fromPosition - new Vector3(5, dyMax + CastOffset.y, 0), Color.blue);
 
         bool groundDetected = false;

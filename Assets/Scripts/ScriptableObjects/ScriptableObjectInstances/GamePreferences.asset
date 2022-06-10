@@ -24,3 +24,5 @@ MonoBehaviour:
   Environment:
     Gravity: 700
     JumpLandingPointYOffset: -150
+    JumpSpeed: 700
+    JumpDurationSeconds: 0.2
