@@ -13,6 +13,7 @@ public enum Sounds {
     MeepleJumps,
     ItemsInteract,
     ItemsDontInteract,
+    ItemTooFarAway,
     Walking
 
 

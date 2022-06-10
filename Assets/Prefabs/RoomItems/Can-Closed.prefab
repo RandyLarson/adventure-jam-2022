@@ -236,6 +236,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+      propertyPath: ItemId.serializedGuid
+      value: a3fa7893-f319-4177-8d3b-698429e75d91
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
       propertyPath: AcceptedItems.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -265,6 +269,10 @@ PrefabInstance:
       objectReference: {fileID: 2487705023237095024, guid: 52cca908677883c4dbc721c7199c03ea, type: 3}
     - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
       propertyPath: AcceptedItems.Array.data[0].IsAcceptedItemDesroyedOnUse
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+      propertyPath: AcceptedItems.Array.data[0].IsAcceptedItemDestroyedOnUse
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7460242865069190601, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}

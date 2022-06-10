@@ -30,6 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2122827743890869677}
+  - {fileID: 935211970974044180}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -49,6 +50,7 @@ MonoBehaviour:
   WalkingSpeed: 25
   CurrentSpeed: 0
   IsJumping: 0
+  TryJumping: 0
   Facing: 1
   OurAnimator: {fileID: 0}
   LevelBounds:
@@ -58,7 +60,42 @@ MonoBehaviour:
     width: 0
     height: 0
   StoppingDistanceFromTarget: 10
+  ItemInteractionMeasurementLocation: {fileID: 6032657433172372135}
   ItemToInteractWithAtDestination: {fileID: 0}
+  InputVector: {x: 0, y: 0, z: 0}
+  CurrentVector: {x: 0, y: 0, z: 0}
+  IsOnSurface: 0
+--- !u!1 &6032657433172372135
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 935211970974044180}
+  m_Layer: 0
+  m_Name: ItemInteractionMeasuringSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &935211970974044180
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6032657433172372135}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 192, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 745937956557665007}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &745937958080640115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -216,19 +253,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2432251728918620364, guid: 005c1cac69b00c34ebe56234d0030e45, type: 3}
       propertyPath: m_Bounds.m_Center.x
-      value: -6.179802
+      value: -17.822632
       objectReference: {fileID: 0}
     - target: {fileID: -2432251728918620364, guid: 005c1cac69b00c34ebe56234d0030e45, type: 3}
       propertyPath: m_Bounds.m_Center.y
-      value: 3.5057373
+      value: 1.3650208
       objectReference: {fileID: 0}
     - target: {fileID: -2432251728918620364, guid: 005c1cac69b00c34ebe56234d0030e45, type: 3}
       propertyPath: m_Bounds.m_Extent.x
-      value: 94.54408
+      value: 135.62921
       objectReference: {fileID: 0}
     - target: {fileID: -2432251728918620364, guid: 005c1cac69b00c34ebe56234d0030e45, type: 3}
       propertyPath: m_Bounds.m_Extent.y
-      value: 151.9114
+      value: 150.34032
       objectReference: {fileID: 0}
     - target: {fileID: -1803133364930961311, guid: 005c1cac69b00c34ebe56234d0030e45, type: 3}
       propertyPath: m_LocalRotation.w

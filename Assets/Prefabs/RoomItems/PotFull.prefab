@@ -888,6 +888,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+      propertyPath: ItemId.serializedGuid
+      value: ee24d916-94ce-4ce7-89de-fa5058e634a5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
       propertyPath: AcceptedItems.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -917,6 +921,10 @@ PrefabInstance:
       objectReference: {fileID: 5640882624487199486, guid: a6b5a7ebd14217348bd80a484db558d8, type: 3}
     - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
       propertyPath: AcceptedItems.Array.data[0].IsAcceptedItemDesroyedOnUse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+      propertyPath: AcceptedItems.Array.data[0].IsAcceptedItemDestroyedOnUse
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}

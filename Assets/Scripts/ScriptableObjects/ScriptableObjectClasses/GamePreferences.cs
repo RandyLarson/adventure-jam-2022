@@ -38,4 +38,7 @@ public class Environment
     public float JumpLandingPointYOffset = -150;
     public float JumpSpeed = 100;
     public float JumpDurationSeconds = 2;
+
+
+    public float MinimumDistanceOfInteraction = 350;
 }

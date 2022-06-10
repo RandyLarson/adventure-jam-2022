@@ -875,6 +875,14 @@ PrefabInstance:
       propertyPath: Kind
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+      propertyPath: ItemId.serializedGuid
+      value: 7839e49e-0bb5-42cd-8d97-9f33d8b65fc5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+      propertyPath: AcceptedItems.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7460242865069190601, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
       propertyPath: m_RootOrder
       value: 0

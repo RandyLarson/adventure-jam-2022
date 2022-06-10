@@ -115,7 +115,7 @@ public class RoomItem : MonoBehaviour
             Destroy(gameObject);
         }    
 
-        if ( acceptedItemProfile.DestroySelfOnUse )
+        if ( acceptedItemProfile.IsAcceptedItemDestroyedOnUse )
         {
             Destroy(incomingItem.gameObject);
         }

@@ -49,6 +49,11 @@ public class MeepleController : MonoBehaviour
     }
 
     Vector3? CurrentWalkingDestination = null;
+
+    [Tooltip("We measure from this item's position to another item's position to figure out if we " +
+        "are close enough to interact. This works for ")]
+    public GameObject ItemInteractionMeasurementLocation;
+
     [ReadOnly]
     public GameObject ItemToInteractWithAtDestination;
     public Vector3 InputVector = Vector3.zero;
@@ -157,7 +162,6 @@ public class MeepleController : MonoBehaviour
             // We've arrived:
             if (Mathf.Abs(transform.position.x - CurrentWalkingDestination.Value.x) < StoppingDistanceFromTarget)
             {
-
                 if (ItemToInteractWithAtDestination != null)
                 {
                     HandleItemInteraction(ItemToInteractWithAtDestination, CurrentWalkingDestination, HandTool.CurrentlyHolding);
@@ -165,6 +169,7 @@ public class MeepleController : MonoBehaviour
                 }
 
                 CurrentVector = Vector3.zero;
+                CurrentSpeed = 0;
                 CurrentWalkingDestination = null;
             }
             else
@@ -189,6 +194,14 @@ public class MeepleController : MonoBehaviour
     {
         if (null == itemToInteractWith)
             return;
+
+        // Are we close enough to interact with the item?
+        float dxToItem = Vector2.Distance(itemToInteractWith.transform.position, ItemInteractionMeasurementLocation.transform.position);
+        if (dxToItem > GameController.TheGameData.GamePrefs.Environment.MinimumDistanceOfInteraction)
+        {
+            AudioController.Current.PlayRandomSound(Sounds.ItemTooFarAway);
+            return;
+        }
 
         RoomItem asRoomItem = itemToInteractWith.GetComponent<RoomItem>();
 
@@ -240,6 +253,7 @@ public class MeepleController : MonoBehaviour
         if (HandTool.CurrentlyHolding != null)
         {
             tryUseHeldItem = true;
+            pickupItem = false;
         }
 
         if (tryUseHeldItem)
@@ -251,7 +265,7 @@ public class MeepleController : MonoBehaviour
         {
             ClimbOnToItem(asRoomItem);
         }
-        else if (pickupItem)
+        else if (!usedHeldItem && pickupItem)
         {
             pickedUpItem = HandTool.AttemptPickup(itemToInteractWith);
         }
@@ -373,6 +387,19 @@ public class MeepleController : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(ClosestSurfacePoint, 20);
+
+        if (CurrentWalkingDestination.HasValue)
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(CurrentWalkingDestination.Value, 20);
+
+            var bufferPos = Vector2.MoveTowards(CurrentWalkingDestination.Value, transform.position, StoppingDistanceFromTarget);
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawWireSphere(bufferPos, 20);
+        }
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(ItemInteractionMeasurementLocation.transform.position, GameController.TheGameData.GamePrefs.Environment.MinimumDistanceOfInteraction);
     }
 
     Vector3 ClosestSurfacePoint = Vector3.zero;
@@ -429,16 +456,6 @@ public class MeepleController : MonoBehaviour
 
         optimalDestination.x = Mathf.Clamp(optimalDestination.x, LevelBounds.xMin, LevelBounds.xMax);
         optimalDestination.y = Mathf.Clamp(optimalDestination.y, LevelBounds.yMin, LevelBounds.yMax);
-
-        if (CurrentWalkingDestination != null)
-        {
-            var distanceFromTarget = destination - optimalDestination;
-
-            if (Mathf.Abs(distanceFromTarget.x) < StoppingDistanceFromTarget)
-            {
-                optimalDestination.x = destination.x + (StoppingDistanceFromTarget * MathF.Sign(distanceFromTarget.x));
-            }
-        }
 
         return optimalDestination;
     }
