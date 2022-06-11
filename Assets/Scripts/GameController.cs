@@ -1,13 +1,16 @@
+using Assets.Scripts.Extensions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
     public GameObject UiTitleScreen;
     public GameObject UiOptionsScreen;
+    public GameObject PauseScreen;
     public GameObject UiAboutScreen;
 
     public GameDataHolder GameData;
@@ -41,6 +44,17 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         GameConstants.Init();
+    }
+
+    void OnPause(InputValue value)
+    {
+        ShowPauseMenu();
+    }
+
+
+    private void ShowPauseMenu()
+    {
+        PauseScreen.SafeSetActive(true);
     }
 
     private void Start()

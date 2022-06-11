@@ -26,4 +26,4 @@ MonoBehaviour:
     JumpLandingPointYOffset: -150
     JumpSpeed: 700
     JumpDurationSeconds: 0.2
-    MinimumDistanceOfInteraction: 286.05
+    MinimumDistanceOfInteraction: 260.69
