@@ -46,13 +46,13 @@ public class GameController : MonoBehaviour
         GameConstants.Init();
     }
 
-    void OnPause(InputValue value)
-    {
-        ShowPauseMenu();
-    }
+    //void OnPause(InputValue value)
+    //{
+    //    ShowPauseMenu();
+    //}
 
 
-    private void ShowPauseMenu()
+    public void ShowPauseMenu()
     {
         PauseScreen.SafeSetActive(true);
     }

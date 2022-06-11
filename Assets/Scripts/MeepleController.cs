@@ -72,6 +72,12 @@ public class MeepleController : MonoBehaviour
         TryJumping = InputActionJump != null && InputActionJump.IsPressed();
     }
 
+
+    void OnPause(InputValue value)
+    {
+        GameController.TheGameController.ShowPauseMenu();
+    }
+
     void OnJump(InputValue value)
     {
         if (value != null)
