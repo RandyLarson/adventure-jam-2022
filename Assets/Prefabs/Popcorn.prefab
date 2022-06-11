@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2418992109110100105}
   - component: {fileID: 6435074083308472068}
   - component: {fileID: 5005100875573308363}
+  - component: {fileID: 5082728082731911019}
   m_Layer: 0
   m_Name: Popcorn
   m_TagString: Untagged
@@ -159,3 +160,17 @@ MonoBehaviour:
     min: 1
     max: 6
   randomBeforeLifetime: 1
+--- !u!114 &5082728082731911019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556102594773167370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454cc6725bf58764ea5a1e29f7843f99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayOnStart: 10
+  PlayOnDestroy: 11

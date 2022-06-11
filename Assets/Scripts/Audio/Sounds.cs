@@ -14,7 +14,9 @@ public enum Sounds {
     ItemsInteract,
     ItemsDontInteract,
     ItemTooFarAway,
-    Walking
+    Walking,
+    Popping,
+    Nothing
 
 
 }
