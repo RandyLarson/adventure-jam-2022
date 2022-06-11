@@ -65,20 +65,42 @@ public class RoomItem : MonoBehaviour
         return false;
     }
 
-    public void PerformSelfActivationActions()
+    public void ActivateSelf()
     {
-        PerformActivationActions(ActivationActions);
+        PerformSelfActivationActions();
+    }
+
+    /// <summary>
+    /// Detaches each child object of the given one, setting their parent to nothing.
+    /// The intention is to pass an placeholding 'contents' game object.
+    /// </summary>
+    /// <param name="parent"></param>
+    public void DropAllItems(GameObject parent)
+    {
+        if (parent == null)
+            return;
+
+        parent.transform.DetachChildren();
+    }
+
+    public GameObject PerformSelfActivationActions()
+    {
+        GameObject replacementItem = PerformActivationActions(ActivationActions);
         if (ActivationActions.DestroySelfOnUse)
             Destroy(gameObject);
 
         if (ActivationActions.TargetItemReplacement != null)
             Destroy(gameObject);
+
+        return replacementItem;
     }
 
-    public void PerformActivationActions(ActivationActions activationActions)
+    public GameObject PerformActivationActions(ActivationActions activationActions)
     {
+        GameObject replacementItem = null;
         if (null == activationActions)
-            return;
+            return replacementItem;
+
 
         if (activationActions.ItemProducedWhenUsed != null)
         {
@@ -88,8 +110,8 @@ public class RoomItem : MonoBehaviour
 
         if (activationActions.TargetItemReplacement != null)
         {
-            var replacement = GlobalSpawnQueue.Instantiate(activationActions.TargetItemReplacement, transform.position, transform.rotation, transform.parent);
-            if (replacement.TryGetComponent<Rigidbody2D>(out var rb))
+            replacementItem = GlobalSpawnQueue.Instantiate(activationActions.TargetItemReplacement, transform.position, transform.rotation, transform.parent);
+            if (replacementItem.TryGetComponent<Rigidbody2D>(out var rb))
             {
                 var ourRb = gameObject.GetComponent<Rigidbody2D>();
                 rb.velocity = ourRb.velocity;
@@ -109,11 +131,13 @@ public class RoomItem : MonoBehaviour
         activationActions.OnUsage?.Invoke();
 
         GameController.TheGameController.LogGameAchievement(activationActions.GameObjectiveAchieved);
+
+        return replacementItem;
     }
 
     private void ExecuteAcceptance(AcceptedItem acceptedItemProfile, RoomItem incomingItem)
     {
-        PerformActivationActions(acceptedItemProfile);
+        GameObject replacementItem = PerformActivationActions(acceptedItemProfile);
 
         if (acceptedItemProfile.TargetItemReplacement != null)
         {
