@@ -37,8 +37,12 @@ public class Environment
         "destination has been set. It provides a bit of a hoping action on screen.")]
     public float JumpLandingPointYOffset = -150;
     public float JumpSpeed = 100;
+    public float MaxJumpDistance = 100;
     public float JumpDurationSeconds = 2;
 
 
     public float MinimumDistanceOfInteraction = 350;
+
+    [Tooltip("Distances smaller than this are treated as zero.")]
+    public float TreatAsZero = .01f;
 }

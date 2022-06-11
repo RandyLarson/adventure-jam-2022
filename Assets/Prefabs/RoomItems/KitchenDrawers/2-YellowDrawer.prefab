@@ -67,6 +67,10 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[4].y
       value: 26
       objectReference: {fileID: 0}
+    - target: {fileID: 1959229901742939909, guid: 3c211938bb8c9f7438cae2a4eff35d8d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5238711727763342233, guid: 3c211938bb8c9f7438cae2a4eff35d8d, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.5
@@ -238,6 +242,14 @@ PrefabInstance:
     - target: {fileID: 8023205351560416723, guid: 3c211938bb8c9f7438cae2a4eff35d8d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9195826819284323098, guid: 3c211938bb8c9f7438cae2a4eff35d8d, type: 3}
+      propertyPath: m_Points.Array.data[0].x
+      value: -150
+      objectReference: {fileID: 0}
+    - target: {fileID: 9195826819284323098, guid: 3c211938bb8c9f7438cae2a4eff35d8d, type: 3}
+      propertyPath: m_Points.Array.data[1].x
+      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c211938bb8c9f7438cae2a4eff35d8d, type: 3}

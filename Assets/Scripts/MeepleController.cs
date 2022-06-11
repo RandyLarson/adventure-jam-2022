@@ -16,6 +16,9 @@ public class MeepleController : MonoBehaviour
 
     public bool TryJumping = false;
 
+    public bool IsOnSurface = false;
+    public Surface CurrentSurface = null;
+
     [ReadOnly]
     float JumpTimeStart = 0;
 
@@ -63,7 +66,7 @@ public class MeepleController : MonoBehaviour
     void Update()
     {
         CheckInputs();
-        //IsOnSurface = IsStandingOnSurface();
+        DetectCurrentSurfaceStandingStatus();
         HandleMovement();
     }
 
@@ -92,8 +95,6 @@ public class MeepleController : MonoBehaviour
 
             var moveVal = value.Get<Vector2>().normalized;
             InputVector = moveVal;
-
-            moveVal.y = 0;
 
             CurrentVector = moveVal;
             CurrentSpeed = WalkingSpeed;
@@ -168,6 +169,8 @@ public class MeepleController : MonoBehaviour
 
         if (CurrentWalkingDestination.HasValue)
         {
+            //CurrentVector.y = 0;
+
             if (ItemToInteractWithAtDestination != null)
             {
                 // If we are not yet moving, and the item that is clicked on is within reach, just do it.
@@ -189,7 +192,7 @@ public class MeepleController : MonoBehaviour
                 else
                 {
                     CurrentVector = (CurrentWalkingDestination.Value - transform.position).normalized;
-                    CurrentVector.y = 0;
+                    //CurrentVector.y = 0;
                     CurrentSpeed = WalkingSpeed;
                 }
             }
@@ -208,7 +211,10 @@ public class MeepleController : MonoBehaviour
             }
         }
 
-        Vector3 mvTo = transform.position + new Vector3(CurrentSpeed * CurrentVector.x, 0);
+        if (!IsOnSurface || !CurrentSurface.IsElevated)
+            CurrentVector.y = 0;
+
+        Vector3 mvTo = transform.position + new Vector3(CurrentSpeed * CurrentVector.x, CurrentSpeed * CurrentVector.y);
         MoveToward(mvTo);
         HandleJumping(CurrentVector);
 
@@ -277,14 +283,16 @@ public class MeepleController : MonoBehaviour
 
         if (asRoomItem.CanClimbOnto || asRoomItem.CanBeHandledDirectly)
         {
-            if (asRoomItem.CanClimbOnto && asRoomItem.CanBeHandledDirectly)
+            if (asRoomItem.CanClimbOnto && (asRoomItem.CanBeHandledDirectly || asRoomItem.PickingUpActivatesAction))
             {
                 pickupItem = true;
 
                 Surface itsSurface = asRoomItem.GetComponentInChildren<Surface>();
                 if (itsSurface != null && itsSurface.SurfaceCollider != null)
                 {
-                    if (pointOfInteraction.HasValue && pointOfInteraction.Value.y > itsSurface.SurfaceCollider.bounds.max.y)
+                    if (pointOfInteraction.HasValue && 
+                        pointOfInteraction.Value.y > itsSurface.SurfaceCollider.bounds.max.y &&
+                        Vector3.Distance(transform.position, itsSurface.SurfaceCollider.bounds.ClosestPoint(transform.position)) < GamePrefs.Current.Environment.MaxJumpDistance)
                     {
                         climbOntoItem = true;
                         pickupItem = false;
@@ -317,11 +325,11 @@ public class MeepleController : MonoBehaviour
         {
             pickedUpItem = HandTool.AttemptPickup(itemToInteractWith);
         }
-        
-        if (asRoomItem.PickingUpActivatesAction)
+
+        if (asRoomItem.PickingUpActivatesAction && !climbOntoItem)
         {
             GameObject replacementItem = asRoomItem.PerformSelfActivationActions();
-            if ( replacementItem != null )
+            if (replacementItem != null)
             {
                 HandTool.AttemptPickup(replacementItem.gameObject);
             }
@@ -352,10 +360,9 @@ public class MeepleController : MonoBehaviour
         if (itsSurface == null)
             return;
 
-        transform.position = new Vector3(transform.position.x, itsSurface.transform.position.y - GameController.TheGameData.GamePrefs.Environment.JumpLandingPointYOffset, transform.position.z);
+        transform.position = new Vector3(transform.position.x, itsSurface.transform.position.y + GameController.TheGameData.GamePrefs.Environment.JumpLandingPointYOffset, transform.position.z);
     }
 
-    public bool IsOnSurface = false;
     private void HandleJumping(Vector3 mvVector)
     {
         if (IsJumping)
@@ -376,7 +383,8 @@ public class MeepleController : MonoBehaviour
         else if (TryJumping)
         {
             TryJumping = false;
-            IsOnSurface = IsStandingOnSurface();
+            //var surfaceRes = IsStandingOnSurface();
+            //IsOnSurface = surfaceRes.isOnGround;
 
             if (!IsOnSurface)
                 return;
@@ -388,17 +396,19 @@ public class MeepleController : MonoBehaviour
         }
     }
 
-    private bool IsStandingOnSurface()
+    private void DetectCurrentSurfaceStandingStatus()
     {
         var res = DetectGround(transform.position);
-        return res.foundGround && res.distance == 0;
+
+        IsOnSurface = res.foundGround && res.distance == 0;
+        CurrentSurface = res.surfaceFound;
     }
 
     public virtual void MoveToward(Vector3 destination)
     {
         Vector3 mvVector = Vector3.zero;
 
-        if (destination != transform.position)
+        if (destination.x != transform.position.x)
         {
             // Flip the villager depending upon the orientation of it to the target object
             Face(destination.x - transform.position.x);
@@ -412,9 +422,11 @@ public class MeepleController : MonoBehaviour
                 mvVector *= -1;
         }
 
-        //mvVector.y = DetectGroundAndVerticalMovement(transform.position);
-        // If not on the way up --
-        if (!IsJumping)
+        if (destination.y != transform.position.y)
+        {
+            mvVector.y = -(Time.deltaTime * WalkingSpeed);
+        }
+        else if (!IsJumping)
         {
             var res = DetectGround(transform.position);
             mvVector.y = res.distance;
@@ -455,13 +467,16 @@ public class MeepleController : MonoBehaviour
         Gizmos.DrawWireSphere(ItemInteractionMeasurementLocation.transform.position, GameController.TheGameData.GamePrefs.Environment.MinimumDistanceOfInteraction);
     }
 
+    Surface ClosestSurface = null;
     Vector3 ClosestSurfacePoint = Vector3.zero;
-    Vector3 CastOffset = new Vector3(0, 20, 0);
+    Vector3 CastOffset = new Vector3(0, 0, 0);
 
 
-    public (bool foundGround, float distance, Vector3 atPos) DetectGround(Vector3 fromPosition)
+    public (bool foundGround, float distance, Vector3 atPos, Surface surfaceFound) DetectGround(Vector3 fromPosition)
     {
         ClosestSurfacePoint = Vector3.zero;
+        ClosestSurface = null;
+
         var dyMax = GameController.TheGameData.GamePrefs.Environment.Gravity * Time.deltaTime;
 
         RaycastHit2D[] hits = Physics2D.CircleCastAll(fromPosition + CastOffset, 1, Vector3.down, 10 * dyMax + CastOffset.y, GameConstants.LayerMaskDefault);
@@ -476,20 +491,27 @@ public class MeepleController : MonoBehaviour
                 // Looking for the shortest distance to 'fall' before we find a surface.
 
                 if (groundDetected == false)
+                {
                     ClosestSurfacePoint = hits[i].point;
+                }
 
                 groundDetected = true;
 
                 if ((hits[i].distance - CastOffset.y) < dyActual)
                 {
                     dyActual = hits[i].distance - CastOffset.y;
+
+                    if (MathF.Abs(dyActual) < GameController.TheGameData.GamePrefs.Environment.TreatAsZero)
+                        dyActual = 0;
+
                     ClosestSurfacePoint = hits[i].point;
+                    ClosestSurface = hits[i].collider.gameObject.GetComponent<Surface>();
                 }
             }
         }
 
         Debug.DrawLine(fromPosition + CastOffset, fromPosition - CastOffset - new Vector3(0, dyActual, 0), Color.red);
-        return (groundDetected, -dyActual, ClosestSurfacePoint);
+        return (groundDetected, -dyActual, ClosestSurfacePoint, ClosestSurface);
     }
 
 
@@ -512,29 +534,5 @@ public class MeepleController : MonoBehaviour
 
         return optimalDestination;
     }
-
-
-    //private float CalculateMovedDistance(Vector3 destination, float wishedDistance)
-    //{
-    //    //// No movement if the animator is mid jump or wave or some action that prevents horizontal movement.
-    //    //if (OurAnimator.GetBool(GameConstants.AnimatorHashMidNonMovingAction))
-    //    //    return 0;
-
-    //    //if (IsFalling)
-    //    //    return 0;
-
-    //    if (wishedDistance == 0)
-    //        return 0;
-
-    //    destination.x = Mathf.Clamp(destination.x, LevelBounds.xMin, LevelBounds.xMax);
-    //    destination.y = Mathf.Clamp(destination.y, LevelBounds.yMin, LevelBounds.yMax);
-
-    //    var distanceFromTarget = destination - transform.position;
-    //    if (Mathf.Abs(distanceFromTarget.x) < StoppingDistanceFromTarget)
-    //        return 0;
-
-    //    return wishedDistance;
-    //}
-
 
 }

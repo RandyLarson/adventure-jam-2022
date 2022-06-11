@@ -17,13 +17,15 @@ MonoBehaviour:
   - Level-2
   GameSettings:
     MuteAll: 0
-    MusicVolume: 0.5
-    EffectVolume: 0.8
+    MusicVolume: 0.4958167
+    EffectVolume: 0.6661368
   ColorAndTheme:
     HighlightColor: {r: 0.17042479, g: 0.7490196, b: 0, a: 1}
   Environment:
     Gravity: 700
-    JumpLandingPointYOffset: -150
-    JumpSpeed: 700
+    JumpLandingPointYOffset: 20
+    JumpSpeed: 865
+    MaxJumpDistance: 250
     JumpDurationSeconds: 0.2
     MinimumDistanceOfInteraction: 260.69
+    TreatAsZero: 0.01
