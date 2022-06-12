@@ -9,23 +9,27 @@ public class ItemAudio : MonoBehaviour
 
     void Start()
     {
-        AudioController.Current.PlayRandomSound(PlayOnStart);
+        if (AudioController.Current != null)
+            AudioController.Current.PlayRandomSound(PlayOnStart);
     }
 
 
     private void OnDestroy()
     {
-        AudioController.Current.PlayRandomSound(PlayOnDestroy);
+        if (AudioController.Current != null)
+            AudioController.Current.PlayRandomSound(PlayOnDestroy);
     }
 
     private void OnEnable()
     {
-        AudioController.Current.PlayRandomSound(PlayOnEnable);
+        if (AudioController.Current != null)
+            AudioController.Current.PlayRandomSound(PlayOnEnable);
     }
 
     private void OnDisable()
     {
-        AudioController.Current.PlayRandomSound(PlayOnDisable);
+        if (AudioController.Current != null)
+            AudioController.Current.PlayRandomSound(PlayOnDisable);
 
     }
 }

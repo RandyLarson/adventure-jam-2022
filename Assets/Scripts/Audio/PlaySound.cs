@@ -12,21 +12,21 @@ public class PlaySound : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(playOnCreate)
+        if(playOnCreate && AudioController.Current != null)
             AudioController.Current.PlayRandomSound(sound);
     }
 
 
     void OnDestroy()
     {
-        if(playOnDestroy)
+        if(playOnDestroy && AudioController.Current != null)
             AudioController.Current.PlayRandomSound(sound);
 
     }
 
     void OnEnable()
     {
-        if(playOnEnable)
+        if(playOnEnable && AudioController.Current != null)
             AudioController.Current.PlayRandomSound(sound);
     }
 }

@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 7210647856075272810}
   - component: {fileID: -7395730966387639078}
   - component: {fileID: 7460242865069190599}
+  - component: {fileID: 726898488957990909}
   m_Layer: 0
   m_Name: BasePrefab-RoomItem
   m_TagString: Untagged
@@ -242,6 +243,7 @@ MonoBehaviour:
   CanClimbOnto: 0
   CanBeHandledDirectly: 1
   PickingUpActivatesAction: 0
+  AllowActivationWithoutMovingToClickedPoint: 1
   ImageIdle: {fileID: 0}
   ImageActive: {fileID: 0}
   AcceptedItems:
@@ -268,3 +270,30 @@ MonoBehaviour:
     OnUsage:
       m_PersistentCalls:
         m_Calls: []
+  DeActivationActions:
+    GameObjectiveAchieved: 
+    ItemProducedWhenUsed: {fileID: 0}
+    ItemProducedLocation: {fileID: 0}
+    TargetItemReplacement: {fileID: 0}
+    DestroySelfOnUse: 0
+    ItemsToEnable: []
+    ItemsToDisable: []
+    OnUsage:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!114 &726898488957990909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7460242865069190598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454cc6725bf58764ea5a1e29f7843f99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayOnStart: 25
+  PlayOnEnable: 25
+  PlayOnDisable: 25
+  PlayOnDestroy: 25
