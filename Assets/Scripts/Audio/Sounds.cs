@@ -16,6 +16,11 @@ public enum Sounds {
     ItemTooFarAway,
     Walking,
     Popping,
+    RadioStation_Goal,
+    RadioStation_Other1,
+    RadioStation_Other2,
+    RadioStation_Other3,
+    RadioStation_Changing,
     Nothing
 
 

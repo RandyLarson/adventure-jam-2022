@@ -2393,6 +2393,21 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 8e084a7840fca72429289abdbf97e73c, type: 3}
     - {fileID: 8300000, guid: 1093cdc7eae3c2b45be5af35ff6056a1, type: 3}
     - {fileID: 8300000, guid: b9c2a277ec683f340b357f1e50840e77, type: 3}
+  - sound: 15
+    clips:
+    - {fileID: 8300000, guid: 1c71db3ed057e2b49b076cb540c20c1f, type: 3}
+  - sound: 11
+    clips:
+    - {fileID: 8300000, guid: 40db00e365485d94189c8f65e39c6c59, type: 3}
+  - sound: 12
+    clips:
+    - {fileID: 8300000, guid: 4bfd620c533596848906b35c85ca701f, type: 3}
+  - sound: 13
+    clips:
+    - {fileID: 8300000, guid: 0b03461769f058142ae099168c488139, type: 3}
+  - sound: 14
+    clips:
+    - {fileID: 8300000, guid: 0e742ba9d1297524c83b5968b93a2465, type: 3}
   MusicTracks: []
   ThemeTrack: {fileID: 0}
   StreetScene: {fileID: 0}
@@ -2420,7 +2435,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 619394800}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 

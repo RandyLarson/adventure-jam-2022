@@ -12,6 +12,9 @@ public class LevelController : MonoBehaviour
         "as it follows the player.")]
     public Rect LevelBounds;
 
+    public LevelGoal[] LevelGoals;
+
+
     private void Start()
     {
         GlobalSpawnQueue.DefaultParentObject = LevelSpawnItemParent != null ? LevelSpawnItemParent : gameObject;

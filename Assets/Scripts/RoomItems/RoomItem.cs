@@ -29,9 +29,12 @@ public class RoomItem : MonoBehaviour
     [Tooltip("Actions to be performed when this item is `activated` (PerformActivationActions is called)")]
     public ActivationActions ActivationActions;
 
+    [Tooltip("Actions to be performed when this item is `de-activated`")]
+    public ActivationActions DeActivationActions;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ( AutoActivateOnCollision )
+        if (AutoActivateOnCollision)
             TestForInteractionWith(collision.gameObject, true);
     }
 
@@ -65,6 +68,11 @@ public class RoomItem : MonoBehaviour
         return false;
     }
 
+    public void DeActivateSelf()
+    {
+        PerformSelfDeActivationActions();
+    }
+
     public void ActivateSelf()
     {
         PerformSelfActivationActions();
@@ -83,13 +91,17 @@ public class RoomItem : MonoBehaviour
         parent.transform.DetachChildren();
     }
 
-    public GameObject PerformSelfActivationActions()
+    public GameObject PerformSelfDeActivationActions() => PerformSelfActions(DeActivationActions);
+
+    public GameObject PerformSelfActivationActions() => PerformSelfActions(ActivationActions);
+
+    public GameObject PerformSelfActions(ActivationActions actions)
     {
-        GameObject replacementItem = PerformActivationActions(ActivationActions);
-        if (ActivationActions.DestroySelfOnUse)
+        GameObject replacementItem = PerformActivationActions(actions);
+        if (actions.DestroySelfOnUse)
             Destroy(gameObject);
 
-        if (ActivationActions.TargetItemReplacement != null)
+        if (actions.TargetItemReplacement != null)
             Destroy(gameObject);
 
         return replacementItem;

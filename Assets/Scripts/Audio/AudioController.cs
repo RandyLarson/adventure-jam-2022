@@ -22,6 +22,7 @@ public class AudioController : MonoBehaviour
     public AudioClip StreetScene;
 
     public static AudioController Current;
+    private AudioSource RadioPlayer;
     private AudioSource musicPlayer;
     private int currentTrack = -1;
 
@@ -39,6 +40,8 @@ public class AudioController : MonoBehaviour
         AudioSource = GetComponent<AudioSource>();
         AmbientSource = this.gameObject.AddComponent<AudioSource>();
         musicPlayer = gameObject.AddComponent<AudioSource>();
+        RadioPlayer = gameObject.AddComponent<AudioSource>();
+        RadioPlayer.loop = true;
 
         MusicVolume = GameController.TheGameData.GamePrefs.GameSettings.MusicVolume;
         MuteAllVolume = GameController.TheGameData.GamePrefs.GameSettings.MuteAll;
@@ -59,6 +62,7 @@ public class AudioController : MonoBehaviour
         set
         {
             Current.musicPlayer.volume = value;
+            Current.RadioPlayer.volume = value;
             GameController.TheGameController.GameData.GamePrefs.GameSettings.MusicVolume = value;
         }
     }
@@ -112,6 +116,45 @@ public class AudioController : MonoBehaviour
             if (currentTrack < MusicTracks.Length)
                 musicPlayer.PlayOneShot(MusicTracks[currentTrack]);
         }
+    }
+
+    AudioClip CurrentRadioClip;
+    public void PlayOnRadio(Sounds sound)
+    {
+        if (soundTable.ContainsKey(sound))
+        {
+            var audioClips = soundTable[sound].clips;
+            var index = UnityEngine.Random.Range(0, audioClips.Length);
+            CurrentRadioClip = audioClips[index];
+            PlaySoundOnSource(RadioPlayer, CurrentRadioClip);
+            RadioPlayer.timeSamples = UnityEngine.Random.Range(0, RadioPlayer.clip.samples);
+        }
+    }
+
+    public void StopPlayingRadio()
+    {
+        RadioPlayer.Stop();
+    }
+
+    public void StopPlaying(Sounds sound)
+    {
+        if (AudioController.MuteAllVolume)
+            return;
+
+        if (soundTable.ContainsKey(sound))
+        {
+            AudioSource.Stop();
+        }
+    }
+
+    public void PlaySoundOnSource(AudioSource onAudioSource, AudioClip sound)
+    {
+        if (AudioController.MuteAllVolume)
+            return;
+
+        onAudioSource.Stop();
+        onAudioSource.clip = sound;
+        onAudioSource.Play();
     }
 
     public void PlayRandomSound(Sounds sound)
