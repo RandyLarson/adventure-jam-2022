@@ -21,7 +21,7 @@ public enum Sounds {
     RadioStation_Other2,
     RadioStation_Other3,
     RadioStation_Changing,
-    Nothing,
+    LightSwitch,
     DrawerOpen,
     DrawerClose,
     FridgeOpen,
@@ -29,7 +29,8 @@ public enum Sounds {
     StoveOpen,
     StoveClose,
     CupboardOpen,
-    CupboardClose
+    CupboardClose,
+    Nothing
 
 
 }

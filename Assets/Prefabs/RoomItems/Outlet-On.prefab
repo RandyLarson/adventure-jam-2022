@@ -429,7 +429,7 @@ PrefabInstance:
       objectReference: {fileID: -1875771741, guid: 7400f60c85ce09f4093fe7ee49e11d07, type: 3}
     - target: {fileID: 7460242865069190598, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
       propertyPath: m_Name
-      value: Outlet
+      value: Outlet-On
       objectReference: {fileID: 0}
     - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
       propertyPath: CanBeHandledDirectly
@@ -485,3 +485,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+--- !u!1 &3008937449723863565 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7460242865069190598, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+  m_PrefabInstance: {fileID: 5641321445465149387}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7387379650826473936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3008937449723863565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454cc6725bf58764ea5a1e29f7843f99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayOnStart: 17
+  PlayOnEnable: 17
+  PlayOnDisable: 16
+  PlayOnDestroy: 16

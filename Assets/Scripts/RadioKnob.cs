@@ -11,16 +11,26 @@ public class RadioKnob : MonoBehaviour
     public LevelGoal LevelGoal;
     public Transform TuningKnob;
 
+    public bool PowerIsOn = false;
 
+    public void TurnOff()
+    {
+        PowerIsOn = false;
+        StopRadio();
+    }
 
     public void TurnOn()
     {
+        PowerIsOn = true;
         AudioController.Current.PlayOnRadio(StationsAvailable[Station]);
         LevelGoal.IsComplete = (StationsAvailable[Station] == GoalStation);
     }
 
     public void ChangeStation()
     {
+        if (!PowerIsOn)
+            return;
+
         if ( TuningKnob != null )
             TuningKnob.transform.Rotate(Vector3.forward, 360/StationsAvailable.Length);
 
