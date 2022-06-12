@@ -2414,6 +2414,24 @@ MonoBehaviour:
   - sound: 18
     clips:
     - {fileID: 8300000, guid: ea354ab382dce0448893188f78461f36, type: 3}
+  - sound: 23
+    clips:
+    - {fileID: 8300000, guid: 9649d5261f094094ea0dd5b293369487, type: 3}
+  - sound: 24
+    clips:
+    - {fileID: 8300000, guid: 90213d355ff2a574aabba7c702d12678, type: 3}
+  - sound: 21
+    clips:
+    - {fileID: 8300000, guid: 0a6fec68cca05bc46bfb638fd0e901d7, type: 3}
+  - sound: 22
+    clips:
+    - {fileID: 8300000, guid: f5f97e014d29c064791c08dfe999020e, type: 3}
+  - sound: 19
+    clips:
+    - {fileID: 8300000, guid: 8fa4cac82824a5940aa9b02ce1580716, type: 3}
+  - sound: 20
+    clips:
+    - {fileID: 8300000, guid: fe4f57f9f7c9430458c3d08ed2fc0c50, type: 3}
   MusicTracks: []
   ThemeTrack: {fileID: 0}
   StreetScene: {fileID: 0}

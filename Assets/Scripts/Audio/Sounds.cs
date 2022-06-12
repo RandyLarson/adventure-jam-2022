@@ -27,7 +27,9 @@ public enum Sounds {
     FridgeOpen,
     FridgeClose,
     StoveOpen,
-    StoveClose
+    StoveClose,
+    CupboardOpen,
+    CupboardClose
 
 
 }
