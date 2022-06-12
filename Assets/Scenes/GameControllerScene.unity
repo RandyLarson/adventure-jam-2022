@@ -2435,7 +2435,7 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: fc650c8a41600dc4aa1cb1adb9d3504f, type: 3}
   MusicTracks: []
-  ThemeTrack: {fileID: 0}
+  ThemeTrack: {fileID: 8300000, guid: 034639a9ccbdbde438c81b1d7a52ab02, type: 3}
   StreetScene: {fileID: 0}
 --- !u!1 &674633516
 GameObject:
