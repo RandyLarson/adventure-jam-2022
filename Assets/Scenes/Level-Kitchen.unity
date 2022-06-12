@@ -3872,7 +3872,7 @@ MonoBehaviour:
     height: 1204.8
   LevelGoals:
   - {fileID: 787370045}
-  - {fileID: 919068322}
+  - {fileID: 886699612}
 --- !u!4 &509428792
 Transform:
   m_ObjectHideFlags: 0
@@ -4973,7 +4973,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GoalName: RadioTuned
   IsComplete: 0
-  CanGoalRegress: 1
+  CanGoalRegress: 0
   DependentGoals: []
   OnGoalSuccess:
     m_PersistentCalls:
@@ -5367,7 +5367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GoalName: StewMade
   IsComplete: 0
-  CanGoalRegress: 1
+  CanGoalRegress: 0
   DependentGoals:
   - {fileID: 787370045}
   - {fileID: 919068322}
@@ -6003,7 +6003,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5163689200888829015, guid: 19e4ddb2cf31c84498d5abda961c2af6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5163689200888829016, guid: 19e4ddb2cf31c84498d5abda961c2af6, type: 3}
       propertyPath: m_RootOrder
