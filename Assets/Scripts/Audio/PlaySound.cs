@@ -7,6 +7,7 @@ public class PlaySound : MonoBehaviour
     public Sounds sound;
     public bool playOnCreate;
     public bool playOnDestroy;
+    public bool playOnEnable;
 
     // Start is called before the first frame update
     void Start()
@@ -21,5 +22,11 @@ public class PlaySound : MonoBehaviour
         if(playOnDestroy)
             AudioController.Current.PlayRandomSound(sound);
 
+    }
+
+    void OnEnable()
+    {
+        if(playOnEnable)
+            AudioController.Current.PlayRandomSound(sound);
     }
 }
