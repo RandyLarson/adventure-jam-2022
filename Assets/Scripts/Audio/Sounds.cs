@@ -21,6 +21,7 @@ public enum Sounds {
     RadioStation_Other2,
     RadioStation_Other3,
     RadioStation_Changing,
+    LightSwitch,
     Nothing
 
 

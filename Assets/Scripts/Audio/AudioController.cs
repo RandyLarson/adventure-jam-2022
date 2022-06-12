@@ -126,8 +126,7 @@ public class AudioController : MonoBehaviour
             var audioClips = soundTable[sound].clips;
             var index = UnityEngine.Random.Range(0, audioClips.Length);
             CurrentRadioClip = audioClips[index];
-            PlaySoundOnSource(RadioPlayer, CurrentRadioClip);
-            RadioPlayer.timeSamples = UnityEngine.Random.Range(0, RadioPlayer.clip.samples);
+            PlaySoundOnSource(RadioPlayer, CurrentRadioClip, true);
         }
     }
 
@@ -147,13 +146,15 @@ public class AudioController : MonoBehaviour
         }
     }
 
-    public void PlaySoundOnSource(AudioSource onAudioSource, AudioClip sound)
+    public void PlaySoundOnSource(AudioSource onAudioSource, AudioClip sound, bool seekRandomly)
     {
         if (AudioController.MuteAllVolume)
             return;
 
         onAudioSource.Stop();
         onAudioSource.clip = sound;
+        if ( seekRandomly )
+            RadioPlayer.timeSamples = UnityEngine.Random.Range(0, sound.samples);
         onAudioSource.Play();
     }
 
