@@ -192,7 +192,8 @@ public class MeepleController : MonoBehaviour
                 else
                 {
                     CurrentVector = (CurrentWalkingDestination.Value - transform.position).normalized;
-                    //CurrentVector.y = 0;
+                    if ( CurrentWalkingDestination.Value.y > transform.position.y )
+                        CurrentVector.y = 0;
                     CurrentSpeed = WalkingSpeed;
                 }
             }
