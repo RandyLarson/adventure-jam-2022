@@ -23,7 +23,7 @@ public class RadioKnob : MonoBehaviour
     {
         PowerIsOn = true;
         AudioController.Current.PlayOnRadio(StationsAvailable[Station]);
-        LevelGoal.IsComplete = (StationsAvailable[Station] == GoalStation);
+        LevelGoal.SetCompletionStatus(StationsAvailable[Station] == GoalStation);
     }
 
     public void ChangeStation()
@@ -42,7 +42,7 @@ public class RadioKnob : MonoBehaviour
     {
         StopAllCoroutines();
         AudioController.Current.StopPlayingRadio();
-        LevelGoal.IsComplete = false;
+        LevelGoal.SetInComplete();
     }
 
     private IEnumerator ChangeStationCoRoutine()
@@ -50,7 +50,7 @@ public class RadioKnob : MonoBehaviour
         AudioController.Current.StopPlayingRadio();
 
         Station = (Station + 1) % StationsAvailable.Length;
-        LevelGoal.IsComplete = (StationsAvailable[Station] == GoalStation);
+        LevelGoal.SetCompletionStatus(StationsAvailable[Station] == GoalStation);
 
         AudioController.Current.PlayOnRadio(StationChanging);
         yield return new WaitForSeconds(2.5f);

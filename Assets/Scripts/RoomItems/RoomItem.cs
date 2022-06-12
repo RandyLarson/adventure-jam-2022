@@ -17,6 +17,11 @@ public class RoomItem : MonoBehaviour
         "This is for opening drawers or cupboards.")]
     public bool PickingUpActivatesAction = false;
 
+    [Tooltip("When true, actions performed will toggle between acivation & deactivation.")]
+    public bool IsToggle = false;
+    [ReadOnly]
+    public bool CurrentToggleState = false;
+
     [Tooltip("Set to false for stools and things that we want the player to move to " +
         "in order to get on. Things like cupboards and cans are set to false so the player " +
         "will interact with them when standing close enough.")]
@@ -68,15 +73,14 @@ public class RoomItem : MonoBehaviour
         return false;
     }
 
-    public void DeActivateSelf()
-    {
-        PerformSelfDeActivationActions();
-    }
-
-    public void ActivateSelf()
-    {
-        PerformSelfActivationActions();
-    }
+    /// <summary>
+    /// Present so that they can be invoked via the editor.
+    /// </summary>
+    public void DeActivateSelf() => PerformSelfDeActivationActions();
+    /// <summary>
+    /// Present so that they can be invoked via the editor.
+    /// </summary>
+    public void ActivateSelf() => PerformSelfActivationActions();
 
     /// <summary>
     /// Detaches each child object of the given one, setting their parent to nothing.
@@ -93,7 +97,19 @@ public class RoomItem : MonoBehaviour
 
     public GameObject PerformSelfDeActivationActions() => PerformSelfActions(DeActivationActions);
 
-    public GameObject PerformSelfActivationActions() => PerformSelfActions(ActivationActions);
+    public GameObject PerformSelfActivationActions()
+    {
+        if (!IsToggle || (IsToggle && CurrentToggleState == false))
+        {
+            CurrentToggleState = true;
+            return PerformSelfActions(ActivationActions);
+        }
+        else
+        {
+            CurrentToggleState = false;
+            return PerformSelfActions(DeActivationActions);
+        }
+    }
 
     public GameObject PerformSelfActions(ActivationActions actions)
     {

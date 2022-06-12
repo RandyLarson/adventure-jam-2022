@@ -23,6 +23,16 @@ public class LevelController : MonoBehaviour
         InitPlayer();
     }
 
+    private void Update()
+    {
+        CheckGoalsAndProgression();
+    }
+
+    private void CheckGoalsAndProgression()
+    {
+        // If all goals are complete, we're done - trigger the win.
+    }
+
     private void InitPlayer()
     {
         MeepleController player = FindObjectOfType<MeepleController>();
