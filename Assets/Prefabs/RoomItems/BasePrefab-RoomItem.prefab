@@ -243,6 +243,10 @@ MonoBehaviour:
   CanClimbOnto: 0
   CanBeHandledDirectly: 1
   PickingUpActivatesAction: 0
+  ParentObjectToPickUpInLieuOfSelf: {fileID: 0}
+  MaintainUpwardOrientation: 1
+  IsToggle: 0
+  CurrentToggleState: 0
   AllowActivationWithoutMovingToClickedPoint: 1
   ImageIdle: {fileID: 0}
   ImageActive: {fileID: 0}
@@ -259,6 +263,8 @@ MonoBehaviour:
         m_Calls: []
     AcceptedItemPrototype: {fileID: 0}
     IsAcceptedItemDestroyedOnUse: 0
+    OnlyAcceptedOnce: 1
+    CanBeAccepted: 1
   ActivationActions:
     GameObjectiveAchieved: 
     ItemProducedWhenUsed: {fileID: 0}
@@ -293,7 +299,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 454cc6725bf58764ea5a1e29f7843f99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayOnStart: 25
-  PlayOnEnable: 25
-  PlayOnDisable: 25
-  PlayOnDestroy: 25
+  PlayOnStart: 100
+  PlayOnEnable: 100
+  PlayOnDisable: 100
+  PlayOnDestroy: 100
+  LoopAudio: 0
+  LoopLength: 5

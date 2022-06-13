@@ -45,7 +45,7 @@ public class RoomItem : MonoBehaviour
 
     private void Update()
     {
-        if ( MaintainUpwardOrientation )
+        if (MaintainUpwardOrientation)
         {
             transform.rotation = Quaternion.identity;
         }
@@ -66,11 +66,15 @@ public class RoomItem : MonoBehaviour
     /// <returns>If the interaction is possible or not (true if possible and the interaction was done)</returns>
     public bool TestForInteractionWith(GameObject gameObject, bool performIfPossible)
     {
-        var asRoomItem = gameObject.GetComponentInParent<RoomItem>();
+        // Try ourselves and down for active room items, fall back to upward.
+        RoomItem asRoomItem = gameObject.GetComponentInChildren<RoomItem>(false);
         if (asRoomItem == null)
         {
-            return false;
+            asRoomItem = gameObject.GetComponentInParent<RoomItem>();
         }
+
+        if (null == asRoomItem)
+            return false;
 
         foreach (var acceptedItem in AcceptedItems)
         {
@@ -184,9 +188,9 @@ public class RoomItem : MonoBehaviour
         if (acceptedItemProfile.TargetItemReplacement != null)
         {
             Destroy(gameObject);
-        }    
+        }
 
-        if ( acceptedItemProfile.IsAcceptedItemDestroyedOnUse )
+        if (acceptedItemProfile.IsAcceptedItemDestroyedOnUse)
         {
             Destroy(incomingItem.gameObject);
         }

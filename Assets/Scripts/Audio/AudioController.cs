@@ -176,6 +176,24 @@ public class AudioController : MonoBehaviour
         }
     }
 
+    public void LoopRandomSound(Sounds sound, float forHowLong)
+    {
+        if (AudioController.MuteAllVolume)
+            return;
+
+        var position = GameObject.FindObjectOfType<Camera>().transform.position;
+        if (soundTable.ContainsKey(sound))
+        {
+            var audioClips = soundTable[sound].clips;
+            var index = UnityEngine.Random.Range(0, audioClips.Length);
+            var clip = audioClips[index];
+
+            GameObject itsController = new GameObject();
+            itsController.transform.position = position;
+            var acc = itsController.AddComponent<AudioClipController>();
+            acc.Play(clip, true, forHowLong);
+        }
+    }
 
     public void PlayTheme()
     {
@@ -189,7 +207,10 @@ public class AudioController : MonoBehaviour
 
     public void StopTheme()
     {
-        musicPlayer.Stop();
+        if (musicPlayer != null)
+        {
+            musicPlayer.Stop();
+        }
     }
 
 }

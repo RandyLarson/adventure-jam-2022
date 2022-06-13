@@ -322,7 +322,7 @@ public class HandTool : MonoBehaviour
 
         if (HandImageForSortOrder != null)
         {
-            AdjustLayerOrdersBy(toPlace, -HandImageForSortOrder.sortingOrder);
+            AdjustLayerOrdersBy(toPlace, -(1+HandImageForSortOrder.sortingOrder));
         }
 
         toPlace.transform.SetParent(null);
@@ -522,7 +522,7 @@ public class HandTool : MonoBehaviour
                 CurrentlyHolding = toPickup;
                 if (HandImageForSortOrder != null)
                 {
-                    AdjustLayerOrdersBy(CurrentlyHolding, HandImageForSortOrder.sortingOrder);
+                    AdjustLayerOrdersBy(CurrentlyHolding, 1+HandImageForSortOrder.sortingOrder);
                 }
 
                 HeldItemOriginalParent = originalParent != null ? originalParent.transform : CurrentlyHolding.transform.parent;

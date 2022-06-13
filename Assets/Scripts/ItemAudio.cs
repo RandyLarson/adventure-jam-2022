@@ -7,29 +7,38 @@ public class ItemAudio : MonoBehaviour
     public Sounds PlayOnDisable = Sounds.Nothing;
     public Sounds PlayOnDestroy = Sounds.Nothing;
 
-    void Start()
+    public bool LoopAudio = false;
+    public float LoopLength = 5;
+
+
+    void TryPlay(Sounds which)
     {
-        if (AudioController.Current != null)
-            AudioController.Current.PlayRandomSound(PlayOnStart);
+        if (AudioController.Current != null && which != Sounds.Nothing)
+        {
+            if (!LoopAudio)
+                AudioController.Current.PlayRandomSound(which);
+            else
+                AudioController.Current.LoopRandomSound(which, LoopLength);
+        }
     }
 
+    void Start()
+    {
+        TryPlay(PlayOnStart);
+    }
 
     private void OnDestroy()
     {
-        if (AudioController.Current != null)
-            AudioController.Current.PlayRandomSound(PlayOnDestroy);
+        TryPlay(PlayOnDestroy);
     }
 
     private void OnEnable()
     {
-        if (AudioController.Current != null)
-            AudioController.Current.PlayRandomSound(PlayOnEnable);
+        TryPlay(PlayOnEnable);
     }
 
     private void OnDisable()
     {
-        if (AudioController.Current != null)
-            AudioController.Current.PlayRandomSound(PlayOnDisable);
-
+        TryPlay(PlayOnDisable);
     }
 }
