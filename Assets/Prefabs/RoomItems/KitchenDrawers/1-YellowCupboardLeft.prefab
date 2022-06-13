@@ -11,6 +11,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7422396572711544685, guid: 3c211938bb8c9f7438cae2a4eff35d8d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422396572711544685, guid: 3c211938bb8c9f7438cae2a4eff35d8d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422396572711544685, guid: 3c211938bb8c9f7438cae2a4eff35d8d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422396572711544685, guid: 3c211938bb8c9f7438cae2a4eff35d8d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422396572711544685, guid: 3c211938bb8c9f7438cae2a4eff35d8d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8023205351560416722, guid: 3c211938bb8c9f7438cae2a4eff35d8d, type: 3}
       propertyPath: m_Name
       value: 1-YellowCupboardLeft
