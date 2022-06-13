@@ -92,11 +92,13 @@ public class GameController : MonoBehaviour
     public void ShowStartMenu()
     {
         UiTitleScreen.SetActive(true);
+        GetComponent<AudioController>().PlayTheme();
     }
 
     public void HideStartMenu()
     { 
         UiTitleScreen.SetActive(false);
+        GetComponent<AudioController>().StopTheme();
     }
 
     public void LoadScene(string sceneName)

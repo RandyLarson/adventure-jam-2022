@@ -39,7 +39,9 @@ public class AudioController : MonoBehaviour
 
         AudioSource = GetComponent<AudioSource>();
         AmbientSource = this.gameObject.AddComponent<AudioSource>();
-        musicPlayer = gameObject.AddComponent<AudioSource>();
+        if (musicPlayer == null) {
+            musicPlayer = gameObject.AddComponent<AudioSource>();
+        }
         RadioPlayer = gameObject.AddComponent<AudioSource>();
         RadioPlayer.loop = true;
 
@@ -172,6 +174,22 @@ public class AudioController : MonoBehaviour
 
             AudioSource.PlayClipAtPoint(clip, position, AudioController.EffectVolume);
         }
+    }
+
+
+    public void PlayTheme()
+    {
+        if(musicPlayer == null) {
+            musicPlayer = gameObject.AddComponent<AudioSource>();
+        }
+        musicPlayer.clip = ThemeTrack;
+        musicPlayer.loop = true;
+        musicPlayer.Play();
+    }
+
+    public void StopTheme()
+    {
+        musicPlayer.Stop();
     }
 
 }
