@@ -3714,8 +3714,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 417528383}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 46.2, y: -69.2, z: 0}
-  m_LocalScale: {x: 1, y: 0.94, z: 1}
+  m_LocalPosition: {x: 47.9, y: -91.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 32579441}
@@ -5852,7 +5852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5640882624487199486, guid: 46bc2b8328f242042894274205675e38, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5640882624487199487, guid: 46bc2b8328f242042894274205675e38, type: 3}
       propertyPath: CanBeHandledDirectly
@@ -5863,44 +5863,8 @@ PrefabInstance:
       value: 55ecc371-2b76-404f-ac47-4062423d3b5e
       objectReference: {fileID: 0}
     - target: {fileID: 5640882624487199487, guid: 46bc2b8328f242042894274205675e38, type: 3}
-      propertyPath: AcceptedItems.Array.data[0].ItemsToEnable.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5640882624487199487, guid: 46bc2b8328f242042894274205675e38, type: 3}
-      propertyPath: AcceptedItems.Array.data[0].ItemsToEnable.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5640882624487199487, guid: 46bc2b8328f242042894274205675e38, type: 3}
-      propertyPath: AcceptedItems.Array.data[0].OnUsage.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5640882624487199487, guid: 46bc2b8328f242042894274205675e38, type: 3}
-      propertyPath: AcceptedItems.Array.data[0].OnUsage.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5640882624487199487, guid: 46bc2b8328f242042894274205675e38, type: 3}
-      propertyPath: AcceptedItems.Array.data[0].OnUsage.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5640882624487199487, guid: 46bc2b8328f242042894274205675e38, type: 3}
-      propertyPath: AcceptedItems.Array.data[0].OnUsage.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5640882624487199487, guid: 46bc2b8328f242042894274205675e38, type: 3}
-      propertyPath: AcceptedItems.Array.data[0].OnUsage.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetTrigger
-      objectReference: {fileID: 0}
-    - target: {fileID: 5640882624487199487, guid: 46bc2b8328f242042894274205675e38, type: 3}
-      propertyPath: AcceptedItems.Array.data[0].OnUsage.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.Animator, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5640882624487199487, guid: 46bc2b8328f242042894274205675e38, type: 3}
-      propertyPath: AcceptedItems.Array.data[0].OnUsage.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Happy
-      objectReference: {fileID: 0}
-    - target: {fileID: 5640882624487199487, guid: 46bc2b8328f242042894274205675e38, type: 3}
-      propertyPath: AcceptedItems.Array.data[0].OnUsage.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      propertyPath: AcceptedItems.Array.size
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46bc2b8328f242042894274205675e38, type: 3}
@@ -8425,11 +8389,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2587468227873892841, guid: 74a4d04f589e1be448d128c1fa2670ff, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2303
+      value: 983.2
       objectReference: {fileID: 0}
     - target: {fileID: 2587468227873892841, guid: 74a4d04f589e1be448d128c1fa2670ff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -617
+      value: -572.9
       objectReference: {fileID: 0}
     - target: {fileID: 2587468227873892841, guid: 74a4d04f589e1be448d128c1fa2670ff, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10986,7 +10950,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 152401612}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8318586d962f784696928ec8f94e590, type: 3}
   m_Name: 
