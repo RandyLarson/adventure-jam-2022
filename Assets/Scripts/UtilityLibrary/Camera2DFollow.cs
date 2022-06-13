@@ -34,7 +34,7 @@ public class Camera2DFollow : MonoBehaviour
         }
     }
 
-    public void Init(Camera camera, Rect bounds, float padding = 0f)
+    public void Init(Camera camera, Rect bounds)
     {
         Camera = camera;
 
@@ -48,11 +48,11 @@ public class Camera2DFollow : MonoBehaviour
             float cxViewPort = topRight.x - bottomLeft.x;
             float cyViewPort = topRight.y - bottomLeft.y;
 
-            XRange.min = (bounds.xMin + cxViewPort / 2) - padding;
-            XRange.max = (bounds.xMax - cxViewPort / 2) + padding;
+            XRange.min = (bounds.xMin + cxViewPort/2);
+            XRange.max = (bounds.xMax - cxViewPort/2);
 
-            YRange.min = (bounds.yMin + cyViewPort/2) - padding;
-            YRange.max = (bounds.yMax - cyViewPort/2) + padding;
+            YRange.min = (bounds.yMin + cyViewPort/2);
+            YRange.max = (bounds.yMax - cyViewPort/2);
 
             if (XRange.min > XRange.max)
                 XRange.max = XRange.min;

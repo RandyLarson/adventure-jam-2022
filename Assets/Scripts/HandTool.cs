@@ -442,7 +442,7 @@ public class HandTool : MonoBehaviour
                     CurrentlyHolding.transform.SetParent(transform, true);
                 }
 
-                CurrentlyHolding.transform.localScale = Vector3.one;
+                //CurrentlyHolding.transform.localScale = Vector3.one;
 
                 OnPickupItem?.Invoke(asRoomItem);
                 AudioController.Current?.PlayRandomSound(Sounds.ItemPickedUp);

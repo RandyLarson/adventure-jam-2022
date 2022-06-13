@@ -24,7 +24,7 @@ MonoBehaviour:
   Environment:
     Gravity: 700
     JumpLandingPointYOffset: 20
-    JumpSpeed: 865
+    JumpSpeed: 1200
     MaxJumpDistance: 250
     JumpDurationSeconds: 0.2
     MinimumDistanceOfInteraction: 260.69
