@@ -1,4 +1,5 @@
 using Assets.Scripts.Extensions;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,6 +14,7 @@ public class HandTool : MonoBehaviour
     public SpriteRenderer HandVisual;
 
     public GameObject HeldItemParentLocation;
+    public SpriteRenderer HandImageForSortOrder;
 
     [ReadOnly]
     public Collider2D OurCollider;
@@ -236,6 +238,76 @@ public class HandTool : MonoBehaviour
         return res;
     }
 
+    static public (bool foundGround, float distance, Vector3 atPos, Surface surfaceFound) DetectGround(Vector3 fromPosition)
+    {
+        var dyMax = GameController.TheGameData.GamePrefs.Environment.Gravity * Time.deltaTime;
+
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(fromPosition, 1, Vector3.down, 10 * dyMax, GameConstants.LayerMaskDefault);
+        Debug.DrawLine(fromPosition - new Vector3(5, 0, 0), fromPosition - new Vector3(5, dyMax, 0), Color.blue);
+
+        bool groundDetected = false;
+        float dyActual = dyMax;
+
+        Vector3 closestPoint = Vector3.zero;
+        Surface closestSurface = null;
+        for (int i = 0; i < hits.Length; i++)
+        {
+            if (hits[i].collider.gameObject.CompareTag(GameConstants.Surface))
+            {
+                // Looking for the shortest distance to 'fall' before we find a surface.
+
+                if (groundDetected == false)
+                {
+                    closestPoint = hits[i].point;
+                }
+
+                groundDetected = true;
+
+                if ((hits[i].distance) < dyActual)
+                {
+                    dyActual = hits[i].distance;
+
+                    if (Mathf.Abs(dyActual) < GameController.TheGameData.GamePrefs.Environment.TreatAsZero)
+                        dyActual = 0;
+
+                    closestPoint = hits[i].point;
+                    closestSurface = hits[i].collider.gameObject.GetComponent<Surface>();
+                }
+            }
+        }
+
+        Debug.DrawLine(fromPosition, fromPosition - new Vector3(0, dyActual, 0), Color.red);
+        return (groundDetected, -dyActual, closestPoint, closestSurface);
+    }
+
+
+    public IEnumerator DropItemToNearestSurface(object itemToDrop)
+    {
+        if (itemToDrop == null)
+            yield break;
+
+        GameObject asGameObject = (GameObject)itemToDrop;
+        if (null == asGameObject)
+            yield break;
+
+        var res = DetectGround(asGameObject.transform.position);
+        while (!res.foundGround || res.distance > 0)
+        {
+            var dy = GameController.TheGameData.GamePrefs.Environment.Gravity * Time.deltaTime;
+            if (res.foundGround)
+            {
+                dy = Mathf.Min(res.distance, dy);
+            }
+
+            asGameObject.transform.position = new Vector3(asGameObject.transform.position.x, asGameObject.transform.position.y - dy, asGameObject.transform.position.z);
+            yield return new WaitForEndOfFrame();
+
+            res = DetectGround(asGameObject.transform.position);
+        }
+
+        yield break;
+    }
+
     private bool TryPlaceItem(GameObject toPlace, GameObject whereToPlace)
     {
         if (toPlace == null)
@@ -246,6 +318,13 @@ public class HandTool : MonoBehaviour
             return false;
 
         // Drop the item.
+        StartCoroutine("DropItemToNearestSurface", toPlace);
+
+        if (HandImageForSortOrder != null)
+        {
+            AdjustLayerOrdersBy(toPlace, -HandImageForSortOrder.sortingOrder);
+        }
+
         toPlace.transform.SetParent(null);
         toPlace.transform.rotation = Quaternion.identity;
         OnReleaseItem?.Invoke(GetRoomItem(toPlace));
@@ -413,23 +492,39 @@ public class HandTool : MonoBehaviour
         }
     }
 
-
-    public void AttemptPickup(GameObject gameObject, GameObject originalParent)
+    public void AdjustLayerOrdersBy(GameObject itemToAdjust, int adjustBy)
     {
-        if (null == gameObject)
+        var rs = itemToAdjust.GetComponentsInChildren<SpriteRenderer>();
+
+        foreach (var sr in rs)
+        {
+            sr.sortingOrder = sr.sortingOrder + adjustBy;
+        }
+    }
+
+    public void AttemptPickup(GameObject givenToPickup, GameObject originalParent)
+    {
+        if (null == givenToPickup)
             return;
 
-        var asRoomItem = GetRoomItem(gameObject);
+        var asRoomItem = GetRoomItem(givenToPickup);
         if (asRoomItem != null && IsCompatibleWithTool(asRoomItem.gameObject))
         {
-            if (IsValidToPickup(gameObject) && asRoomItem.CanBeHandledDirectly)
+            if (IsValidToPickup(givenToPickup) && asRoomItem.CanBeHandledDirectly)
             {
-                if (gameObject.TryGetComponent<Rigidbody2D>(out Rigidbody2D rb))
+                if (givenToPickup.TryGetComponent(out Rigidbody2D rb))
                 {
                     rb.velocity = Vector3.zero;
                 }
 
-                CurrentlyHolding = gameObject;
+                GameObject toPickup = asRoomItem.ParentObjectToPickUpInLieuOfSelf != null ? asRoomItem.ParentObjectToPickUpInLieuOfSelf : givenToPickup;
+
+                CurrentlyHolding = toPickup;
+                if (HandImageForSortOrder != null)
+                {
+                    AdjustLayerOrdersBy(CurrentlyHolding, HandImageForSortOrder.sortingOrder);
+                }
+
                 HeldItemOriginalParent = originalParent != null ? originalParent.transform : CurrentlyHolding.transform.parent;
 
                 if (HeldItemParentLocation != null)

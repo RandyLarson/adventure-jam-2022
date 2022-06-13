@@ -17,6 +17,11 @@ public class RoomItem : MonoBehaviour
         "This is for opening drawers or cupboards.")]
     public bool PickingUpActivatesAction = false;
 
+    [Tooltip("Will re-parent and picup this item if non-null. This is useful when there is a parent gameobject that is acting as a controller " +
+        "and parent for a recipe progression.")]
+    public GameObject ParentObjectToPickUpInLieuOfSelf;
+    public bool MaintainUpwardOrientation = true;
+
     [Tooltip("When true, actions performed will toggle between acivation & deactivation.")]
     public bool IsToggle = false;
     [ReadOnly]
@@ -36,6 +41,15 @@ public class RoomItem : MonoBehaviour
 
     [Tooltip("Actions to be performed when this item is `de-activated`")]
     public ActivationActions DeActivationActions;
+
+
+    private void Update()
+    {
+        if ( MaintainUpwardOrientation )
+        {
+            transform.rotation = Quaternion.identity;
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -60,7 +74,7 @@ public class RoomItem : MonoBehaviour
 
         foreach (var acceptedItem in AcceptedItems)
         {
-            if (acceptedItem.AcceptedItemPrototype.ItemId == asRoomItem.ItemId)
+            if (acceptedItem.CanBeAccepted && acceptedItem.AcceptedItemPrototype.ItemId == asRoomItem.ItemId)
             {
                 if (performIfPossible)
                 {
@@ -176,5 +190,8 @@ public class RoomItem : MonoBehaviour
         {
             Destroy(incomingItem.gameObject);
         }
+
+        if (acceptedItemProfile.OnlyAcceptedOnce)
+            acceptedItemProfile.CanBeAccepted = false;
     }
 }

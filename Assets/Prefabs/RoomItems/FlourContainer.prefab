@@ -265,7 +265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
       propertyPath: ItemId.serializedGuid
-      value: ce959d65-c334-48a6-b770-092c369bf23e
+      value: f72e08fa-671e-4312-a701-123a3db614c6
       objectReference: {fileID: 0}
     - target: {fileID: 7460242865069190601, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
       propertyPath: m_RootOrder
