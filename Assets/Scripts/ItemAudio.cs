@@ -9,16 +9,19 @@ public class ItemAudio : MonoBehaviour
 
     public bool LoopAudio = false;
     public float LoopLength = 5;
+    public bool stopOnDisable = true;
+    private GameObject loopSound;
 
 
     void TryPlay(Sounds which)
     {
+
         if (AudioController.Current != null && which != Sounds.Nothing)
         {
             if (!LoopAudio)
                 AudioController.Current.PlayRandomSound(which);
             else
-                AudioController.Current.LoopRandomSound(which, LoopLength);
+                loopSound = AudioController.Current.LoopRandomSound(which, LoopLength);
         }
     }
 
@@ -40,5 +43,12 @@ public class ItemAudio : MonoBehaviour
     private void OnDisable()
     {
         TryPlay(PlayOnDisable);
+        if(stopOnDisable && loopSound) {
+            //Clean up any old looping sounds
+            if(loopSound) {
+                Destroy(loopSound);
+                loopSound = null;
+            }
+        }
     }
 }
