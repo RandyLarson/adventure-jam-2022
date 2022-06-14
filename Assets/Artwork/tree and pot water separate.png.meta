@@ -1,0 +1,666 @@
+fileFormatVersion: 2
+guid: 65b9998d57203094d991a149966ddf5f
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tree-a
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 268
+        width: 34
+        height: 103
+      alignment: 9
+      pivot: {x: 0.46984145, y: 0.012669239}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a2f054c203da9c47ad7fa185dec460f
+      internalID: -1544599756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree-b
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 262
+        width: 76
+        height: 216
+      alignment: 9
+      pivot: {x: 0.41173673, y: 0.026422288}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 319fa1619585ced468961dce890506e3
+      internalID: 1223827976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree-c
+      rect:
+        serializedVersion: 2
+        x: 1345
+        y: 262
+        width: 411
+        height: 423
+      alignment: 9
+      pivot: {x: 0.53540695, y: 0.010836771}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 095f841afe1819c4284cce16ec1c3b55
+      internalID: -1109762381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree-d
+      rect:
+        serializedVersion: 2
+        x: 1837
+        y: 261
+        width: 752
+        height: 500
+      alignment: 9
+      pivot: {x: 0.43105623, y: 0.01011615}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b0e4c7ac507caa409f0d5c98bf6d19b
+      internalID: 1764928986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree and pot water separate_4
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 249
+        width: 5
+        height: 4
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e716a87d32b680841b03929b05d9aa41
+      internalID: -1734205536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree and pot water separate_6
+      rect:
+        serializedVersion: 2
+        x: 2174
+        y: 244
+        width: 4
+        height: 4
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b828b594e958b7243953a4fc6f10049f
+      internalID: 856395648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree and pot water separate_7
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 182
+        width: 25
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b6cb6efb40427d498be0d3ca0362ac9
+      internalID: 1529187957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree and pot water separate_8
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 182
+        width: 26
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d00b3c51a08d8f45bf98358af4d3356
+      internalID: 494660350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree and pot water separate_9
+      rect:
+        serializedVersion: 2
+        x: 1087
+        y: 196
+        width: 13
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bbeb2d11500d6745967b36ce6d0f638
+      internalID: -1437310982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree and pot water separate_10
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 204
+        width: 34
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d9f4d7caab26fc4c8f549d6fccec77d
+      internalID: -1356288045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree and pot water separate_11
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 165
+        width: 26
+        height: 27
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1c22ba0353c7dd45bfa69f94e8b526d
+      internalID: -341694096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree and pot water separate_12
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 170
+        width: 13
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9aaa2824234da264bb426fddcd245642
+      internalID: 1186244380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree and pot water separate_13
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 169
+        width: 13
+        height: 14
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 152b5756262411b4e8f5fc653ebeef2a
+      internalID: 1281676474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree and pot water separate_14
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 175
+        width: 31
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 846773195c87ac6459b4453b8c179ffa
+      internalID: -1638899932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree and pot water separate_15
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 161
+        width: 13
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffe9c113b6188f04bba9900fca1cdd5c
+      internalID: -1301401717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree and pot water separate_16
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 147
+        width: 20
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69f52d54f4edf234082f93deaa43dd54
+      internalID: -27383085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree and pot water separate_17
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 152
+        width: 21
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9e6b912b2d8346408ea97444ac6e16a
+      internalID: 291792529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree and pot water separate_18
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 152
+        width: 20
+        height: 21
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bac38ff6822ca64aa2e69762f112537
+      internalID: -1302444551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree and pot water separate_19
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 117
+        width: 149
+        height: 30
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 041337c710a48104ebf6dfd6c1f35d97
+      internalID: 2119579723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree and pot water separate_20
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 118
+        width: 156
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ab5c052a9b7ea6418710453e9618aee
+      internalID: -446114509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree and pot water separate_22
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 116
+        width: 142
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c01b22546ab330489dbb64799d0b34c
+      internalID: -1912080147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree and pot water separate_23
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 121
+        width: 154
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d331478d2a6b104298c91cc18ed3e8b
+      internalID: 1978007547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree and pot water separate_24
+      rect:
+        serializedVersion: 2
+        x: 1076
+        y: 121
+        width: 134
+        height: 17
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e19541f1c6840924994aba2300cb8ff7
+      internalID: -2036540481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tree and pot water separate_25
+      rect:
+        serializedVersion: 2
+        x: 1455
+        y: 118
+        width: 167
+        height: 23
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec8d63083418ddc45bddd62843f11ee2
+      internalID: -1905972608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      tree and pot water separate_26: 1774400666
+      tree and pot water separate_27: -1258895544
+      tree and pot water separate_21: 1500213070
+      tree and pot water separate_24: -2036540481
+      tree and pot water separate_15: -1301401717
+      tree and pot water separate_23: 1978007547
+      tree and pot water separate_20: -446114509
+      tree and pot water separate_14: -1638899932
+      tree and pot water separate_9: -1437310982
+      tree and pot water separate_13: 1281676474
+      tree and pot water separate_12: 1186244380
+      tree and pot water separate_7: 1529187957
+      tree and pot water separate_11: -341694096
+      tree-c: -1109762381
+      tree and pot water separate_19: 2119579723
+      tree and pot water separate_5: 972370977
+      tree and pot water separate_25: -1905972608
+      tree-d: 1764928986
+      tree and pot water separate_17: 291792529
+      tree-a: -1544599756
+      tree and pot water separate_6: 856395648
+      tree and pot water separate_22: -1912080147
+      tree and pot water separate_10: -1356288045
+      tree and pot water separate_18: -1302444551
+      tree and pot water separate_4: -1734205536
+      tree-b: 1223827976
+      tree and pot water separate_16: -27383085
+      tree and pot water separate_8: 494660350
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
