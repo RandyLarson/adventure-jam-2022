@@ -32,5 +32,6 @@ public enum Sounds {
     CupboardClose=24,
     CookTimer=25,
     CookTimerDing=26,
+    GasStove=27,
     Nothing = 100
 }

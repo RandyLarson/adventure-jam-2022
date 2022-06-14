@@ -28,7 +28,7 @@ public class AudioClipController : MonoBehaviour
 
     private void Update()
     {
-        if ( Time.time > StartTime + loopDuration )
+        if ( loopDuration >= 0 && Time.time > StartTime + loopDuration )
         {
             audioSource.Stop();
 

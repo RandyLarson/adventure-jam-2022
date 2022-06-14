@@ -5794,6 +5794,29 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1286702780203280635, guid: 287581b522edea84b900631a4e699ffd, type: 3}
   m_PrefabInstance: {fileID: 1021935956}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1031095707 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3659747007948032665, guid: 9bcc6e7a0a78edf41b427859c6a8a4ef, type: 3}
+  m_PrefabInstance: {fileID: 3659747008070031963}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1031095711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031095707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454cc6725bf58764ea5a1e29f7843f99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayOnStart: 100
+  PlayOnEnable: 27
+  PlayOnDisable: 100
+  PlayOnDestroy: 100
+  LoopAudio: 1
+  LoopLength: -1
 --- !u!1001 &1036713327
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11123,6 +11146,10 @@ PrefabInstance:
     - target: {fileID: 3659747005996690462, guid: 9bcc6e7a0a78edf41b427859c6a8a4ef, type: 3}
       propertyPath: m_Name
       value: StewPot-Puzzle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3659747007948032665, guid: 9bcc6e7a0a78edf41b427859c6a8a4ef, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bcc6e7a0a78edf41b427859c6a8a4ef, type: 3}

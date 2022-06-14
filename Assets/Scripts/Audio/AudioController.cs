@@ -176,10 +176,10 @@ public class AudioController : MonoBehaviour
         }
     }
 
-    public void LoopRandomSound(Sounds sound, float forHowLong)
+    public GameObject LoopRandomSound(Sounds sound, float forHowLong)
     {
         if (AudioController.MuteAllVolume)
-            return;
+            return null;
 
         var position = GameObject.FindObjectOfType<Camera>().transform.position;
         if (soundTable.ContainsKey(sound))
@@ -192,7 +192,10 @@ public class AudioController : MonoBehaviour
             itsController.transform.position = position;
             var acc = itsController.AddComponent<AudioClipController>();
             acc.Play(clip, true, forHowLong);
+            return itsController;
         }
+
+        return null;
     }
 
     public void PlayTheme()
