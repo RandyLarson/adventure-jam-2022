@@ -263,7 +263,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tree and pot water separate_8
+      name: droplet-2
       rect:
         serializedVersion: 2
         x: 914
@@ -368,7 +368,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tree and pot water separate_13
+      name: droplet-1
       rect:
         serializedVersion: 2
         x: 841
@@ -473,7 +473,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tree and pot water separate_18
+      name: droplet-3
       rect:
         serializedVersion: 2
         x: 935
@@ -639,7 +639,7 @@ TextureImporter:
       tree and pot water separate_20: -446114509
       tree and pot water separate_14: -1638899932
       tree and pot water separate_9: -1437310982
-      tree and pot water separate_13: 1281676474
+      droplet-2: 494660350
       tree and pot water separate_12: 1186244380
       tree and pot water separate_7: 1529187957
       tree and pot water separate_11: -341694096
@@ -650,14 +650,14 @@ TextureImporter:
       tree-d: 1764928986
       tree and pot water separate_17: 291792529
       tree-a: -1544599756
+      droplet-3: -1302444551
       tree and pot water separate_6: 856395648
       tree and pot water separate_22: -1912080147
       tree and pot water separate_10: -1356288045
-      tree and pot water separate_18: -1302444551
       tree and pot water separate_4: -1734205536
       tree-b: 1223827976
       tree and pot water separate_16: -27383085
-      tree and pot water separate_8: 494660350
+      droplet-1: 1281676474
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -43,6 +43,18 @@ public class FadeOut : MonoBehaviour
         FadeStartTime = Time.time;
         IsActive = true;
         IsFadingOut = fadeOut;
+
+        if (IsFadingOut)
+        {
+            if (Renderers.Length > 0)
+                LerpFrom = Renderers[0].color.a;
+            else
+                LerpFrom = 1;
+        }
+        else
+        {
+            LerpFrom = 0;
+        }
     }
 
     public void ShowAll()
@@ -66,6 +78,8 @@ public class FadeOut : MonoBehaviour
         IsActive = false;
     }
 
+    float LerpFrom = 1;
+
     void Update()
     {
         if (!IsActive)
@@ -77,9 +91,8 @@ public class FadeOut : MonoBehaviour
 
         if (Time.time - FadeStartTime > beginFadeAfterAdj)
         {
-            float lerpFrom = IsFadingOut ? 1 : 0;
             float lerpTo = IsFadingOut ? 0 : 1;
-            float scale = Mathf.Lerp(lerpFrom, lerpTo, (Time.time - (FadeStartTime + beginFadeAfterAdj)) / fadeDurationAdj);
+            float scale = Mathf.Lerp(LerpFrom, lerpTo, (Time.time - (FadeStartTime + beginFadeAfterAdj)) / fadeDurationAdj);
 
             foreach (var sr in Renderers)
             {

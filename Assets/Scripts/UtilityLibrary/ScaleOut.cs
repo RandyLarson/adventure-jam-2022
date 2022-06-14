@@ -29,7 +29,10 @@ public class ScaleOut : MonoBehaviour
     {
         StartTime = Time.time;
         IsActive = true;
+        LerpFrom = transform.localScale.x;
     }
+
+    float LerpFrom = 1;
 
     void Update()
     {
@@ -40,9 +43,8 @@ public class ScaleOut : MonoBehaviour
 
         if (Time.time - StartTime > BeginAfter)
         {
-            float lerpFrom = 1;
             float lerpTo = 0;
-            float scale = Mathf.Lerp(lerpFrom, lerpTo, (Time.time - (StartTime + BeginAfter)) / Duration);
+            float scale = Mathf.Lerp(LerpFrom, lerpTo, (Time.time - (StartTime + BeginAfter)) / Duration);
 
             transform.localScale = new Vector3(scale, scale, 0);
 
