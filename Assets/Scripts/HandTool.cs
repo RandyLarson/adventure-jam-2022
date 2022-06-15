@@ -201,7 +201,7 @@ public class HandTool : MonoBehaviour
             var asRoomItem = whatToUseItOn.GetComponentInParent<RoomItem>();
             if (asRoomItem != null)
             {
-                if (asRoomItem.TestForInteractionWith(CurrentlyHolding, true))
+                if (asRoomItem.TestForInteractionWith(whatToUse, true))
                 {
                     itemWasUsed = true;
 
@@ -494,7 +494,7 @@ public class HandTool : MonoBehaviour
 
     public void AdjustLayerOrdersBy(GameObject itemToAdjust, int adjustBy)
     {
-        var rs = itemToAdjust.GetComponentsInChildren<SpriteRenderer>();
+        var rs = itemToAdjust.GetComponentsInChildren<SpriteRenderer>(true);
 
         foreach (var sr in rs)
         {
