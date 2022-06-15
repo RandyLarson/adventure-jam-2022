@@ -10,6 +10,7 @@ public class TreeGrowingController : MonoBehaviour
         {
             treeAnim.SetBool("IsGrowing", true);
         }
+        AudioController.Current.PlayRandomSound(Sounds.TreeGrows);
     }
 
     public void TreeHasFinishedGrowing()
