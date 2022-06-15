@@ -44,6 +44,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: EggCarton-Closed
       objectReference: {fileID: 0}
+    - target: {fileID: 1286702780203280629, guid: d0d54d04837cd484d8398571bfdf33cc, type: 3}
+      propertyPath: PickingUpActivatesAction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1286702780203280629, guid: d0d54d04837cd484d8398571bfdf33cc, type: 3}
+      propertyPath: ParentObjectToPickUpInLieuOfSelf
+      value: 
+      objectReference: {fileID: 5448254674595449173}
+    - target: {fileID: 1286702780203280629, guid: d0d54d04837cd484d8398571bfdf33cc, type: 3}
+      propertyPath: ActivationActions.ItemsToEnable.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1286702780203280629, guid: d0d54d04837cd484d8398571bfdf33cc, type: 3}
+      propertyPath: ActivationActions.ItemsToDisable.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1286702780203280629, guid: d0d54d04837cd484d8398571bfdf33cc, type: 3}
+      propertyPath: ActivationActions.ItemsToEnable.Array.data[0]
+      value: 
+      objectReference: {fileID: 63220987226828481}
+    - target: {fileID: 1286702780203280629, guid: d0d54d04837cd484d8398571bfdf33cc, type: 3}
+      propertyPath: ActivationActions.ItemsToDisable.Array.data[0]
+      value: 
+      objectReference: {fileID: 327530835211154291}
     - target: {fileID: 1286702780203280635, guid: d0d54d04837cd484d8398571bfdf33cc, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -90,6 +114,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0d54d04837cd484d8398571bfdf33cc, type: 3}
+--- !u!1 &327530835211154291 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1286702780203280628, guid: d0d54d04837cd484d8398571bfdf33cc, type: 3}
+  m_PrefabInstance: {fileID: 1535963677549222791}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &327530835211154300 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1286702780203280635, guid: d0d54d04837cd484d8398571bfdf33cc, type: 3}
@@ -102,9 +131,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 57133807112559643}
     m_Modifications:
+    - target: {fileID: 7937855110014081922, guid: 1743ef2b55edb504480c24efd4e1b171, type: 3}
+      propertyPath: ParentObjectToPickUpInLieuOfSelf
+      value: 
+      objectReference: {fileID: 5448254674595449173}
     - target: {fileID: 7937855110014081923, guid: 1743ef2b55edb504480c24efd4e1b171, type: 3}
       propertyPath: m_Name
       value: EggCarton-Open
+      objectReference: {fileID: 0}
+    - target: {fileID: 7937855110014081923, guid: 1743ef2b55edb504480c24efd4e1b171, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7937855110014081932, guid: 1743ef2b55edb504480c24efd4e1b171, type: 3}
       propertyPath: m_RootOrder
