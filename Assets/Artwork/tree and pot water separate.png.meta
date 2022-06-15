@@ -557,7 +557,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tree and pot water separate_23
+      name: potwater-full
       rect:
         serializedVersion: 2
         x: 815
@@ -578,7 +578,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tree and pot water separate_24
+      name: potwater-med
       rect:
         serializedVersion: 2
         x: 1076
@@ -599,7 +599,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tree and pot water separate_25
+      name: potwater-small
       rect:
         serializedVersion: 2
         x: 1455
@@ -630,12 +630,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      potwater-full: 1978007547
       tree and pot water separate_26: 1774400666
+      potwater-med: -2036540481
       tree and pot water separate_27: -1258895544
+      potwater-small: -1905972608
       tree and pot water separate_21: 1500213070
-      tree and pot water separate_24: -2036540481
       tree and pot water separate_15: -1301401717
-      tree and pot water separate_23: 1978007547
       tree and pot water separate_20: -446114509
       tree and pot water separate_14: -1638899932
       tree and pot water separate_9: -1437310982
@@ -646,7 +647,6 @@ TextureImporter:
       tree-c: -1109762381
       tree and pot water separate_19: 2119579723
       tree and pot water separate_5: 972370977
-      tree and pot water separate_25: -1905972608
       tree-d: 1764928986
       tree and pot water separate_17: 291792529
       tree-a: -1544599756
