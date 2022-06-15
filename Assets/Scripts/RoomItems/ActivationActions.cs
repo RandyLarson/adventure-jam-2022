@@ -33,6 +33,11 @@ public class ActivationActions
     [Tooltip("Generic actions to take upon usage.")]
     public UnityEvent OnUsage;
 
-    [Tooltip("Call the general activation method on the item.")]
+    [Tooltip("Call the general activation method on incoming item.")]
     public bool CallActivateOnRoomItem;
+
+    [Tooltip("Changes the parent of the incoming item to the the item accepting.")]
+    public GameObject MakeIncomingItemAChildOfThis;
+    [Tooltip("Changes the sort order of a reparented item to this.")]
+    public int IncomingItemSortOrder;
 }

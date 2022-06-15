@@ -179,7 +179,7 @@ public class HandTool : MonoBehaviour
 
                         // An item may self-destruct at use time.
                         // Forget we are holding it, if so.
-                        if (!CurrentlyHolding.IsValidGameobject())
+                        if (!CurrentlyHolding.IsValidGameobject() || CurrentlyHolding.transform.parent != gameObject)
                             CurrentlyHolding = null;
                     }
                 }
@@ -207,7 +207,7 @@ public class HandTool : MonoBehaviour
 
                     // An item may self-destruct at use time.
                     // Forget we are holding it, if so.
-                    if (!CurrentlyHolding.IsValidGameobject())
+                    if (!CurrentlyHolding.IsValidGameobject() || CurrentlyHolding.transform.parent != gameObject)
                         CurrentlyHolding = null;
                 }
             }

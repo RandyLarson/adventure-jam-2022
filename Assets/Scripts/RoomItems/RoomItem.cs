@@ -1,6 +1,8 @@
 using Assets.Scripts.Extensions;
 using System;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class RoomItem : MonoBehaviour
 {
@@ -78,13 +80,16 @@ public class RoomItem : MonoBehaviour
 
         foreach (var acceptedItem in AcceptedItems)
         {
-            if (acceptedItem.CanBeAccepted && acceptedItem.AcceptedItemPrototype.ItemId == asRoomItem.ItemId)
+            if (acceptedItem.CanBeAccepted)
             {
-                if (performIfPossible)
+                if (acceptedItem.AcceptedItemPrototype.ItemId == asRoomItem.ItemId || (acceptedItem != null && acceptedItem.AcceptedItemPrototypes.Any(ri => ri.ItemId == asRoomItem.ItemId)))
                 {
-                    ExecuteAcceptance(acceptedItem, asRoomItem);
+                    if (performIfPossible)
+                    {
+                        ExecuteAcceptance(acceptedItem, asRoomItem);
+                    }
+                    return true;
                 }
-                return true;
             }
         }
 
@@ -195,6 +200,19 @@ public class RoomItem : MonoBehaviour
             incomingItem.ActivateSelf();
         }
 
+        if ( acceptedItemProfile.MakeIncomingItemAChildOfThis != null )
+        {
+            var pointerPos = Pointer.current.position.ReadValue();
+            Vector3 wposition = Camera.main.ScreenToWorldPoint(pointerPos);
+            wposition.z = 0;
+            incomingItem.transform.SetParent(transform, true);
+            incomingItem.transform.SetPositionAndRotation(wposition, Quaternion.AngleAxis(UnityEngine.Random.Range(18, -18), Vector3.forward));
+            var sr = incomingItem.gameObject.GetComponentInChildren<SpriteRenderer>();
+            if (sr != null)
+            {
+                sr.sortingOrder = acceptedItemProfile.IncomingItemSortOrder;
+            }
+        }
 
 
         if (acceptedItemProfile.IsAcceptedItemDestroyedOnUse)

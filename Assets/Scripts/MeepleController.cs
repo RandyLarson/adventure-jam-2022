@@ -327,7 +327,7 @@ public class MeepleController : MonoBehaviour
             pickedUpItem = HandTool.AttemptPickup(itemToInteractWith);
         }
 
-        if (asRoomItem.PickingUpActivatesAction && !climbOntoItem)
+        if (asRoomItem.PickingUpActivatesAction && !climbOntoItem && !usedHeldItem)
         {
             GameObject replacementItem = asRoomItem.PerformSelfActivationActions();
             if (replacementItem != null)

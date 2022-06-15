@@ -171,6 +171,30 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[15].y
       value: 106
       objectReference: {fileID: 0}
+    - target: {fileID: 3084840452199728343, guid: 3c211938bb8c9f7438cae2a4eff35d8d, type: 3}
+      propertyPath: AcceptedItems.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3084840452199728343, guid: 3c211938bb8c9f7438cae2a4eff35d8d, type: 3}
+      propertyPath: AcceptedItems.Array.data[0].CanBeAccepted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3084840452199728343, guid: 3c211938bb8c9f7438cae2a4eff35d8d, type: 3}
+      propertyPath: AcceptedItems.Array.data[0].AcceptedItemPrototype
+      value: 
+      objectReference: {fileID: 8644783233790461047, guid: d79199b3e5d104149bec17584c14b07b, type: 3}
+    - target: {fileID: 3084840452199728343, guid: 3c211938bb8c9f7438cae2a4eff35d8d, type: 3}
+      propertyPath: AcceptedItems.Array.data[0].IncomingItemSortOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3084840452199728343, guid: 3c211938bb8c9f7438cae2a4eff35d8d, type: 3}
+      propertyPath: AcceptedItems.Array.data[0].MakeIncomingItemAChildOfThis
+      value: 
+      objectReference: {fileID: 2306902572326459458}
+    - target: {fileID: 3084840452199728343, guid: 3c211938bb8c9f7438cae2a4eff35d8d, type: 3}
+      propertyPath: AcceptedItems.Array.data[0].AcceptedItemPrototypes.Array.size
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 5238711727763342233, guid: 3c211938bb8c9f7438cae2a4eff35d8d, type: 3}
       propertyPath: m_Points.m_Paths.Array.size
       value: 1
