@@ -12,6 +12,9 @@ public class ItemAudio : MonoBehaviour
     public float LoopLength = 5;
     public bool stopOnDisable = true;
     public float delay = 0;
+    public bool repeat = false;
+    public float randomizeRepeatMinInterval = 0;
+    public float randomizeRepeatMaxInterval = 0;
     private GameObject loopSound;
 
 
@@ -24,6 +27,10 @@ public class ItemAudio : MonoBehaviour
                 AudioController.Current.PlayRandomSound(which);
             else
                 loopSound = AudioController.Current.LoopRandomSound(which, LoopLength);
+        }
+
+        if(repeat) {
+            this.Invoke(() => TryPlay(which), Random.Range(randomizeRepeatMinInterval, randomizeRepeatMaxInterval));
         }
     }
 

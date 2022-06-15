@@ -4390,6 +4390,9 @@ MonoBehaviour:
   LoopLength: 5
   stopOnDisable: 1
   delay: 0
+  repeat: 0
+  randomizeRepeatMinInterval: 0
+  randomizeRepeatMaxInterval: 0
 --- !u!1001 &710933637
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6163,6 +6166,9 @@ MonoBehaviour:
   LoopLength: -1
   stopOnDisable: 1
   delay: 0
+  repeat: 0
+  randomizeRepeatMinInterval: 0
+  randomizeRepeatMaxInterval: 0
 --- !u!1001 &1036713327
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6955,6 +6961,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1164746264}
+  - component: {fileID: 1164746265}
   m_Layer: 0
   m_Name: Kitty
   m_TagString: Untagged
@@ -6980,6 +6987,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1164746265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164746263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454cc6725bf58764ea5a1e29f7843f99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayOnStart: 30
+  PlayOnEnable: 100
+  PlayOnDisable: 100
+  PlayOnDestroy: 100
+  LoopAudio: 0
+  LoopLength: 5
+  stopOnDisable: 1
+  delay: 0
+  repeat: 1
+  randomizeRepeatMinInterval: 10
+  randomizeRepeatMaxInterval: 30
 --- !u!1001 &1172454649
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7714,6 +7744,9 @@ MonoBehaviour:
   LoopLength: 5
   stopOnDisable: 1
   delay: 0
+  repeat: 0
+  randomizeRepeatMinInterval: 0
+  randomizeRepeatMaxInterval: 0
 --- !u!1001 &1250717585
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8460,6 +8493,9 @@ MonoBehaviour:
   LoopLength: 5
   stopOnDisable: 1
   delay: 3
+  repeat: 0
+  randomizeRepeatMinInterval: 0
+  randomizeRepeatMaxInterval: 0
 --- !u!4 &1426284662 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1556102594773167374, guid: 12b23872c4c7b9e4e8c507a546fd88e0, type: 3}
@@ -8517,6 +8553,9 @@ MonoBehaviour:
   LoopLength: 5
   stopOnDisable: 1
   delay: 0
+  repeat: 0
+  randomizeRepeatMinInterval: 0
+  randomizeRepeatMaxInterval: 0
 --- !u!1 &1444077433
 GameObject:
   m_ObjectHideFlags: 0
@@ -8897,6 +8936,9 @@ MonoBehaviour:
   LoopLength: 5
   stopOnDisable: 1
   delay: 0
+  repeat: 0
+  randomizeRepeatMinInterval: 0
+  randomizeRepeatMaxInterval: 0
 --- !u!1001 &1570760073
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10045,6 +10087,9 @@ MonoBehaviour:
   LoopLength: 5
   stopOnDisable: 1
   delay: 4
+  repeat: 0
+  randomizeRepeatMinInterval: 0
+  randomizeRepeatMaxInterval: 0
 --- !u!114 &1857348672 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7977862028165233831, guid: 4ad35e29ffef0d840929aee7bca9aa00, type: 3}
@@ -11004,6 +11049,9 @@ MonoBehaviour:
   LoopLength: 5
   stopOnDisable: 1
   delay: 0
+  repeat: 0
+  randomizeRepeatMinInterval: 0
+  randomizeRepeatMaxInterval: 0
 --- !u!1001 &745937956405822498
 PrefabInstance:
   m_ObjectHideFlags: 0
