@@ -2372,6 +2372,7 @@ MonoBehaviour:
   - sound: 15
     clips:
     - {fileID: 8300000, guid: 1c71db3ed057e2b49b076cb540c20c1f, type: 3}
+    - {fileID: 8300000, guid: 6c91eb50fd69f1345900d9918544d9d8, type: 3}
   - sound: 11
     clips:
     - {fileID: 8300000, guid: 756d6d598a884bc4f8375ee35bcb51b8, type: 3}
