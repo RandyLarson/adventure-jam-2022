@@ -361,7 +361,7 @@ PrefabInstance:
     - target: {fileID: 1286702780203280629, guid: 8d8f0058c5892ea4689ecbc35433f5ec, type: 3}
       propertyPath: AcceptedItems.Array.data[0].AcceptedItemPrototype
       value: 
-      objectReference: {fileID: 1286702780203280629, guid: d0d54d04837cd484d8398571bfdf33cc, type: 3}
+      objectReference: {fileID: 7937855110014081922, guid: 1743ef2b55edb504480c24efd4e1b171, type: 3}
     - target: {fileID: 1286702780203280629, guid: 8d8f0058c5892ea4689ecbc35433f5ec, type: 3}
       propertyPath: AcceptedItems.Array.data[0].GameObjectiveAchieved
       value: Eggs

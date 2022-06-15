@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -830692218, guid: 72aeebca98b3fc1409eef6a44de92228, type: 3}
+  m_Sprite: {fileID: -1495768513, guid: 462aecf1c2becd742a00654ae2ffac7f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,14 +95,14 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 36, y: 82.6}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 34, y: 38}
     newSize: {x: 34.6, y: 56.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -110,43 +110,15 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 18, y: 5.6}
-      - {x: 17.6, y: 6}
-      - {x: 17.6, y: 50}
-      - {x: 17.800001, y: 50.2}
-      - {x: 17.800001, y: 52.4}
-      - {x: 17.2, y: 53.600002}
-      - {x: 12.400001, y: 55.2}
-      - {x: 7, y: 55.4}
-      - {x: -1.2, y: 55.8}
-      - {x: -5.6, y: 56.8}
-      - {x: -3.6000001, y: 60}
-      - {x: -1.8000001, y: 63.600002}
-      - {x: -0.6, y: 67.6}
-      - {x: 0.2, y: 76.8}
-      - {x: -1.4, y: 81.200005}
-      - {x: -3.6000001, y: 82.6}
-      - {x: -7.6, y: 82.6}
-      - {x: -9.6, y: 81.6}
-      - {x: -12.2, y: 78.8}
-      - {x: -14.2, y: 76.200005}
-      - {x: -17.6, y: 68.6}
-      - {x: -18, y: 65.8}
-      - {x: -18, y: 57.600002}
-      - {x: -17.6, y: 55.4}
-      - {x: -16.800001, y: 54}
-      - {x: -16.4, y: 46}
-      - {x: -16, y: 46}
-      - {x: -16, y: 6.6}
-      - {x: -16.800001, y: 5.6}
-      - {x: -16.6, y: 3}
-      - {x: -14.2, y: 1.4}
-      - {x: -8.2, y: 0.4}
-      - {x: -4.4, y: 0}
-      - {x: 7.8, y: 0}
-      - {x: 13.400001, y: 1}
-      - {x: 16.6, y: 1.8000001}
-      - {x: 18, y: 3.4}
+    - - {x: 7, y: 19}
+      - {x: -14, y: 19}
+      - {x: -17, y: 17}
+      - {x: -17, y: -7}
+      - {x: -11, y: -19}
+      - {x: 15, y: -19}
+      - {x: 17, y: -17}
+      - {x: 17, y: 3}
+      - {x: 15, y: 11}
 --- !u!1 &7460242865069190598
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,21 +222,7 @@ MonoBehaviour:
   AllowActivationWithoutMovingToClickedPoint: 1
   ImageIdle: {fileID: 0}
   ImageActive: {fileID: 0}
-  AcceptedItems:
-  - GameObjectiveAchieved: 
-    ItemProducedWhenUsed: {fileID: 0}
-    ItemProducedLocation: {fileID: 0}
-    TargetItemReplacement: {fileID: 0}
-    DestroySelfOnUse: 0
-    ItemsToEnable: []
-    ItemsToDisable: []
-    OnUsage:
-      m_PersistentCalls:
-        m_Calls: []
-    AcceptedItemPrototype: {fileID: 0}
-    IsAcceptedItemDestroyedOnUse: 0
-    OnlyAcceptedOnce: 1
-    CanBeAccepted: 1
+  AcceptedItems: []
   ActivationActions:
     GameObjectiveAchieved: 
     ItemProducedWhenUsed: {fileID: 0}
@@ -276,6 +234,7 @@ MonoBehaviour:
     OnUsage:
       m_PersistentCalls:
         m_Calls: []
+    CallActivateOnRoomItem: 0
   DeActivationActions:
     GameObjectiveAchieved: 
     ItemProducedWhenUsed: {fileID: 0}
@@ -287,6 +246,7 @@ MonoBehaviour:
     OnUsage:
       m_PersistentCalls:
         m_Calls: []
+    CallActivateOnRoomItem: 0
 --- !u!114 &726898488957990909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,3 +265,4 @@ MonoBehaviour:
   PlayOnDestroy: 100
   LoopAudio: 0
   LoopLength: 5
+  stopOnDisable: 1
