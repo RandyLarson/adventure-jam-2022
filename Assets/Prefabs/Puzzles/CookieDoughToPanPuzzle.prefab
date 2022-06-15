@@ -49,9 +49,21 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1286702780203280629, guid: 723d0e406a684a546bc9ba47f5220ba9, type: 3}
+      propertyPath: AcceptedItems.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1286702780203280629, guid: 723d0e406a684a546bc9ba47f5220ba9, type: 3}
       propertyPath: ParentObjectToPickUpInLieuOfSelf
       value: 
       objectReference: {fileID: 4872560464036809223}
+    - target: {fileID: 1286702780203280629, guid: 723d0e406a684a546bc9ba47f5220ba9, type: 3}
+      propertyPath: AcceptedItems.Array.data[0].CanBeAccepted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1286702780203280629, guid: 723d0e406a684a546bc9ba47f5220ba9, type: 3}
+      propertyPath: AcceptedItems.Array.data[0].OnlyAcceptedOnce
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1286702780203280629, guid: 723d0e406a684a546bc9ba47f5220ba9, type: 3}
       propertyPath: AcceptedItems.Array.data[0].AcceptedItemPrototype
       value: 

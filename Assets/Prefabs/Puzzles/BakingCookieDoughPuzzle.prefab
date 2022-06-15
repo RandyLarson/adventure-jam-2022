@@ -312,6 +312,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1286702780203280629, guid: 287581b522edea84b900631a4e699ffd, type: 3}
+      propertyPath: AcceptedItems.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1286702780203280629, guid: 287581b522edea84b900631a4e699ffd, type: 3}
+      propertyPath: AcceptedItems.Array.data[0].CanBeAccepted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1286702780203280629, guid: 287581b522edea84b900631a4e699ffd, type: 3}
       propertyPath: AcceptedItems.Array.data[0].OnlyAcceptedOnce
       value: 0
       objectReference: {fileID: 0}
@@ -329,12 +337,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1286702780203280629, guid: 287581b522edea84b900631a4e699ffd, type: 3}
       propertyPath: AcceptedItems.Array.data[0].ItemsToDisable.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1286702780203280629, guid: 287581b522edea84b900631a4e699ffd, type: 3}
       propertyPath: AcceptedItems.Array.data[0].ItemsToEnable.Array.data[0]
       value: 
-      objectReference: {fileID: 8889989467795600348}
+      objectReference: {fileID: 0}
     - target: {fileID: 1286702780203280629, guid: 287581b522edea84b900631a4e699ffd, type: 3}
       propertyPath: AcceptedItems.Array.data[0].ItemsToEnable.Array.data[1]
       value: 

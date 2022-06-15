@@ -343,6 +343,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7943897905582109789}
     - target: {fileID: 1286702780203280629, guid: 8d8f0058c5892ea4689ecbc35433f5ec, type: 3}
+      propertyPath: AcceptedItems.Array.data[0].CanBeAccepted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1286702780203280629, guid: 8d8f0058c5892ea4689ecbc35433f5ec, type: 3}
       propertyPath: AcceptedItems.Array.data[1].CanBeAccepted
       value: 1
       objectReference: {fileID: 0}
