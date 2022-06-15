@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1433938251591406283, guid: d79199b3e5d104149bec17584c14b07b, type: 3}
+      propertyPath: m_Offset.x
+      value: 1.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433938251591406283, guid: d79199b3e5d104149bec17584c14b07b, type: 3}
+      propertyPath: m_Offset.y
+      value: 1.7
+      objectReference: {fileID: 0}
     - target: {fileID: 6362023148427731085, guid: d79199b3e5d104149bec17584c14b07b, type: 3}
       propertyPath: m_Points.m_Paths.Array.size
       value: 1

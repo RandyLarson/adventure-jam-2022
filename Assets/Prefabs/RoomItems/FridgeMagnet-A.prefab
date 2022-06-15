@@ -8,6 +8,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5204500391590021437, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5204500391590021437, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
       propertyPath: m_Points.m_Paths.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -141,7 +145,7 @@ PrefabInstance:
       objectReference: {fileID: -1412022949, guid: 7400f60c85ce09f4093fe7ee49e11d07, type: 3}
     - target: {fileID: 7460242865069190598, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
       propertyPath: m_Name
-      value: FridgeMagnet-
+      value: FridgeMagnet-A
       objectReference: {fileID: 0}
     - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
       propertyPath: ItemId.serializedGuid
@@ -197,3 +201,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+--- !u!1 &360883820430808975 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1545427625251765823, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+  m_PrefabInstance: {fileID: 1184565245323127216}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &1433938251591406283
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360883820430808975}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -4, y: -3.36}
+  serializedVersion: 2
+  m_Radius: 33
