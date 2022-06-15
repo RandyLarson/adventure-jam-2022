@@ -281,32 +281,32 @@ public class HandTool : MonoBehaviour
     }
 
 
-    public IEnumerator DropItemToNearestSurface(object itemToDrop)
-    {
-        if (itemToDrop == null)
-            yield break;
+    //public IEnumerator DropItemToNearestSurface(object itemToDrop)
+    //{
+    //    if (itemToDrop == null)
+    //        yield break;
 
-        GameObject asGameObject = (GameObject)itemToDrop;
-        if (null == asGameObject)
-            yield break;
+    //    GameObject asGameObject = (GameObject)itemToDrop;
+    //    if (null == asGameObject)
+    //        yield break;
 
-        var res = DetectGround(asGameObject.transform.position);
-        while (!res.foundGround || res.distance > 0)
-        {
-            var dy = GameController.TheGameData.GamePrefs.Environment.Gravity * Time.deltaTime;
-            if (res.foundGround)
-            {
-                dy = Mathf.Min(res.distance, dy);
-            }
+    //    var res = DetectGround(asGameObject.transform.position);
+    //    while (!res.foundGround || res.distance > 0)
+    //    {
+    //        var dy = GameController.TheGameData.GamePrefs.Environment.Gravity * Time.deltaTime;
+    //        if (res.foundGround)
+    //        {
+    //            dy = Mathf.Min(res.distance, dy);
+    //        }
 
-            asGameObject.transform.position = new Vector3(asGameObject.transform.position.x, asGameObject.transform.position.y - dy, asGameObject.transform.position.z);
-            yield return new WaitForEndOfFrame();
+    //        asGameObject.transform.position = new Vector3(asGameObject.transform.position.x, asGameObject.transform.position.y - dy, asGameObject.transform.position.z);
+    //        yield return new WaitForEndOfFrame();
 
-            res = DetectGround(asGameObject.transform.position);
-        }
+    //        res = DetectGround(asGameObject.transform.position);
+    //    }
 
-        yield break;
-    }
+    //    yield break;
+    //}
 
     private bool TryPlaceItem(GameObject toPlace, GameObject whereToPlace)
     {

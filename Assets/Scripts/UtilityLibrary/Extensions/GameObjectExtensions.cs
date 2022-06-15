@@ -308,7 +308,8 @@ namespace Assets.Scripts.Extensions
 
         public static void Invoke(this MonoBehaviour mb, Action f, float delay)
         {
-            mb.StartCoroutine(InvokeRoutine(f, delay));
+            if (mb != null && mb.isActiveAndEnabled)
+                mb.StartCoroutine(InvokeRoutine(f, delay));
         }
     
         private static IEnumerator InvokeRoutine(System.Action f, float delay)
