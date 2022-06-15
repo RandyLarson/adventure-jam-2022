@@ -9,7 +9,55 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7460242865069190598, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
       propertyPath: m_Name
-      value: BasePrefab-RoomItem
+      value: Faucet-Running
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+      propertyPath: CanBeHandledDirectly
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+      propertyPath: AcceptedItems.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+      propertyPath: PickingUpActivatesAction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+      propertyPath: AcceptedItems.Array.data[0].CanBeAccepted
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+      propertyPath: ActivationActions.ItemsToEnable.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+      propertyPath: ActivationActions.ItemsToDisable.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+      propertyPath: ActivationActions.ItemsToEnable.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+      propertyPath: ActivationActions.ItemsToDisable.Array.data[0]
+      value: 
+      objectReference: {fileID: 5163689200888829015}
+    - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+      propertyPath: AcceptedItems.Array.data[0].ItemProducedLocation
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+      propertyPath: AcceptedItems.Array.data[0].ItemProducedWhenUsed
+      value: 
+      objectReference: {fileID: 1307858230620071515, guid: 2b8e890d85d9fcb4fadba3f46eb6860a, type: 3}
+    - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+      propertyPath: AcceptedItems.Array.data[0].AcceptedItemPrototype
+      value: 
+      objectReference: {fileID: 1286702780203280629, guid: 4d746f3ef185d974a98349d1c9febfb7, type: 3}
+    - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+      propertyPath: AcceptedItems.Array.data[0].CallActivateOnRoomItem
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7460242865069190601, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
       propertyPath: m_RootOrder
@@ -57,3 +105,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+--- !u!1 &5163689200888829015 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7460242865069190598, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+  m_PrefabInstance: {fileID: 2315132389227542929}
+  m_PrefabAsset: {fileID: 0}

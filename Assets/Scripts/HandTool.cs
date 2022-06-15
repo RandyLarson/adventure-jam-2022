@@ -318,7 +318,7 @@ public class HandTool : MonoBehaviour
             return false;
 
         // Drop the item.
-        StartCoroutine("DropItemToNearestSurface", toPlace);
+        //StartCoroutine("DropItemToNearestSurface", toPlace);
 
         if (HandImageForSortOrder != null)
         {
