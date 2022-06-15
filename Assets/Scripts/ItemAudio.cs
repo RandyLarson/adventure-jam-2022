@@ -1,4 +1,5 @@
 using UnityEngine;
+using Assets.Scripts.Extensions;
 
 public class ItemAudio : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class ItemAudio : MonoBehaviour
     public bool LoopAudio = false;
     public float LoopLength = 5;
     public bool stopOnDisable = true;
+    public float delay = 0;
+    public bool repeat = false;
+    public float randomizeRepeatMinInterval = 0;
+    public float randomizeRepeatMaxInterval = 0;
     private GameObject loopSound;
 
 
@@ -23,26 +28,30 @@ public class ItemAudio : MonoBehaviour
             else
                 loopSound = AudioController.Current.LoopRandomSound(which, LoopLength);
         }
+
+        if(repeat) {
+            this.Invoke(() => TryPlay(which), Random.Range(randomizeRepeatMinInterval, randomizeRepeatMaxInterval));
+        }
     }
 
     void Start()
     {
-        TryPlay(PlayOnStart);
+        this.Invoke(() => TryPlay(PlayOnStart), delay);
     }
 
     private void OnDestroy()
     {
-        TryPlay(PlayOnDestroy);
+        this.Invoke(() => TryPlay(PlayOnDestroy), delay);
     }
 
     private void OnEnable()
     {
-        TryPlay(PlayOnEnable);
+        this.Invoke(() => TryPlay(PlayOnEnable), delay);
     }
 
     private void OnDisable()
     {
-        TryPlay(PlayOnDisable);
+        this.Invoke(() => TryPlay(PlayOnDisable), delay);
         if(stopOnDisable && loopSound) {
             //Clean up any old looping sounds
             if(loopSound) {

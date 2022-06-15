@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -238,7 +240,7 @@ namespace Assets.Scripts.Extensions
             if (toInstantiate == null)
                 return false;
 
-            instantiated = Object.Instantiate(toInstantiate, position, rotation != null ? rotation.Value : toInstantiate.transform.rotation);
+            instantiated = UnityEngine.Object.Instantiate(toInstantiate, position, rotation != null ? rotation.Value : toInstantiate.transform.rotation);
             if (autoDestructIn != null && autoDestructIn.Value > 0)
                 GameObject.Destroy(instantiated, autoDestructIn.Value);
 
@@ -278,7 +280,7 @@ namespace Assets.Scripts.Extensions
             }
 
             //Instantiate
-            var obj = Object.Instantiate(unityObject) as T;
+            var obj = UnityEngine.Object.Instantiate(unityObject) as T;
             if (obj == null)
                 throw new System.Exception("Failed to instantiate Object " + unityObject);
 
@@ -302,6 +304,17 @@ namespace Assets.Scripts.Extensions
                 gameObject.SetActive(isActive);
 
             return obj;
+        }
+
+        public static void Invoke(this MonoBehaviour mb, Action f, float delay)
+        {
+            mb.StartCoroutine(InvokeRoutine(f, delay));
+        }
+    
+        private static IEnumerator InvokeRoutine(System.Action f, float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            f();
         }
     }
 }
