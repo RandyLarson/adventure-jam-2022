@@ -32,4 +32,7 @@ public class ActivationActions
 
     [Tooltip("Generic actions to take upon usage.")]
     public UnityEvent OnUsage;
+
+    [Tooltip("Call the general activation method on the item.")]
+    public bool CallActivateOnRoomItem;
 }

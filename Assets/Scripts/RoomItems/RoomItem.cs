@@ -177,7 +177,6 @@ public class RoomItem : MonoBehaviour
         activationActions.OnUsage?.Invoke();
 
         GameController.TheGameController.LogGameAchievement(activationActions.GameObjectiveAchieved);
-
         return replacementItem;
     }
 
@@ -190,9 +189,20 @@ public class RoomItem : MonoBehaviour
             Destroy(gameObject);
         }
 
+
+        if (acceptedItemProfile.CallActivateOnRoomItem)
+        {
+            incomingItem.ActivateSelf();
+        }
+
+
+
         if (acceptedItemProfile.IsAcceptedItemDestroyedOnUse)
         {
+            // Can't do this - the handtool's currentlyholding won't be updated.
+            // replacementItem.transform.SetParent(incomingItem.transform.parent);
             Destroy(incomingItem.gameObject);
+
         }
 
         if (acceptedItemProfile.OnlyAcceptedOnce)
