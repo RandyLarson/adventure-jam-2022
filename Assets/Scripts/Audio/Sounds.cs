@@ -35,5 +35,7 @@ public enum Sounds {
     GasStove=27,
     AddToSoup=28,
     TreeGrows=29,
+    CatMeow=30,
+    CatPurr=31,
     Nothing = 100
 }

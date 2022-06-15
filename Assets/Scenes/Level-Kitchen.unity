@@ -4389,6 +4389,7 @@ MonoBehaviour:
   LoopAudio: 0
   LoopLength: 5
   stopOnDisable: 1
+  delay: 0
 --- !u!1001 &710933637
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6161,6 +6162,7 @@ MonoBehaviour:
   LoopAudio: 1
   LoopLength: -1
   stopOnDisable: 1
+  delay: 0
 --- !u!1001 &1036713327
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7711,6 +7713,7 @@ MonoBehaviour:
   LoopAudio: 0
   LoopLength: 5
   stopOnDisable: 1
+  delay: 0
 --- !u!1001 &1250717585
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8432,6 +8435,31 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5163689200888829015, guid: 19e4ddb2cf31c84498d5abda961c2af6, type: 3}
   m_PrefabInstance: {fileID: 1104168216}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1416974835 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3313997427689830461, guid: d6290ed54215d6045ba8927f24211ae1, type: 3}
+  m_PrefabInstance: {fileID: 1205070277}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1416974838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416974835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454cc6725bf58764ea5a1e29f7843f99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayOnStart: 100
+  PlayOnEnable: 31
+  PlayOnDisable: 100
+  PlayOnDestroy: 100
+  LoopAudio: 0
+  LoopLength: 5
+  stopOnDisable: 1
+  delay: 3
 --- !u!4 &1426284662 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1556102594773167374, guid: 12b23872c4c7b9e4e8c507a546fd88e0, type: 3}
@@ -8488,6 +8516,7 @@ MonoBehaviour:
   LoopAudio: 0
   LoopLength: 5
   stopOnDisable: 1
+  delay: 0
 --- !u!1 &1444077433
 GameObject:
   m_ObjectHideFlags: 0
@@ -8867,6 +8896,7 @@ MonoBehaviour:
   LoopAudio: 1
   LoopLength: 5
   stopOnDisable: 1
+  delay: 0
 --- !u!1001 &1570760073
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9990,6 +10020,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a313fbe407942444088684712a47be22, type: 3}
+--- !u!1 &1849181605 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4522807359377656719, guid: 11eaaa20161da56409eb3b35da7c4b8a, type: 3}
+  m_PrefabInstance: {fileID: 897201754}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1849181608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849181605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454cc6725bf58764ea5a1e29f7843f99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayOnStart: 100
+  PlayOnEnable: 31
+  PlayOnDisable: 100
+  PlayOnDestroy: 100
+  LoopAudio: 0
+  LoopLength: 5
+  stopOnDisable: 1
+  delay: 4
 --- !u!114 &1857348672 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7977862028165233831, guid: 4ad35e29ffef0d840929aee7bca9aa00, type: 3}
@@ -10948,6 +11003,7 @@ MonoBehaviour:
   LoopAudio: 0
   LoopLength: 5
   stopOnDisable: 1
+  delay: 0
 --- !u!1001 &745937956405822498
 PrefabInstance:
   m_ObjectHideFlags: 0

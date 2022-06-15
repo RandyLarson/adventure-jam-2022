@@ -1,4 +1,5 @@
 using UnityEngine;
+using Assets.Scripts.Extensions;
 
 public class ItemAudio : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class ItemAudio : MonoBehaviour
     public bool LoopAudio = false;
     public float LoopLength = 5;
     public bool stopOnDisable = true;
+    public float delay = 0;
     private GameObject loopSound;
 
 
@@ -27,22 +29,22 @@ public class ItemAudio : MonoBehaviour
 
     void Start()
     {
-        TryPlay(PlayOnStart);
+        this.Invoke(() => TryPlay(PlayOnStart), delay);
     }
 
     private void OnDestroy()
     {
-        TryPlay(PlayOnDestroy);
+        this.Invoke(() => TryPlay(PlayOnDestroy), delay);
     }
 
     private void OnEnable()
     {
-        TryPlay(PlayOnEnable);
+        this.Invoke(() => TryPlay(PlayOnEnable), delay);
     }
 
     private void OnDisable()
     {
-        TryPlay(PlayOnDisable);
+        this.Invoke(() => TryPlay(PlayOnDisable), delay);
         if(stopOnDisable && loopSound) {
             //Clean up any old looping sounds
             if(loopSound) {
