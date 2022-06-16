@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5cb1dfac8f18f344cb97c0ae016973b3
+guid: ba952c8bcc4a5e24aa5554e54216dcd2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,55 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FishCookiesBaked
+      name: hearts-red_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 99
-        width: 206
-        height: 54
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bd0f31999f43bda49bb82aa79e44edf9
-      internalID: -1874976574
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FishCookieDough
-      rect:
-        serializedVersion: 2
-        x: 15
-        y: 33
-        width: 195
-        height: 39
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b55b34bf7da50d44f8a268ffad6e05f2
-      internalID: -412679135
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fishcookie
-      rect:
-        serializedVersion: 2
-        x: 15
-        y: 99
-        width: 72
-        height: 25
+        x: 16
+        y: 104
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,8 +130,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0440e93678273de4783d0c0653ba9048
-      internalID: 1154699865
+      spriteID: 0a73bb0ac6e7ee2488ae60ecd7b65aa2
+      internalID: -1350599367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hearts-red_1
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 105
+        width: 51
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7a9346c00bee6b46911fb97ec378d2f
+      internalID: -2039490813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hearts-red_2
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 19
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f60e7d7a530b574aaf72cb960f21472
+      internalID: -993671654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hearts-red_3
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 20
+        width: 46
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8df9947db8fe62648904f4317dd7acce
+      internalID: -899664684
       vertices: []
       indices: 
       edges: []
@@ -189,9 +210,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      fishcookie: 1154699865
-      FishCookieDough: -412679135
-      FishCookiesBaked: -1874976574
+      hearts-red_1: -2039490813
+      hearts-red_2: -993671654
+      hearts-red_0: -1350599367
+      hearts-red_3: -899664684
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
