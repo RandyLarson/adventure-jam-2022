@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CatIdle
+  m_Name: CatIdleOnFridge
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,16 +20,16 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 340071037, guid: 5f94aa022de09774c8fe1de060549ebc, type: 3}
-    - time: 1.6666666
-      value: {fileID: 234022073, guid: 5f94aa022de09774c8fe1de060549ebc, type: 3}
-    - time: 3
-      value: {fileID: 340071037, guid: 5f94aa022de09774c8fe1de060549ebc, type: 3}
+      value: {fileID: -1621848450, guid: 8070e446c7427084d8f6026e8bf407cf, type: 3}
+    - time: 2.25
+      value: {fileID: 1579591794, guid: 8070e446c7427084d8f6026e8bf407cf, type: 3}
+    - time: 4.5
+      value: {fileID: -1621848450, guid: 8070e446c7427084d8f6026e8bf407cf, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 12
+  m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -44,15 +44,15 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 340071037, guid: 5f94aa022de09774c8fe1de060549ebc, type: 3}
-    - {fileID: 234022073, guid: 5f94aa022de09774c8fe1de060549ebc, type: 3}
-    - {fileID: 340071037, guid: 5f94aa022de09774c8fe1de060549ebc, type: 3}
+    - {fileID: -1621848450, guid: 8070e446c7427084d8f6026e8bf407cf, type: 3}
+    - {fileID: 1579591794, guid: 8070e446c7427084d8f6026e8bf407cf, type: 3}
+    - {fileID: -1621848450, guid: 8070e446c7427084d8f6026e8bf407cf, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 3.0833333
+    m_StopTime: 4.516667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

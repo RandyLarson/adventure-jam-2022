@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6832096246441816890}
   - component: {fileID: 6832096246441816889}
   m_Layer: 0
-  m_Name: Cat-Idle
+  m_Name: Cat-SleepingOnFridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

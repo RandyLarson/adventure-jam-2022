@@ -7,6 +7,7 @@ public class LevelGoal : MonoBehaviour
 {
     public string GoalName = "Goal Name";
     public bool IsComplete = false;
+    public bool DbgSetComplete = false;
 
     [Tooltip("Once complete, can the goal become un-complete?")]
     public bool CanGoalRegress = true;
@@ -49,6 +50,13 @@ public class LevelGoal : MonoBehaviour
 
     private void Update()
     {
+        if ( DbgSetComplete )
+        {
+            DbgSetComplete = false;
+            SetComplete();
+            return;
+        }
+
         if ( (IsComplete == false || CanGoalRegress) && DependentGoals.Length > 0)
         {
             bool isComplete = DependentGoals.All(g => g.IsComplete);

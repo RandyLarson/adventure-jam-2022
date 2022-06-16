@@ -6,7 +6,6 @@ using UnityEngine.Events;
 
 public class WipeController : MonoBehaviour
 {
-    public GameObject StartingPoint;
     public GameObject WipeObject;
     public float StartScale = .001f;
     public float EndScale = 10f;
@@ -24,6 +23,8 @@ public class WipeController : MonoBehaviour
 
     private float StartTime { get; set; } = 0;
     public bool IsActive = false;
+
+    public bool DbgActivate = false;
 
     private bool HaveStartedReturn = false;
     private float AngleLerpFrom = 1;
@@ -48,12 +49,20 @@ public class WipeController : MonoBehaviour
         AngleLerpFrom = 0;
         AngleLerpTo = SpinRevolutions * 360;
         WipeObject.SafeSetActive(true);
+        transform.localScale = new Vector3(StartScale, StartScale, 1);
     }
 
     float LerpFrom = 1;
 
     void Update()
     {
+        if (DbgActivate)
+        {
+            DbgActivate = false;
+            Activate();
+            return;
+        }
+
         if (!IsActive)
             return;
 
@@ -74,7 +83,7 @@ public class WipeController : MonoBehaviour
                 transform.rotation = Quaternion.AngleAxis(rotation, Vector3.forward);
             }
 
-            transform.localScale = new Vector3(scale, scale, 0);
+            transform.localScale = new Vector3(scale, scale, 1);
 
             if (ReturnToStart && !HaveStartedReturn && (Time.time - StartTime) > Duration / 2)
             {
