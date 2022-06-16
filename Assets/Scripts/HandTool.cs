@@ -207,8 +207,15 @@ public class HandTool : MonoBehaviour
 
                     // An item may self-destruct at use time.
                     // Forget we are holding it, if so.
-                    if (!CurrentlyHolding.IsValidGameobject() || CurrentlyHolding.transform.parent != gameObject)
+                    if (!CurrentlyHolding.IsValidGameobject())
+                    {
                         CurrentlyHolding = null;
+                    }
+                    else if (CurrentlyHolding.transform.parent != gameObject && CurrentlyHolding.transform.parent != HeldItemParentLocation.transform)
+                    {
+                        ClearHoldingLocationChildren();
+                        CurrentlyHolding = null;
+                    }
                 }
             }
 
@@ -216,10 +223,22 @@ public class HandTool : MonoBehaviour
         return itemWasUsed;
     }
 
+
+    public void ClearHoldingLocationChildren()
+    {
+        if (null == HeldItemParentLocation)
+            return;
+
+        HeldItemParentLocation.transform.DetachChildren();
+    }
+
     public bool TryPlaceCurrentItem()
     {
         if (null == CurrentlyHolding)
+        {
+            ClearHoldingLocationChildren();
             return false;
+        }
 
 
         if (CurrentlyHolding.TryGetComponent(out RoomItem asRoomitem))
@@ -227,12 +246,13 @@ public class HandTool : MonoBehaviour
 
         }
 
-        var res = TryPlaceItem(CurrentlyHolding, PotentialPlacementSpot);
+        bool res = TryPlaceItem(CurrentlyHolding, PotentialPlacementSpot);
 
         if (res)
         {
             CurrentlyHolding = null;
             AudioController.Current?.PlayRandomSound(Sounds.ItemPlaced);
+            ClearHoldingLocationChildren();
         }
 
         return res;
