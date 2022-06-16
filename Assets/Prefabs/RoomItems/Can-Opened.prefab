@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 726898488957990909, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+      propertyPath: PlayOnStart
+      value: 34
+      objectReference: {fileID: 0}
     - target: {fileID: 5204500391590021437, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
       propertyPath: m_IsTrigger
       value: 0
