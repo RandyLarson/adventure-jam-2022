@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +15,12 @@ public class GameController : MonoBehaviour
     public GameObject UiAboutScreen;
 
     public GameDataHolder GameData;
+
+    public UnityEvent OnStartGame;
+    public void StartGame()
+    {
+        OnStartGame?.Invoke();
+    }
 
     [ReadOnly]
     [Tooltip("The current scene/leel being played.")]

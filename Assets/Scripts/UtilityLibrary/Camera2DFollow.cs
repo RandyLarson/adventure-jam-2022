@@ -23,6 +23,22 @@ public class Camera2DFollow : MonoBehaviour
     {
     }
 
+    public void ClearTarget()
+    {
+        ToFollow = null;
+        Camera.transform.position = new Vector3(750, 96, -10);
+
+        //Vector3 topRight = Camera.ViewportToWorldPoint(new Vector3(1, 1, 0));
+        //Vector3 bottomLeft = Camera.ViewportToWorldPoint(new Vector3(0, 0, 0));
+
+        //float cxViewPort = topRight.x - bottomLeft.x;
+        //float cyViewPort = topRight.y - bottomLeft.y;
+
+        //Rect vp =new Rect(bottomLeft.x, bottomLeft.y, cxViewPort, cyViewPort);
+        //Camera.transform.position = new Vector3(vp.center.x, vp.center.y, -10);
+    }
+
+    
     public void SetTarget(Transform newTarget)
     {
         ToFollow = newTarget;

@@ -10,8 +10,9 @@ public class WipeController : MonoBehaviour
     public float StartScale = .001f;
     public float EndScale = 10f;
     public bool ReturnToStart = true;
-    public UnityEvent OnComplete;
+    public UnityEvent OnBegin;
     public UnityEvent OnBeginningOfReturn;
+    public UnityEvent OnComplete;
     public float SpinRevolutions = 3;
 
     public float BeginAfter = 5;
@@ -30,7 +31,7 @@ public class WipeController : MonoBehaviour
     private float AngleLerpFrom = 1;
     private float AngleLerpTo = 1;
     private int AngleModifier = 1;
-
+    private bool CalledOnBegin = false;
     public void Start()
     {
         Initialize();
@@ -70,6 +71,12 @@ public class WipeController : MonoBehaviour
 
         if (Time.time - StartTime > BeginAfter)
         {
+            if ( CalledOnBegin == false )
+            {
+                CalledOnBegin = true;
+                OnBegin?.Invoke();
+            }
+
             float lerpSegmentDuration = ReturnToStart ? Duration / 2 : Duration;
 
             float lerpProgression = (Time.time - (StartTime + BeginAfter)) / lerpSegmentDuration;
