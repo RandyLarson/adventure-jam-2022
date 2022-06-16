@@ -89,7 +89,7 @@ public class GameController : MonoBehaviour
                 if ( aScene.name == "Development")
                 {
                     HideStartMenu();
-                    PlayingLevelObject.SetActive(true);
+                    //PlayingLevelObject.SetActive(true);
                     Intro.SetActive(false);
                 }
 
@@ -118,6 +118,11 @@ public class GameController : MonoBehaviour
         PlayingLevelObject.SetActive(false);
         Intro.SetActive(false);
         Outro.SetActive(true);
+        PlayTheme();
+    }
+
+    public void PlayTheme()
+    {
         GetComponent<AudioController>().PlayTheme();
     }
 

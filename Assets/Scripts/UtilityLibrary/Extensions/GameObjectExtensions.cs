@@ -218,7 +218,7 @@ namespace Assets.Scripts.Extensions
             target.SetActive(value);
         }
 
-        public static bool SafeIsActive<T>(this GameObject target)
+        public static bool SafeIsActive(this GameObject target)
         {
             return target != null && target.activeSelf;
         }

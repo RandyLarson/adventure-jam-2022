@@ -22,9 +22,7 @@ public class FadeOut : MonoBehaviour
 
     public void Start()
     {
-        Renderers = GetComponentsInChildren<SpriteRenderer>();
-        TextRenderers = GetComponentsInChildren<TextMeshProUGUI>();
-        CanvasRenderers = GetComponentsInChildren<CanvasRenderer>();
+        FindRenderers();
         Initialize();
     }
 
@@ -36,6 +34,45 @@ public class FadeOut : MonoBehaviour
     public void StartFade()
     {
         StartFade(true);
+    }
+
+    private void Awake()
+    {
+        FindRenderers();
+    }
+
+    private void FindRenderers()
+    {
+        Renderers = GetComponentsInChildren<SpriteRenderer>();
+        TextRenderers = GetComponentsInChildren<TextMeshProUGUI>();
+        CanvasRenderers = GetComponentsInChildren<CanvasRenderer>();
+    }
+
+    public void SetFadeTo(float amt)
+    {
+        if (Renderers != null)
+        {
+            foreach (var sr in Renderers)
+            {
+                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, amt);
+            }
+        }
+
+        if (TextRenderers != null)
+        {
+            foreach (var tr in TextRenderers)
+            {
+                tr.alpha = amt;
+            }
+        }
+
+        if (CanvasRenderers != null)
+        {
+            foreach (var cr in CanvasRenderers)
+            {
+                cr.SetAlpha(amt);
+            }
+        }
     }
 
     public void StartFade(bool fadeOut)
@@ -54,23 +91,13 @@ public class FadeOut : MonoBehaviour
         else
         {
             LerpFrom = 0;
+            SetFadeTo(LerpFrom);
         }
     }
 
     public void ShowAll()
     {
-        if (Renderers != null)
-            foreach (var sr in Renderers)
-            {
-                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, 1);
-            }
-
-        if (TextRenderers != null)
-            foreach (var tr in TextRenderers)
-            {
-                tr.alpha = 1;
-            }
-
+        SetFadeTo(1);
     }
 
     public void Reset()
@@ -94,20 +121,7 @@ public class FadeOut : MonoBehaviour
             float lerpTo = IsFadingOut ? 0 : 1;
             float scale = Mathf.Lerp(LerpFrom, lerpTo, (Time.time - (FadeStartTime + beginFadeAfterAdj)) / fadeDurationAdj);
 
-            foreach (var sr in Renderers)
-            {
-                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, scale);
-            }
-
-            foreach (var tr in TextRenderers)
-            {
-                tr.alpha = scale;
-            }
-
-            foreach (var cr in CanvasRenderers)
-            {
-                cr.SetAlpha(scale);
-            }
+            SetFadeTo(scale);
 
             if (Time.time > endFadeAtAdj)
             {
