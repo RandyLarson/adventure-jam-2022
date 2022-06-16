@@ -46,9 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AssociatedGoal: {fileID: 0}
-  InitialDelayBeforeFirstHint: 6
-  IntervalBetweenHints: 2
-  HintDisplayDuration: 5
+  InitialDelayBeforeFirstHint: 10
+  IntervalBetweenHints: 3
+  HintDisplayDuration: 4
   TheThoughtBubble: {fileID: 8868989668842486511}
   HintContent: []
   DisplayOnGoalAchieved: {fileID: 0}
