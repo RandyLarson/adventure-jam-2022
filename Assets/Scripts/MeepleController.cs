@@ -394,6 +394,7 @@ public class MeepleController : MonoBehaviour
             IsJumping = true;
             JumpTimeStart = Time.time;
             JumpTimeEnd = JumpTimeStart + GameController.TheGameData.GamePrefs.Environment.JumpDurationSeconds;
+            AudioController.Current.PlayRandomSound(Sounds.MeepleJumps);
         }
     }
 
