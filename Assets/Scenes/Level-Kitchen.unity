@@ -301,6 +301,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 921862961}
     m_Modifications:
+    - target: {fileID: 3042030878117285484, guid: dda804f82c9df6d49adbd9fc1e030928, type: 3}
+      propertyPath: LoopAudio
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3042030878117285484, guid: dda804f82c9df6d49adbd9fc1e030928, type: 3}
+      propertyPath: LoopLength
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3042030878117285484, guid: dda804f82c9df6d49adbd9fc1e030928, type: 3}
+      propertyPath: PlayOnEnable
+      value: 33
+      objectReference: {fileID: 0}
     - target: {fileID: 4142209373654156619, guid: dda804f82c9df6d49adbd9fc1e030928, type: 3}
       propertyPath: HighlightRenderer
       value: 
