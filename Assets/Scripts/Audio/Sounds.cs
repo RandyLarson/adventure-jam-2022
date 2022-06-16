@@ -39,6 +39,7 @@ public enum Sounds {
     CatPurr=31,
     OpenCurtains=32,
     RunningWater=33,
-    OpenCan,
+    OpenCan=34,
+    GoalSuccess=35,
     Nothing = 100
 }
