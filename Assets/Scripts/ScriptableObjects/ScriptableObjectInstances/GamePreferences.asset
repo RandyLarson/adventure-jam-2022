@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelProgression:
   - Level-Kitchen
-  - Level-2
   GameSettings:
     MuteAll: 0
     MusicVolume: 0.4958167

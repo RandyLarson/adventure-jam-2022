@@ -58,15 +58,23 @@ public class GameController : MonoBehaviour
     //    ShowPauseMenu();
     //}
 
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(GameData.GamePrefs.LevelProgression[0]);
+    }
 
     public void ShowPauseMenu()
     {
-        PauseScreen.SafeSetActive(true);
+        RestartGame();
+        //PauseScreen.SafeSetActive(true);
     }
+
+    public GameObject PlayingLevelObject;
+    public GameObject Intro;
+    public GameObject Outro;
 
     private void Start()
     {
-
         // Present for game development ease. The controller scene is mandatory. In the production build, the
         // controller scene will be the initial scene and drive the whole thing. In development mode, though,
         // we want to have the level we are working on loaded into the editor. We also want to be able to 
@@ -77,12 +85,19 @@ public class GameController : MonoBehaviour
             for (int i = 0; i < SceneManager.sceneCount; i++)
             {
                 Scene aScene = SceneManager.GetSceneAt(i);
-                if (GameData.GamePrefs.LevelProgression.Contains(aScene.name))
+
+                if ( aScene.name == "Development")
                 {
-                    CurrentGameScene = aScene.name;
                     HideStartMenu();
-                    break;
+                    PlayingLevelObject.SetActive(true);
+                    Intro.SetActive(false);
                 }
+
+                //if (GameData.GamePrefs.LevelProgression.Contains(aScene.name))
+                //{
+                //    CurrentGameScene = aScene.name;
+                //    break;
+                //}
             }
         }
         else
@@ -98,7 +113,11 @@ public class GameController : MonoBehaviour
 
     public void ShowStartMenu()
     {
+        // set things to the starting mode:
         UiTitleScreen.SetActive(true);
+        PlayingLevelObject.SetActive(false);
+        Intro.SetActive(false);
+        Outro.SetActive(true);
         GetComponent<AudioController>().PlayTheme();
     }
 
