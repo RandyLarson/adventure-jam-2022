@@ -13,6 +13,21 @@ public class RadioKnob : MonoBehaviour
 
     public bool PowerIsOn = false;
 
+    public bool TurnOnWhenPossible = false;
+    private void Start()
+    {
+        if (PowerIsOn)
+            TurnOn();
+    }
+
+    private void Update()
+    {
+        if (TurnOnWhenPossible)
+        {
+            TurnOn();
+        }
+    }
+
     public void TurnOff()
     {
         PowerIsOn = false;
@@ -21,9 +36,17 @@ public class RadioKnob : MonoBehaviour
 
     public void TurnOn()
     {
-        PowerIsOn = true;
-        AudioController.Current.PlayOnRadio(StationsAvailable[Station]);
-        LevelGoal.SetCompletionStatus(StationsAvailable[Station] == GoalStation);
+        if (AudioController.Current != null)
+        {
+            PowerIsOn = true;
+            AudioController.Current.PlayOnRadio(StationsAvailable[Station]);
+            LevelGoal.SetCompletionStatus(StationsAvailable[Station] == GoalStation);
+            TurnOnWhenPossible = false;
+        }
+        else
+        {
+            TurnOnWhenPossible = true;
+        }
     }
 
     public void ChangeStation()
