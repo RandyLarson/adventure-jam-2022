@@ -30,8 +30,15 @@ public class IntroController : MonoBehaviour
 
     public void ColorCycleComplete()
     {
-        if (NumColorCycles > TransitionToGameAfter)
+        NumColorCycles++;
+        if (NumColorCycles == TransitionToGameAfter)
+        {
+            if (TryGetComponent<Animator>(out var anim))
+            {
+                anim.SetBool("TransitionToDone", true);
+            }
             OnComplete?.Invoke();
+        }
     }
 
 }
