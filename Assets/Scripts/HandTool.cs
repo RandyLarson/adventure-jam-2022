@@ -335,7 +335,7 @@ public class HandTool : MonoBehaviour
 
         if (HandImageForSortOrder != null)
         {
-            AdjustLayerOrdersBy(toPlace, -(1+HandImageForSortOrder.sortingOrder));
+            AdjustLayerOrdersBy(toPlace, -(1 + HandImageForSortOrder.sortingOrder));
         }
 
         Vector3? surfaceAt = null;
@@ -349,17 +349,42 @@ public class HandTool : MonoBehaviour
             }
         }
 
-        float newY = surfaceAt.HasValue ? 
-            surfaceAt.Value.y + Random.Range(0, GameData.Current.GamePrefs.Environment.DropItemRangeFromSurfaceMax) : 
+
+        float newY = surfaceAt.HasValue ?
+            surfaceAt.Value.y + Random.Range(0, GameData.Current.GamePrefs.Environment.DropItemRangeFromSurfaceMax) :
             toPlace.transform.position.y + GameData.Current.GamePrefs.Environment.DropItemVerticalDisplacement;
 
         toPlace.transform.SetParent(null);
         toPlace.transform.rotation = Quaternion.identity;
         toPlace.transform.position = new Vector3(toPlace.transform.position.x, newY, toPlace.transform.position.z);
+
+        GameObject obstruction = LookForPotObstruction(toPlace.transform.position);
+        if ( obstruction != null )
+        {
+            toPlace.transform.position += new Vector3(GameData.Current.GamePrefs.Environment.PotObstructionDisplacement, 0);
+        }
+
         OnReleaseItem?.Invoke(GetRoomItem(toPlace));
 
         return true;
     }
+
+
+    internal GameObject LookForPotObstruction(Vector3 atPosition)
+    {
+        int numHits = Physics2D.OverlapCircle(atPosition, GameData.Current.GamePrefs.Environment.PotObstructionRadius, ColliderFilter, ColliderHits);
+
+        for (int i = 0; i < numHits; i++)
+        {
+            Collider2D item = ColliderHits[i];
+            var asRoomItem = item.GetComponentInParent<RoomItem>();
+            if (asRoomItem != null && asRoomItem.CompareTag("Pot"))
+                return asRoomItem.gameObject;
+        }
+
+        return null;
+    }
+
 
 
     //private void OnTriggerEnter2D(Collider2D collision)
@@ -551,7 +576,7 @@ public class HandTool : MonoBehaviour
                 CurrentlyHolding = toPickup;
                 if (HandImageForSortOrder != null)
                 {
-                    AdjustLayerOrdersBy(CurrentlyHolding, 1+HandImageForSortOrder.sortingOrder);
+                    AdjustLayerOrdersBy(CurrentlyHolding, 1 + HandImageForSortOrder.sortingOrder);
                 }
 
                 HeldItemOriginalParent = originalParent != null ? originalParent.transform : CurrentlyHolding.transform.parent;

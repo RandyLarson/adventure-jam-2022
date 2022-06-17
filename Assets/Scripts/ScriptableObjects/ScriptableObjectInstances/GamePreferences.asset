@@ -29,6 +29,8 @@ MonoBehaviour:
     MinimumDistanceOfInteraction: 280
     TreatAsZero: 0.01
     PickableItemDetectionRadius: 1
+    PotObstructionRadius: 75
+    PotObstructionDisplacement: 290
     StoppingDistanceFromTarget: 150
     DropItemVerticalDisplacement: -70
     DropItemRangeFromSurfaceMax: 50

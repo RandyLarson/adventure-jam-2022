@@ -50,6 +50,8 @@ public class Environment
         "with. Generally used when a single world position is given (via click) and we want to locate " +
         "things arond there that we can pick up or interact with.")]
     public float PickableItemDetectionRadius = 1f;
+    public float PotObstructionRadius = 5f;
+    public float PotObstructionDisplacement = 100f;
     public float StoppingDistanceFromTarget = 70;
     public float DropItemVerticalDisplacement = -10;
     public float DropItemRangeFromSurfaceMax = 50;

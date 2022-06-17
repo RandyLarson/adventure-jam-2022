@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GamePointer
   - Surface
+  - Pot
   layers:
   - Default
   - TransparentFX
