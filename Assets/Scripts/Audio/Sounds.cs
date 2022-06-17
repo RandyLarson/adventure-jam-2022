@@ -42,5 +42,7 @@ public enum Sounds {
     OpenCan=34,
     GoalSuccess=35,
     Spiral=36,
+    IntroBackground=37,
+    OutroBackground=38,
     Nothing = 100
 }
