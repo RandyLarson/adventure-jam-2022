@@ -97,7 +97,7 @@ public class WipeController : MonoBehaviour
 
             transform.localScale = new Vector3(scale, scale, 1);
 
-            if (ReturnToStart && !HaveStartedReturn && (Time.time - StartTime) > Duration / 2)
+            if (ReturnToStart && !HaveStartedReturn && (Time.time - (StartTime+BeginAfter)) > Duration / 2)
             {
                 HaveStartedReturn = true;
                 EndScale = StartScale;

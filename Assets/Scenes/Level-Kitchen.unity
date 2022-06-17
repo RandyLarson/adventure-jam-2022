@@ -4887,6 +4887,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7385972685966306961, guid: ed4826dd8aa388c4eac0b157fba118e8, type: 3}
+      propertyPath: BeginAfter
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7385972685966306961, guid: ed4826dd8aa388c4eac0b157fba118e8, type: 3}
       propertyPath: ReturnToStart
       value: 1
       objectReference: {fileID: 0}
