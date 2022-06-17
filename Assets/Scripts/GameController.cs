@@ -65,8 +65,7 @@ public class GameController : MonoBehaviour
 
     public void ShowPauseMenu()
     {
-        RestartGame();
-        //PauseScreen.SafeSetActive(true);
+        PauseScreen.SafeSetActive(true);
     }
 
     public GameObject PlayingLevelObject;
