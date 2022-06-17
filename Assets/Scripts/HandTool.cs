@@ -239,12 +239,6 @@ public class HandTool : MonoBehaviour
             return false;
         }
 
-
-        if (CurrentlyHolding.TryGetComponent(out RoomItem asRoomitem))
-        {
-
-        }
-
         bool res = TryPlaceItem(CurrentlyHolding, PotentialPlacementSpot);
 
         if (res)
@@ -344,8 +338,24 @@ public class HandTool : MonoBehaviour
             AdjustLayerOrdersBy(toPlace, -(1+HandImageForSortOrder.sortingOrder));
         }
 
+        Vector3? surfaceAt = null;
+
+        if (TryGetComponent<MeepleController>(out var mc))
+        {
+            var res = mc.DetectGround(transform.position);
+            if (res.foundGround)
+            {
+                surfaceAt = res.atPos;
+            }
+        }
+
+        float newY = surfaceAt.HasValue ? 
+            surfaceAt.Value.y + Random.Range(0, GameData.Current.GamePrefs.Environment.DropItemRangeFromSurfaceMax) : 
+            toPlace.transform.position.y + GameData.Current.GamePrefs.Environment.DropItemVerticalDisplacement;
+
         toPlace.transform.SetParent(null);
         toPlace.transform.rotation = Quaternion.identity;
+        toPlace.transform.position = new Vector3(toPlace.transform.position.x, newY, toPlace.transform.position.z);
         OnReleaseItem?.Invoke(GetRoomItem(toPlace));
 
         return true;

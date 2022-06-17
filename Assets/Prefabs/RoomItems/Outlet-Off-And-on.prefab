@@ -427,9 +427,13 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1875771741, guid: 7400f60c85ce09f4093fe7ee49e11d07, type: 3}
+    - target: {fileID: 5577558466935958858, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7460242865069190598, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
       propertyPath: m_Name
-      value: Outlet-Off
+      value: Outlet-Off-And-on
       objectReference: {fileID: 0}
     - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
       propertyPath: CanBeHandledDirectly
@@ -524,7 +528,7 @@ PrefabInstance:
       objectReference: {fileID: 1302456170, guid: 7400f60c85ce09f4093fe7ee49e11d07, type: 3}
     - target: {fileID: 229270340366164609, guid: 6d45fcf7d1bf6304ebe72cabe1af3832, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3008937449723863554, guid: 6d45fcf7d1bf6304ebe72cabe1af3832, type: 3}
       propertyPath: m_RootOrder

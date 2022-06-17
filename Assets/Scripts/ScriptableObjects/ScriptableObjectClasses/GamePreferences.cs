@@ -51,4 +51,6 @@ public class Environment
         "things arond there that we can pick up or interact with.")]
     public float PickableItemDetectionRadius = 1f;
     public float StoppingDistanceFromTarget = 70;
+    public float DropItemVerticalDisplacement = -10;
+    public float DropItemRangeFromSurfaceMax = 50;
 }

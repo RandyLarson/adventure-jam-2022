@@ -30,3 +30,5 @@ MonoBehaviour:
     TreatAsZero: 0.01
     PickableItemDetectionRadius: 1
     StoppingDistanceFromTarget: 150
+    DropItemVerticalDisplacement: -70
+    DropItemRangeFromSurfaceMax: 50
