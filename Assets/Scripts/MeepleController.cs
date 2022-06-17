@@ -250,19 +250,27 @@ public class MeepleController : MonoBehaviour
         // Are we close enough to interact with the item
         // Find the collider, and if not then use the transform position.
         Vector3 measureTo = asRoomItem.transform.position;
+        float dxToItem = 0;
 
-        float dxToItem = Vector2.Distance(measureTo, ItemInteractionMeasurementLocation.transform.position);
-
-        var itsCollider = asRoomItem.gameObject.GetComponentsInChildren<Collider2D>(false);
-        for (int i=0; i<itsCollider.Length;i++)
+        if ( asRoomItem.PrimaryCollider != null )
         {
-            if (itsCollider[i].enabled)
+            Vector3 pt = asRoomItem.PrimaryCollider.ClosestPoint(ItemInteractionMeasurementLocation.transform.position);
+            dxToItem = Vector2.Distance(pt, ItemInteractionMeasurementLocation.transform.position);
+        }
+        else
+        {
+            dxToItem = Vector2.Distance(measureTo, ItemInteractionMeasurementLocation.transform.position);
+
+            var itsCollider = asRoomItem.gameObject.GetComponentsInChildren<Collider2D>(false);
+            for (int i=0; i<itsCollider.Length;i++)
             {
-                Vector3 pt = itsCollider[i].ClosestPoint(ItemInteractionMeasurementLocation.transform.position);
-                
-                float d = Vector2.Distance(pt, ItemInteractionMeasurementLocation.transform.position);
-                if ( d < dxToItem )
-                    dxToItem = d;
+                if (itsCollider[i].enabled)
+                {
+                    Vector3 pt = itsCollider[i].ClosestPoint(ItemInteractionMeasurementLocation.transform.position);
+                    float d = Vector2.Distance(pt, ItemInteractionMeasurementLocation.transform.position);
+                    if ( d < dxToItem )
+                        dxToItem = d;
+                }
             }
         }
 

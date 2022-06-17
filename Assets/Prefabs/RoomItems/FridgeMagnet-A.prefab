@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7395730966387639078, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+      propertyPath: OurCollider
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5204500391590021437, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -148,6 +152,10 @@ PrefabInstance:
       value: FridgeMagnet-A
       objectReference: {fileID: 0}
     - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
+      propertyPath: PrimaryCollider
+      value: 
+      objectReference: {fileID: 1433938251591406283}
+    - target: {fileID: 7460242865069190599, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
       propertyPath: ItemId.serializedGuid
       value: 153de1a5-e586-4176-9846-9636367b2cc0
       objectReference: {fileID: 0}
@@ -199,7 +207,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5204500391590021437, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e1070739cb2341041b4fe7bdcfd2c3d6, type: 3}
 --- !u!1 &360883820430808975 stripped
 GameObject:

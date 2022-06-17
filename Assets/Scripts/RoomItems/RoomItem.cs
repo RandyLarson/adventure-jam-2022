@@ -44,6 +44,7 @@ public class RoomItem : MonoBehaviour
     [Tooltip("Actions to be performed when this item is `de-activated`")]
     public ActivationActions DeActivationActions;
 
+    public Collider2D PrimaryCollider;
 
     private void Update()
     {

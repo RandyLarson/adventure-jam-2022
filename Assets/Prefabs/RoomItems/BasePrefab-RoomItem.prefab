@@ -235,6 +235,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     CallActivateOnRoomItem: 0
+    MakeIncomingItemAChildOfThis: {fileID: 0}
+    IncomingItemSortOrder: 0
   DeActivationActions:
     GameObjectiveAchieved: 
     ItemProducedWhenUsed: {fileID: 0}
@@ -247,6 +249,9 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
     CallActivateOnRoomItem: 0
+    MakeIncomingItemAChildOfThis: {fileID: 0}
+    IncomingItemSortOrder: 0
+  PrimaryCollider: {fileID: 5204500391590021437}
 --- !u!114 &726898488957990909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,3 +271,7 @@ MonoBehaviour:
   LoopAudio: 0
   LoopLength: 5
   stopOnDisable: 1
+  delay: 0
+  repeat: 0
+  randomizeRepeatMinInterval: 0
+  randomizeRepeatMaxInterval: 0
