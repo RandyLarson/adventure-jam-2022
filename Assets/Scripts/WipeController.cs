@@ -51,6 +51,7 @@ public class WipeController : MonoBehaviour
         AngleLerpTo = SpinRevolutions * 360;
         WipeObject.SafeSetActive(true);
         transform.localScale = new Vector3(StartScale, StartScale, 1);
+        AudioController.Current.PlayRandomSound(Sounds.Spiral);
     }
 
     float LerpFrom = 1;
@@ -102,6 +103,7 @@ public class WipeController : MonoBehaviour
 
                 StartTime = Time.time;
                 BeginAfter = PauseBeforeReturn;
+                AudioController.Current.PlayRandomSound(Sounds.Spiral);
                 OnBeginningOfReturn?.Invoke();
             }
 

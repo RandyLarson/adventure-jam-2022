@@ -129,11 +129,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebe148e1aa9b33c4eab0941d981ee538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingPoint: {fileID: 0}
   WipeObject: {fileID: 7385972685143440970}
   StartScale: 0.001
   EndScale: 3
   ReturnToStart: 1
+  OnBegin:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBeginningOfReturn:
+    m_PersistentCalls:
+      m_Calls: []
   OnComplete:
     m_PersistentCalls:
       m_Calls: []
@@ -145,3 +150,4 @@ MonoBehaviour:
   DestroyWhenDone: 0
   DisableWhenDone: 0
   IsActive: 0
+  DbgActivate: 0
