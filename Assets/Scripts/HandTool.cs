@@ -1,15 +1,12 @@
 using Assets.Scripts.Extensions;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class HandTool : MonoBehaviour
 {
     public string Name;
-    [Tooltip("The radius around a given point to look for items that may be picked up or interacted " +
-        "with. Generally used when a single world position is given (via click) and we want to locate " +
-        "things arond there that we can pick up or interact with.")]
-    public float PickableItemDetectionRadius = 10f;
 
     public SpriteRenderer HandVisual;
 
@@ -116,9 +113,11 @@ public class HandTool : MonoBehaviour
         return CurrentlyHolding != null;
     }
 
-    internal RoomItem LookForRoomItemAtLocation(Vector3 atPosition)
+    internal List<RoomItem> LookForRoomItemsAtLocation(Vector3 atPosition)
     {
-        int numHits = Physics2D.OverlapCircle(atPosition, PickableItemDetectionRadius, ColliderFilter, ColliderHits);
+        int numHits = Physics2D.OverlapCircle(atPosition, GameData.Current.GamePrefs.Environment.PickableItemDetectionRadius, ColliderFilter, ColliderHits);
+
+        List<RoomItem> hits = new List<RoomItem>();
 
         for (int i = 0; i < numHits; i++)
         {
@@ -126,10 +125,10 @@ public class HandTool : MonoBehaviour
             var asRoomItem = item.GetComponentInParent<RoomItem>();
             if (asRoomItem != null)
             {
-                return asRoomItem;
+                hits.Add(asRoomItem);
             }
         }
-        return null;
+        return hits;
     }
 
 
@@ -146,18 +145,18 @@ public class HandTool : MonoBehaviour
     }
 
 
-    internal GameObject LookForPickableItemAtLocation(Vector3 atPosition)
-    {
-        int numHits = Physics2D.OverlapCircle(atPosition, PickableItemDetectionRadius, ColliderFilter, ColliderHits);
+    //internal GameObject LookForPickableItemAtLocation(Vector3 atPosition)
+    //{
+    //    int numHits = Physics2D.OverlapCircle(atPosition, GameData.Current.GamePrefs.Environment.PickableItemDetectionRadius, ColliderFilter, ColliderHits);
 
-        for (int i = 0; i < numHits; i++)
-        {
-            Collider2D item = ColliderHits[i];
-            if (IsValidToPickup(item.gameObject))
-                return item.gameObject;
-        }
-        return null;
-    }
+    //    for (int i = 0; i < numHits; i++)
+    //    {
+    //        Collider2D item = ColliderHits[i];
+    //        if (IsValidToPickup(item.gameObject))
+    //            return item.gameObject;
+    //    }
+    //    return null;
+    //}
 
     private bool TryToUseHeldItem()
     {

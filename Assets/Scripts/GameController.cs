@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     public GameObject UiOptionsScreen;
     public GameObject PauseScreen;
     public GameObject UiAboutScreen;
+    public DiagnosticController Diagnostics;
 
     public GameDataHolder GameData;
 

@@ -74,7 +74,7 @@ public class RoomItemHighlighter : MonoBehaviour
             if (LastHighlightedItem != null)
             {
                 LastHighlightedItem.UseColorOverride = false;
-                if (!Controller.CanInteractWith(closestItem))
+                if (!Controller.IsWithinInteractionDistance(closestItem))
                 {
                     LastHighlightedItem.HighlightColorOverride = Color.red;
                     LastHighlightedItem.UseColorOverride = true;

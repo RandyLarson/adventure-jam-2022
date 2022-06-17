@@ -21,10 +21,10 @@ MonoBehaviour:
   ColorAndTheme:
     HighlightColor: {r: 0.17042479, g: 0.7490196, b: 0, a: 1}
   Environment:
-    Gravity: 700
+    Gravity: 800
     JumpLandingPointYOffset: 20
-    JumpSpeed: 1200
+    JumpSpeed: 2400
     MaxJumpDistance: 250
     JumpDurationSeconds: 0.2
-    MinimumDistanceOfInteraction: 260.69
+    MinimumDistanceOfInteraction: 280
     TreatAsZero: 0.01

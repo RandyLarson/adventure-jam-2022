@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -51,7 +52,15 @@ public class MeepleController : MonoBehaviour
         InputActionJump = InputActions.actions[GameConstants.Jump];
     }
 
-    Vector3? CurrentWalkingDestination = null;
+    Vector3? InnerCurrentWalkingDestination = null;
+
+    Vector3? CurrentWalkingDestination => InnerCurrentWalkingDestination;
+
+    void SetCurrentWalkingDestination(Vector3? to)
+    {
+        InnerCurrentWalkingDestination = to;
+        DiagnosticController.Current.AddContent("Destination", InnerCurrentWalkingDestination?.ToString() ?? "null");
+    }
 
     [Tooltip("We measure from this item's position to another item's position to figure out if we " +
         "are close enough to interact. This works for ")]
@@ -91,7 +100,7 @@ public class MeepleController : MonoBehaviour
     {
         if (value != null)
         {
-            CurrentWalkingDestination = null;
+            SetCurrentWalkingDestination(null);
 
             var moveVal = value.Get<Vector2>().normalized;
             InputVector = moveVal;
@@ -122,24 +131,34 @@ public class MeepleController : MonoBehaviour
         Vector3 wposition = Camera.main.ScreenToWorldPoint(pointerPos);
         wposition.z = 0;
 
+        DiagnosticController.Current.Clear();
+        DiagnosticController.Current.AddContent("Cursor", wposition.ToString());
+
         // Could be a destination to walk to
         // Could be somthing to interact with (we may need to walk there first).
         // If we are not holding something, we'll probably pick it up or push it.
         // If we are holding something, we'll try to use what we are holding on it.
 
         AudioController.Current.PlayRandomSound(Sounds.MeepleMoves);
-        CurrentWalkingDestination = new Vector3(wposition.x, wposition.y, 0);
-        RoomItem itemAtLocation = HandTool.LookForRoomItemAtLocation(wposition);
+        SetCurrentWalkingDestination(new Vector3(wposition.x, wposition.y, 0));
+        List<RoomItem> itemsAtLocation = HandTool.LookForRoomItemsAtLocation(wposition);
 
-        if (itemAtLocation != null)
-        {
-            ItemToInteractWithAtDestination = itemAtLocation;
-        }
-        else
-        {
-            ItemToInteractWithAtDestination = null;
-        }
+        DiagnosticController.Current.AddContent("Items at click", itemsAtLocation.Count);
+        DiagnosticController.Current.AddContent("Chosen item", "--");
 
+        ItemToInteractWithAtDestination = null;
+        for (int i = 0; i < itemsAtLocation.Count; i++)
+        {
+            RoomItem item = itemsAtLocation[i];
+
+            DiagnosticController.Current.AddContent($"Item-{i}", item.gameObject.name);
+
+            if (CanInteractWith(i, item, wposition, HandTool.CurrentlyHolding))
+            {
+                DiagnosticController.Current.AddContent("Chosen item", item.gameObject.name);
+                ItemToInteractWithAtDestination = item;
+            }
+        }
     }
 
     private void Flip()
@@ -174,7 +193,7 @@ public class MeepleController : MonoBehaviour
             if (ItemToInteractWithAtDestination != null)
             {
                 // If we are not yet moving, and the item that is clicked on is within reach, just do it.
-                if (CurrentSpeed == 0 && ItemToInteractWithAtDestination.AllowActivationWithoutMovingToClickedPoint && CanInteractWith(ItemToInteractWithAtDestination))
+                if (CurrentSpeed == 0 && ItemToInteractWithAtDestination.AllowActivationWithoutMovingToClickedPoint && IsWithinInteractionDistance(ItemToInteractWithAtDestination))
                 {
                     doItemInteraction = true;
                     haveArrived = true;
@@ -208,7 +227,7 @@ public class MeepleController : MonoBehaviour
             {
                 CurrentVector = Vector3.zero;
                 CurrentSpeed = 0;
-                CurrentWalkingDestination = null;
+                SetCurrentWalkingDestination(null);
             }
         }
 
@@ -223,22 +242,33 @@ public class MeepleController : MonoBehaviour
         OurAnimator.SetBool(GameConstants.IsJumping, IsJumping);
     }
 
-    public bool CanInteractWith(RoomItem asRoomItem)
+    public bool IsWithinInteractionDistance(RoomItem asRoomItem)
     {
         if (asRoomItem == null)
             return false;
 
         // Are we close enough to interact with the item
         // Find the collider, and if not then use the transform position.
-        Vector3 measureFrom = asRoomItem.transform.position;
+        Vector3 measureTo = asRoomItem.transform.position;
 
-        var itsCollider = asRoomItem.gameObject.GetComponentInChildren<Collider2D>();
-        if (itsCollider != null)
+        float dxToItem = Vector2.Distance(measureTo, ItemInteractionMeasurementLocation.transform.position);
+
+        var itsCollider = asRoomItem.gameObject.GetComponentsInChildren<Collider2D>(false);
+        for (int i=0; i<itsCollider.Length;i++)
         {
-            measureFrom = itsCollider.ClosestPoint(ItemInteractionMeasurementLocation.transform.position);
+            if (itsCollider[i].enabled)
+            {
+                Vector3 pt = itsCollider[i].ClosestPoint(ItemInteractionMeasurementLocation.transform.position);
+                
+                float d = Vector2.Distance(pt, ItemInteractionMeasurementLocation.transform.position);
+                if ( d < dxToItem )
+                    dxToItem = d;
+            }
         }
 
-        float dxToItem = Vector2.Distance(measureFrom, ItemInteractionMeasurementLocation.transform.position);
+        DiagnosticController.Current.AddContent("Dx to item", dxToItem);
+        DiagnosticController.Current.AddContent("Dx item", asRoomItem.name);
+        DiagnosticController.Current.AddContent("Min Dx", GameController.TheGameData.GamePrefs.Environment.MinimumDistanceOfInteraction);
 
         if (dxToItem > GameController.TheGameData.GamePrefs.Environment.MinimumDistanceOfInteraction)
         {
@@ -248,6 +278,50 @@ public class MeepleController : MonoBehaviour
         return true;
     }
 
+
+    private bool CanInteractWith(int diagId, RoomItem roomItem, Vector3? pointOfInteraction, GameObject heldItem)
+    {
+        bool generalAnswer = false;
+        bool canUseHeldItem = false;
+        bool answer = false;
+        bool isWithinDistance = false;
+
+        if (null != roomItem)
+        {
+            isWithinDistance = IsWithinInteractionDistance(roomItem);
+            if (isWithinDistance)
+            {
+
+            // Need to tie-break between picking up and getting atop something (like a stool).
+            // Also need to factor in if the thing we are holding can interact with the thing given.
+            //
+
+            // Precedence:
+            //  1. Held item interacts with item-to-interact-with
+            //  2. Climb-onto if the point of interaction is above the surface of the item-to-interact-with (and it can be climbed onto)
+            //  3. Pick up if able
+
+
+            generalAnswer = roomItem.CanClimbOnto || roomItem.CanBeHandledDirectly || roomItem.PickingUpActivatesAction;
+            canUseHeldItem = (heldItem == null) ? false : roomItem.TestForInteractionWith(heldItem, false);
+
+            answer = generalAnswer;
+
+            if (heldItem != null)
+                answer = canUseHeldItem;
+            }
+        }
+
+        DiagnosticController.Current.AddContent($"{diagId}- Interaction with", roomItem != null ? roomItem.name : "null");
+        DiagnosticController.Current.AddContent($"{diagId}- Can Interact (d)", isWithinDistance);
+        DiagnosticController.Current.AddContent($"{diagId}- Can Interact (g)", generalAnswer);
+        DiagnosticController.Current.AddContent($"{diagId}- Can Interact (h)", canUseHeldItem);
+        DiagnosticController.Current.AddContent($"{diagId}- Can Interact (a)", answer);
+
+        return answer;
+    }
+
+
     private void HandleItemInteraction(GameObject itemToInteractWith, Vector3? pointOfInteraction, GameObject heldItem)
     {
         if (null == itemToInteractWith)
@@ -255,7 +329,7 @@ public class MeepleController : MonoBehaviour
 
         RoomItem asRoomItem = itemToInteractWith.GetComponent<RoomItem>();
 
-        bool canInteractWith = CanInteractWith(asRoomItem);
+        bool canInteractWith = IsWithinInteractionDistance(asRoomItem);
         if (!canInteractWith)
         {
             AudioController.Current.PlayRandomSound(Sounds.ItemTooFarAway);

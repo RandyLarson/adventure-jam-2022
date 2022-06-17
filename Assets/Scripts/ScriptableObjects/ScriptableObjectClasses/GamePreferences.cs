@@ -45,4 +45,10 @@ public class Environment
 
     [Tooltip("Distances smaller than this are treated as zero.")]
     public float TreatAsZero = .01f;
+
+    [Tooltip("The radius around a given point to look for items that may be picked up or interacted " +
+        "with. Generally used when a single world position is given (via click) and we want to locate " +
+        "things arond there that we can pick up or interact with.")]
+    public float PickableItemDetectionRadius = 1f;
+
 }
