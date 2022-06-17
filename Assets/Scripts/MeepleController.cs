@@ -68,6 +68,10 @@ public class MeepleController : MonoBehaviour
 
     [ReadOnly]
     public RoomItem ItemToInteractWithAtDestination;
+
+    [ReadOnly]
+    public RoomItem ItemAtDestination;
+
     public Vector3 InputVector = Vector3.zero;
     public Vector3 CurrentVector = Vector3.zero;
 
@@ -144,21 +148,42 @@ public class MeepleController : MonoBehaviour
         List<RoomItem> itemsAtLocation = HandTool.LookForRoomItemsAtLocation(wposition);
 
         DiagnosticController.Current.AddContent("Items at click", itemsAtLocation.Count);
-        DiagnosticController.Current.AddContent("Chosen item", "--");
 
         ItemToInteractWithAtDestination = null;
+        int sortOrderTieBreaker = -10;
+
         for (int i = 0; i < itemsAtLocation.Count; i++)
         {
             RoomItem item = itemsAtLocation[i];
 
             DiagnosticController.Current.AddContent($"Item-{i}", item.gameObject.name);
 
-            if (CanInteractWith(i, item, wposition, HandTool.CurrentlyHolding))
+            var res = CanInteractWith(i, item, wposition, HandTool.CurrentlyHolding);
+
+            if (res.answer == true)
             {
-                DiagnosticController.Current.AddContent("Chosen item", item.gameObject.name);
-                ItemToInteractWithAtDestination = item;
+                int itemSortOrder = 0;
+
+                if (item.PrimaryCollider.TryGetComponent<SpriteRenderer>(out var sr))
+                {
+                    itemSortOrder = sr.sortingOrder;
+                }
+
+                if (itemSortOrder > sortOrderTieBreaker)
+                {
+                    sortOrderTieBreaker = sr.sortingOrder;
+                    DiagnosticController.Current.AddContent($"{i} Candidate item", $"{item.gameObject.name}, so: {itemSortOrder}");
+                    ItemToInteractWithAtDestination = item;
+                    ItemAtDestination = item;
+                }
+            }
+            else
+            {
+                ItemAtDestination = item;
             }
         }
+        DiagnosticController.Current.AddContent("Interaction item", ItemToInteractWithAtDestination == null ? "null":ItemToInteractWithAtDestination.name);
+
     }
 
     private void Flip()
@@ -202,8 +227,12 @@ public class MeepleController : MonoBehaviour
 
             if (!doItemInteraction)
             {
+                var dxToDst = Mathf.Abs(transform.position.x - CurrentWalkingDestination.Value.x);
+                DiagnosticController.Current.AddContent("DxToDst", dxToDst);
+                DiagnosticController.Current.AddContent("Stop Distance", GameData.Current.GamePrefs.Environment.StoppingDistanceFromTarget);
+
                 // Have we arrived?
-                if (Mathf.Abs(transform.position.x - CurrentWalkingDestination.Value.x) < StoppingDistanceFromTarget)
+                if (dxToDst < GameData.Current.GamePrefs.Environment.StoppingDistanceFromTarget)
                 {
                     haveArrived = true;
                     doItemInteraction = ItemToInteractWithAtDestination != null;
@@ -211,7 +240,7 @@ public class MeepleController : MonoBehaviour
                 else
                 {
                     CurrentVector = (CurrentWalkingDestination.Value - transform.position).normalized;
-                    if ( CurrentWalkingDestination.Value.y > transform.position.y )
+                    if (CurrentWalkingDestination.Value.y > transform.position.y)
                         CurrentVector.y = 0;
                     CurrentSpeed = WalkingSpeed;
                 }
@@ -230,6 +259,7 @@ public class MeepleController : MonoBehaviour
                 SetCurrentWalkingDestination(null);
             }
         }
+        DiagnosticController.Current.AddContent("Have arrived", haveArrived);
 
         if (!IsOnSurface || !CurrentSurface.IsElevated)
             CurrentVector.y = 0;
@@ -252,7 +282,7 @@ public class MeepleController : MonoBehaviour
         Vector3 measureTo = asRoomItem.transform.position;
         float dxToItem = 0;
 
-        if ( asRoomItem.PrimaryCollider != null )
+        if (asRoomItem.PrimaryCollider != null)
         {
             Vector3 pt = asRoomItem.PrimaryCollider.ClosestPoint(ItemInteractionMeasurementLocation.transform.position);
             dxToItem = Vector2.Distance(pt, ItemInteractionMeasurementLocation.transform.position);
@@ -262,13 +292,13 @@ public class MeepleController : MonoBehaviour
             dxToItem = Vector2.Distance(measureTo, ItemInteractionMeasurementLocation.transform.position);
 
             var itsCollider = asRoomItem.gameObject.GetComponentsInChildren<Collider2D>(false);
-            for (int i=0; i<itsCollider.Length;i++)
+            for (int i = 0; i < itsCollider.Length; i++)
             {
                 if (itsCollider[i].enabled)
                 {
                     Vector3 pt = itsCollider[i].ClosestPoint(ItemInteractionMeasurementLocation.transform.position);
                     float d = Vector2.Distance(pt, ItemInteractionMeasurementLocation.transform.position);
-                    if ( d < dxToItem )
+                    if (d < dxToItem)
                         dxToItem = d;
                 }
             }
@@ -286,20 +316,21 @@ public class MeepleController : MonoBehaviour
         return true;
     }
 
-
-    private bool CanInteractWith(int diagId, RoomItem roomItem, Vector3? pointOfInteraction, GameObject heldItem)
+    struct Interaction
     {
-        bool generalAnswer = false;
-        bool canUseHeldItem = false;
-        bool answer = false;
-        bool isWithinDistance = false;
+        public bool generalAnswer;
+        public bool canUseHeldItem;
+        public bool answer;
+        public bool isWithinDistance;
+    }
+
+    private Interaction CanInteractWith(int diagId, RoomItem roomItem, Vector3? pointOfInteraction, GameObject heldItem)
+    {
+        Interaction res = new Interaction();
 
         if (null != roomItem)
         {
-            isWithinDistance = IsWithinInteractionDistance(roomItem);
-            if (isWithinDistance)
-            {
-
+            res.isWithinDistance = IsWithinInteractionDistance(roomItem);
             // Need to tie-break between picking up and getting atop something (like a stool).
             // Also need to factor in if the thing we are holding can interact with the thing given.
             //
@@ -310,23 +341,22 @@ public class MeepleController : MonoBehaviour
             //  3. Pick up if able
 
 
-            generalAnswer = roomItem.CanClimbOnto || roomItem.CanBeHandledDirectly || roomItem.PickingUpActivatesAction;
-            canUseHeldItem = (heldItem == null) ? false : roomItem.TestForInteractionWith(heldItem, false);
+            res.generalAnswer = roomItem.CanClimbOnto || roomItem.CanBeHandledDirectly || roomItem.PickingUpActivatesAction;
+            res.canUseHeldItem = (heldItem == null) ? false : roomItem.TestForInteractionWith(heldItem, false);
 
-            answer = generalAnswer;
+            res.answer = res.generalAnswer;
 
             if (heldItem != null)
-                answer = canUseHeldItem;
-            }
+                res.answer = res.canUseHeldItem;
         }
 
         DiagnosticController.Current.AddContent($"{diagId}- Interaction with", roomItem != null ? roomItem.name : "null");
-        DiagnosticController.Current.AddContent($"{diagId}- Can Interact (d)", isWithinDistance);
-        DiagnosticController.Current.AddContent($"{diagId}- Can Interact (g)", generalAnswer);
-        DiagnosticController.Current.AddContent($"{diagId}- Can Interact (h)", canUseHeldItem);
-        DiagnosticController.Current.AddContent($"{diagId}- Can Interact (a)", answer);
+        DiagnosticController.Current.AddContent($"{diagId}- Can Interact      (dx)", res.isWithinDistance);
+        DiagnosticController.Current.AddContent($"{diagId}- Can Interact (general)", res.generalAnswer);
+        DiagnosticController.Current.AddContent($"{diagId}- Can Interact (useheld)", res.canUseHeldItem);
+        DiagnosticController.Current.AddContent($"{diagId}- Can Interact (overall)", res.answer);
 
-        return answer;
+        return res;
     }
 
 
@@ -373,7 +403,7 @@ public class MeepleController : MonoBehaviour
                 Surface itsSurface = asRoomItem.GetComponentInChildren<Surface>();
                 if (itsSurface != null && itsSurface.SurfaceCollider != null)
                 {
-                    if (pointOfInteraction.HasValue && 
+                    if (pointOfInteraction.HasValue &&
                         pointOfInteraction.Value.y > itsSurface.SurfaceCollider.bounds.max.y &&
                         Vector3.Distance(transform.position, itsSurface.SurfaceCollider.bounds.ClosestPoint(transform.position)) < GamePrefs.Current.Environment.MaxJumpDistance)
                     {
@@ -542,7 +572,7 @@ public class MeepleController : MonoBehaviour
             Gizmos.color = Color.blue;
             Gizmos.DrawWireSphere(CurrentWalkingDestination.Value, 20);
 
-            var bufferPos = Vector2.MoveTowards(CurrentWalkingDestination.Value, transform.position, StoppingDistanceFromTarget);
+            var bufferPos = Vector2.MoveTowards(CurrentWalkingDestination.Value, transform.position, GameData.Current.GamePrefs.Environment.StoppingDistanceFromTarget);
             Gizmos.color = Color.cyan;
             Gizmos.DrawWireSphere(bufferPos, 20);
         }

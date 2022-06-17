@@ -50,5 +50,5 @@ public class Environment
         "with. Generally used when a single world position is given (via click) and we want to locate " +
         "things arond there that we can pick up or interact with.")]
     public float PickableItemDetectionRadius = 1f;
-
+    public float StoppingDistanceFromTarget = 70;
 }

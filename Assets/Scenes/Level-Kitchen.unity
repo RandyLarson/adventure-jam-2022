@@ -2340,6 +2340,7 @@ MonoBehaviour:
     CallActivateOnRoomItem: 0
     MakeIncomingItemAChildOfThis: {fileID: 0}
     IncomingItemSortOrder: 0
+  PrimaryCollider: {fileID: 219769365}
 --- !u!4 &219769364 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3313997427689830462, guid: d6290ed54215d6045ba8927f24211ae1, type: 3}
@@ -15742,6 +15743,7 @@ MonoBehaviour:
     CallActivateOnRoomItem: 0
     MakeIncomingItemAChildOfThis: {fileID: 0}
     IncomingItemSortOrder: 0
+  PrimaryCollider: {fileID: 0}
 --- !u!60 &1263714067
 PolygonCollider2D:
   m_ObjectHideFlags: 0
