@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5268888023270405519}
   m_Layer: 0
-  m_Name: Cookbook
+  m_Name: Cookbook-Stew
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
