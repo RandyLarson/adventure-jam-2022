@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     public GameObject UiTitleScreen;
     public GameObject UiOptionsScreen;
     public GameObject PauseScreen;
+    public GameObject SettingsScreen;
     public GameObject UiAboutScreen;
     public DiagnosticController Diagnostics;
 
@@ -67,6 +68,11 @@ public class GameController : MonoBehaviour
     public void ShowPauseMenu()
     {
         PauseScreen.SafeSetActive(true);
+    }
+
+    public void ShowSettingsMenu()
+    {
+        SettingsScreen.SafeSetActive(true);
     }
 
     public GameObject PlayingLevelObject;
