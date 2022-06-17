@@ -83,9 +83,48 @@ PrefabInstance:
       propertyPath: PauseBeforeReturn
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7385972685966306961, guid: ed4826dd8aa388c4eac0b157fba118e8, type: 3}
+      propertyPath: OnBegin.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7385972685966306961, guid: ed4826dd8aa388c4eac0b157fba118e8, type: 3}
+      propertyPath: OnBegin.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7385972685966306961, guid: ed4826dd8aa388c4eac0b157fba118e8, type: 3}
+      propertyPath: OnBegin.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7474577829340307241}
+    - target: {fileID: 7385972685966306961, guid: ed4826dd8aa388c4eac0b157fba118e8, type: 3}
+      propertyPath: OnBegin.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7385972685966306961, guid: ed4826dd8aa388c4eac0b157fba118e8, type: 3}
+      propertyPath: OnBegin.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlaySpiralSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 7385972685966306961, guid: ed4826dd8aa388c4eac0b157fba118e8, type: 3}
+      propertyPath: OnBegin.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: WipeController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7385972685966306961, guid: ed4826dd8aa388c4eac0b157fba118e8, type: 3}
+      propertyPath: OnBegin.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7385972685966306963, guid: ed4826dd8aa388c4eac0b157fba118e8, type: 3}
       propertyPath: m_Name
       value: CatWarpWipe
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed4826dd8aa388c4eac0b157fba118e8, type: 3}
+--- !u!114 &7474577829340307241 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7385972685966306961, guid: ed4826dd8aa388c4eac0b157fba118e8, type: 3}
+  m_PrefabInstance: {fileID: 88726093411168696}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebe148e1aa9b33c4eab0941d981ee538, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -216,4 +216,12 @@ public class AudioController : MonoBehaviour
         }
     }
 
+    public void StopAllSounds()
+    {
+        var audio = FindObjectsOfType<AudioSource>();
+        foreach(var audioS in audio) {
+            audioS.Stop();
+        }
+    }
+
 }

@@ -16,7 +16,7 @@ MonoBehaviour:
   - Level-Kitchen
   GameSettings:
     MuteAll: 0
-    MusicVolume: 0.4958167
+    MusicVolume: 0.25
     EffectVolume: 0.6661368
   ColorAndTheme:
     HighlightColor: {r: 0.17042479, g: 0.7490196, b: 0, a: 1}
